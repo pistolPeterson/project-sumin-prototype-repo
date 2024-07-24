@@ -6,115 +6,56 @@ using System.Threading.Tasks;
 using Unity.Services;
 using Unity.Services.CloudSave;
 using UnityEngine;
-/*
-public class CloudSaveClient : ISaveClient
+using System;
+using System.Collections;
+using Unity.Services.Authentication;
+using Unity.Services.Core;
+
+public class CloudSaveClient : MonoBehaviour //convert to singleton?
 {
-    private readonly ICloudSaveDataClient _client = CloudSaveService.Instance.Data;
 
-    public async Task Save(string key, object value)
+
+    //TODO: add a global stopper of doing the api calls
+    //duplicated code 
+    private async void Awake()
     {
-        var data = new Dictionary<string, object> { { key, value } };
-        await Call(_client.ForceSaveAsync(data));
+        await UnityServices.InitializeAsync();
+        await AuthenticationService.Instance.SignInAnonymouslyAsync();
     }
 
-    public async Task Save(params (string key, object value)[] values)
+    private async void Start()
     {
-        var data = values.ToDictionary(item => item.key, item => item.value);
-        await Call(_client.ForceSaveAsync(data));
+       await PeteCloudSave("peteKey", "rae is a bum");
+       await LoadData("peteKey");
+    }
+    private async Task SaveData(Dictionary<string, object> newPlayerData)
+    {
+       
+        await CloudSaveService.Instance.Data.Player.SaveAsync(newPlayerData);
+        Debug.Log($"Saved data {string.Join(',', newPlayerData)}");
     }
 
-    public async Task<T> Load<T>(string key)
+    public async Task PeteCloudSave(string key, object value)
     {
-        var query = await Call(_client.LoadAsync(new HashSet<string> { key }));
-        return query.TryGetValue(key, out var value) ? Deserialize<T>(value) : default;
+        //force only simple types? 
+        var playerData = new Dictionary<string, object>{
+            {key, value}
+        };
+        await SaveData(playerData);
     }
 
-    public async Task<IEnumerable<T>> Load<T>(params string[] keys)
+    private async Task LoadData(string key)
     {
-        var query = await Call(_client.LoadAsync(keys.ToHashSet()));
-
-        return keys.Select(k =>
-        {
-            if (query.TryGetValue(k, out var value))
-            {
-                return value != null ? Deserialize<T>(value) : default;
-            }
-            return default;
+        var playerData = await CloudSaveService.Instance.Data.Player.LoadAsync(new HashSet<string> {
+          key
         });
-    }
 
-    public async Task Delete(string key)
-    {
-        await Call(_client.ForceDeleteAsync(key));
-    }
-
-    public async Task DeleteAll()
-    {
-        var keys = await Call(_client.RetrieveAllKeysAsync());
-        var tasks = keys.Select(k => _client.ForceDeleteAsync(k)).ToList();
-        await Call(Task.WhenAll(tasks));
-    }
-
-    private static T Deserialize<T>(string input)
-    {
-        if (typeof(T) == typeof(string)) return (T)(object)input;
-        return JsonConvert.DeserializeObject<T>(input);
-    }
-
-    private static async Task Call(Task action)
-    {
-        try
-        {
-            await action;
-        }
-        catch (CloudSaveValidationException e)
-        {
-            Debug.LogError(e);
-        }
-        catch (CloudSaveRateLimitedException e)
-        {
-            Debug.LogError(e);
-        }
-        catch (CloudSaveException e)
-        {
-            Debug.LogError(e);
-        }
-    }
-
-    private static async Task<T> Call<T>(Task<T> action)
-    {
-        try
-        {
-            return await action;
-        }
-        catch (CloudSaveValidationException e)
-        {
-            Debug.LogError(e);
-        }
-        catch (CloudSaveRateLimitedException e)
-        {
-            Debug.LogError(e);
-        }
-        catch (CloudSaveException e)
-        {
-            Debug.LogError(e);
+        if (playerData.TryGetValue(key, out var firstKey)) {
+            Debug.Log($"firstKeyName value: {firstKey.Value.GetAs<string>()}");
         }
 
-        return default;
+        
     }
+
+
 }
-
-public interface ISaveClient
-{
-    Task Save(string key, object value);
-
-    Task Save(params (string key, object value)[] values);
-
-    Task<T> Load<T>(string key);
-
-    Task<IEnumerable<T>> Load<T>(params string[] keys);
-
-    Task Delete(string key);
-
-    Task DeleteAll();
-}*/

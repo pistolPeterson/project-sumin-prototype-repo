@@ -133,8 +133,9 @@ GameObject:
   m_Component:
   - component: {fileID: 356855324}
   - component: {fileID: 356855325}
+  - component: {fileID: 356855326}
   m_Layer: 0
-  m_Name: UnityAuthentication
+  m_Name: UnityCloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,6 +166,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee2cb6d2573231c45938003d362474ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &356855326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356855323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99d7ca2b8f8d92b44955d8d87293c41a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &519420028
