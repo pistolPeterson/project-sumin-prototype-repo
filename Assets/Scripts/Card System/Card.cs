@@ -14,9 +14,21 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     [Header("Movement")]
     [SerializeField] [Range(25f, 75f)]private float moveSpeedLimit = 50f;
 
+    [Header("Selection Data")] 
+    [SerializeField] [Range(10f, 250f)] private float selectedOffset = 125f;
+    [field: SerializeField] public bool IsSelected { get; set; }
+   
     [Header("Card Events")] 
     [HideInInspector] public UnityEvent<Card> OnCardBeginDrag;
     [HideInInspector] public UnityEvent<Card> OnCardEndDrag;
+    [HideInInspector] public UnityEvent<Card, bool> OnCardSelected;
+
+
+    private void Start()
+    {
+        IsSelected = false;
+    }
+
     private void Update()
     {
         if (isDragging)
@@ -61,7 +73,14 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        IsSelected = !IsSelected;
+        OnCardSelected?.Invoke(this, IsSelected);
+
+        if (IsSelected)
+            transform.localPosition += transform.up * selectedOffset;
+        else
+            transform.localPosition = Vector3.zero;
+
     }
 
     public void OnPointerDown(PointerEventData eventData)

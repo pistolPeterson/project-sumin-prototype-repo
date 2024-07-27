@@ -8,7 +8,7 @@ public class HorizontalCardHolder : MonoBehaviour
 {
    public List<Card> cardsInHand;
 
-   [Header("debug card status")] 
+   [Header("Debug Card Status")] 
    [SerializeField] private Card selectedCard;
 
    private void Awake()
@@ -22,7 +22,13 @@ public class HorizontalCardHolder : MonoBehaviour
       {
          card.OnCardBeginDrag.AddListener(OnBeginDrag);
          card.OnCardEndDrag.AddListener(OnEndDrag);
+         card.OnCardSelected.AddListener(_OnCardSelected);
       }
+   }
+
+   private void _OnCardSelected(Card card, bool isCardSelected)
+   {
+      
    }
 
    public void OnBeginDrag(Card card)
@@ -32,6 +38,10 @@ public class HorizontalCardHolder : MonoBehaviour
    
    public void OnEndDrag(Card card)
    {
+      //test code
+      selectedCard.transform.localPosition = new Vector3(0, 0, 0);
+      
       selectedCard = null;
+     
    }
 }
