@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, 
@@ -13,6 +14,9 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     [Header("Movement")]
     [SerializeField] [Range(25f, 75f)]private float moveSpeedLimit = 50f;
 
+    [Header("Card Events")] 
+    [HideInInspector] public UnityEvent<Card> OnCardBeginDrag;
+    [HideInInspector] public UnityEvent<Card> OnCardEndDrag;
     private void Update()
     {
         if (isDragging)
@@ -21,7 +25,6 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
             Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
 
             Vector2 velocity = direction * Mathf.Min(moveSpeedLimit, Vector2.Distance(transform.position, targetPosition) / Time.deltaTime);
-            Debug.Log(velocity);
             transform.Translate(velocity * Time.deltaTime);
         }
     }
@@ -37,11 +40,13 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         offset = mousePosition - (Vector2)transform.position;
         isDragging = true;
+        OnCardBeginDrag?.Invoke(this);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         isDragging = false;
+        OnCardEndDrag?.Invoke(this);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
