@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void MovePlayer(Vector2 inputDirection)
     {
+        ClampPosition(); 
         moveInput = inputDirection;
         if (moveInput == Vector2.up)
         {
@@ -34,6 +35,11 @@ public class PlayerMovement : MonoBehaviour
         {
             MovePlayerDown(moveDistance);
         }
+    }
+
+    private void ClampPosition()
+    {
+       // transform.y = Mathf.clamp(-positionConstraint, positionConstraint);
     }
 
     // In case we wanna use this for a debuff later:
@@ -50,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    
     public void MovePlayerDown(float distanceToMove)
     {
         if (transform.position.y - moveDistance < lowerPositionConstraint)
