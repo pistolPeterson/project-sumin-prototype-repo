@@ -95,11 +95,14 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
-  timeBetweenMoves: 0.15
+  timeBetweenMoves: 0.1
   OnShieldUse:
     m_PersistentCalls:
       m_Calls: []
   OnMovement:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMoving:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &8522120854348172294
@@ -115,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputManager: {fileID: 3406195817275387699}
-  moveDistance: 3.5
+  moveDistance: 3
   upperPositionConstraint: 8
   lowerPositionConstraint: -8
 --- !u!1 &6229857468133473494

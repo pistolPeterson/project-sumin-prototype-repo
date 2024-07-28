@@ -46,7 +46,9 @@ public class InputManager : MonoBehaviour
     public void Move(InputAction.CallbackContext context) {
         if (alreadyHeld) return;
         currMoveDir = movement.ReadValue<Vector2>();
-        StartCoroutine(Moving());
+        //StartCoroutine(Moving());
+        OnMovement.Invoke(currMoveDir);
+        OnMoving.Invoke();
     }
     public void HoldingMove(InputAction.CallbackContext context) {
         moveHeld = true;
@@ -62,9 +64,9 @@ public class InputManager : MonoBehaviour
     private IEnumerator Moving() {
         while (moveHeld) {
             alreadyHeld = true;
-            yield return new WaitForSeconds(timeBetweenMoves);
             OnMovement.Invoke(currMoveDir);
             OnMoving.Invoke();
+            yield return new WaitForSeconds(timeBetweenMoves);
         }
         alreadyHeld = false;
     }
