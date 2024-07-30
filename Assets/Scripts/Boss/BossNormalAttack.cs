@@ -8,18 +8,34 @@ public class BossNormalAttack : MonoBehaviour
     private GameObject target;
     private Vector3 projectileSpawnLoc;
     [SerializeField] private float playFieldPosConstraint = 8f;
-
+    private int currPos;
     private void Awake() {
         target = FindObjectOfType<PlayerMovement>().gameObject;
+    }
+    private void Start() {
         projectileSpawnLoc = transform.position;
+        currPos = (int)playFieldPosConstraint;
+    }
+    public void SpawnInLineProjectile() {
+        InLinePatternAttack();
+        Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
+    }
+    public void SpawnRandomProjectile() {
+        RandomSpawnLoc();
+        Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
+    }
+    public void SetSpawnLoc(float yPos) {
+        projectileSpawnLoc = new Vector3(transform.position.x, yPos, transform.position.z);
     }
     public void RandomSpawnLoc() {
         float randomClampedPosY = Random.Range(-playFieldPosConstraint, playFieldPosConstraint);
-        //float clampedPositionY = Mathf.Clamp(valueToCheck, -playFieldPosConstraint, playFieldPosConstraint);
-        projectileSpawnLoc = new Vector3(transform.position.x, randomClampedPosY, transform.position.z);
+        SetSpawnLoc(randomClampedPosY);
     }
-    public void SpawnProjectile() {
-        RandomSpawnLoc();
-        Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
+    public void InLinePatternAttack() {
+        SetSpawnLoc(currPos);
+        currPos--;
+        if (currPos < -playFieldPosConstraint) {
+            currPos = (int)playFieldPosConstraint;
+        }
     }
 }
