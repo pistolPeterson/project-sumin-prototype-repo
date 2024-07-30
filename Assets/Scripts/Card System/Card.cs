@@ -9,8 +9,8 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
 {
     private Vector3 offset;
-
-    private bool isDragging = false;
+    private Canvas canvas;
+    public bool IsDragging { get; private set; }
     [Header("Movement")]
     [SerializeField] [Range(25f, 75f)]private float moveSpeedLimit = 50f;
 
@@ -23,15 +23,27 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     [HideInInspector] public UnityEvent<Card> OnCardEndDrag;
     [HideInInspector] public UnityEvent<Card, bool> OnCardSelected;
 
+    private CardVisual cardVisual;
+    [SerializeField] private GameObject cardVisualPrefab;
+    private VisualCardHandler visualHandler;
+    private void Awake()
+    {
+        canvas = GetComponentInParent<Canvas>();
+        visualHandler = FindObjectOfType<VisualCardHandler>();
+
+    }
 
     private void Start()
     {
+        cardVisual = Instantiate(cardVisualPrefab, visualHandler ? visualHandler.transform : canvas.transform).GetComponent<CardVisual>();
+        cardVisual.Initialize(this);
         IsSelected = false;
     }
 
     private void Update()
     {
-        if (isDragging)
+        ClampPosition();
+        if (IsDragging)
         {
             Vector2 targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition)- offset;
             Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
@@ -39,6 +51,15 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
             Vector2 velocity = direction * Mathf.Min(moveSpeedLimit, Vector2.Distance(transform.position, targetPosition) / Time.deltaTime);
             transform.Translate(velocity * Time.deltaTime);
         }
+    }
+
+    private void ClampPosition()
+    {
+        Vector2 screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        Vector3 clampedPosition = transform.position;
+        clampedPosition.x = Mathf.Clamp(clampedPosition.x, -screenBounds.x, screenBounds.x);
+        clampedPosition.y = Mathf.Clamp(clampedPosition.y, -screenBounds.y, screenBounds.y);
+        transform.position = new Vector3(clampedPosition.x, clampedPosition.y, 0);
     }
 
 
@@ -51,13 +72,13 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         offset = mousePosition - (Vector2)transform.position;
-        isDragging = true;
+        IsDragging = true;
         OnCardBeginDrag?.Invoke(this);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        isDragging = false;
+        IsDragging = false;
         OnCardEndDrag?.Invoke(this);
     }
 
