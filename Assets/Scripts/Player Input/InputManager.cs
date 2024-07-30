@@ -13,7 +13,6 @@ public class InputManager : MonoBehaviour
 
     [HideInInspector] public UnityEvent OnShieldUse;
     [HideInInspector] public UnityEvent<Vector2> OnMovement;
-    [HideInInspector] public UnityEvent OnMoving; // Use this for audio stuf
     private void Awake() {
         playerControls = new PlayerControls();
     }
@@ -38,10 +37,8 @@ public class InputManager : MonoBehaviour
     public void Move(InputAction.CallbackContext context) {
         currMoveDir = movement.ReadValue<Vector2>();
         OnMovement.Invoke(currMoveDir);
-        OnMoving.Invoke();
     }
     public void UseShield(InputAction.CallbackContext context) {
-        Debug.Log("Used Shield");
         OnShieldUse.Invoke();
     }    
 }

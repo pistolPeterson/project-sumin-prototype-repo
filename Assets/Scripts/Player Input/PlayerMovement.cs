@@ -5,24 +5,26 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     /**
-     * :)
+     * :) 
      * UP -> W / Up Arrow
      * DOWN -> S / Down Arrow
      * Click to move
      */
-    [SerializeField] private InputManager inputManager;
+     private InputManager inputManager;
 
-    [SerializeField] private float moveDistance = 1f;
+    [SerializeField] [Range(1f, 5f)] private float moveDistance = 3f;
     [SerializeField] private float positionConstraint = 8f;
 
     private Vector2 moveInput;
 
     private void Start()
     {
+        inputManager = GetComponent<InputManager>();
         inputManager.OnMovement.AddListener(MovePlayer);
     }
 
-    public void MovePlayer(Vector2 inputDirection)
+    //TODO: Add VERY SMALL lerp to not make it look jerky 
+    private void MovePlayer(Vector2 inputDirection)
     {
         moveInput = inputDirection;
         if (moveInput == Vector2.up)
@@ -35,18 +37,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void ClampPosition(float valueToCheck)
+    private void ClampPosition(float currentPosition)
     {
-        float clampedPositionY = Mathf.Clamp(valueToCheck, -positionConstraint, positionConstraint);
+        float clampedPositionY = Mathf.Clamp(currentPosition, -positionConstraint, positionConstraint);
         transform.position = new Vector3(transform.position.x, clampedPositionY, transform.position.z);
     }
 
     // In case we wanna use this for a debuff later:
-    public void MovePlayerUp(float distanceToMove)
+    private void MovePlayerUp(float distanceToMove)
     {
         ClampPosition(transform.position.y + distanceToMove);
     }    
-    public void MovePlayerDown(float distanceToMove)
+    private void MovePlayerDown(float distanceToMove)
     {
         ClampPosition(transform.position.y - distanceToMove);
     }
