@@ -9,10 +9,6 @@ public class InputManager : MonoBehaviour
     public InputAction movement;
     public InputAction shield;
     [Header("Player Inputs")] public PlayerControls playerControls;
-
-    [SerializeField] private float timeBetweenMoves = 0.1f;
-    private bool moveHeld = false;
-    private bool alreadyHeld = false;
     private Vector2 currMoveDir;
 
     [HideInInspector] public UnityEvent OnShieldUse;
@@ -23,8 +19,6 @@ public class InputManager : MonoBehaviour
     }
     private void Update() {
         shield.performed += UseShield;
-        movement.canceled += ReleasingMove;
-        movement.started += HoldingMove;
         movement.performed += Move;
     }
     private void OnEnable() {
@@ -35,8 +29,6 @@ public class InputManager : MonoBehaviour
     }
     private void OnDisable() {
         shield.performed -= UseShield;
-        movement.canceled -= ReleasingMove;
-        movement.started -= HoldingMove;
         movement.performed -= Move;
     }
     public void DisableControls() {
@@ -44,30 +36,12 @@ public class InputManager : MonoBehaviour
         shield.Disable();
     }
     public void Move(InputAction.CallbackContext context) {
-        if (alreadyHeld) return;
         currMoveDir = movement.ReadValue<Vector2>();
-        //StartCoroutine(Moving());
         OnMovement.Invoke(currMoveDir);
         OnMoving.Invoke();
-    }
-    public void HoldingMove(InputAction.CallbackContext context) {
-        moveHeld = true;
-    }
-    public void ReleasingMove(InputAction.CallbackContext context) {
-        moveHeld = false;
     }
     public void UseShield(InputAction.CallbackContext context) {
         Debug.Log("Used Shield");
         OnShieldUse.Invoke();
-    }
-    // to allow click and hold movement
-    private IEnumerator Moving() {
-        while (moveHeld) {
-            alreadyHeld = true;
-            OnMovement.Invoke(currMoveDir);
-            OnMoving.Invoke();
-            yield return new WaitForSeconds(timeBetweenMoves);
-        }
-        alreadyHeld = false;
-    }
+    }    
 }

@@ -8,13 +8,12 @@ public class PlayerMovement : MonoBehaviour
      * :)
      * UP -> W / Up Arrow
      * DOWN -> S / Down Arrow
-     * Click or Hold
+     * Click to move
      */
     [SerializeField] private InputManager inputManager;
 
     [SerializeField] private float moveDistance = 1f;
-    [SerializeField] private float upperPositionConstraint = 8f;
-    [SerializeField] private float lowerPositionConstraint = -8f;
+    [SerializeField] private float positionConstraint = 8f;
 
     private Vector2 moveInput;
 
@@ -25,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void MovePlayer(Vector2 inputDirection)
     {
-        ClampPosition(); 
         moveInput = inputDirection;
         if (moveInput == Vector2.up)
         {
@@ -37,36 +35,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void ClampPosition()
+    private void ClampPosition(float valueToCheck)
     {
-       // transform.y = Mathf.clamp(-positionConstraint, positionConstraint);
+        float clampedPositionY = Mathf.Clamp(valueToCheck, -positionConstraint, positionConstraint);
+        transform.position = new Vector3(transform.position.x, clampedPositionY, transform.position.z);
     }
 
     // In case we wanna use this for a debuff later:
     public void MovePlayerUp(float distanceToMove)
     {
-        if (transform.position.y + moveDistance > upperPositionConstraint)
-        {
-            transform.position = new Vector3(transform.position.x, upperPositionConstraint, transform.position.z);
-        }
-        else
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y + distanceToMove,
-                transform.position.z);
-        }
-    }
-
-    
+        ClampPosition(transform.position.y + distanceToMove);
+    }    
     public void MovePlayerDown(float distanceToMove)
     {
-        if (transform.position.y - moveDistance < lowerPositionConstraint)
-        {
-            transform.position = new Vector3(transform.position.x, lowerPositionConstraint, transform.position.z);
-        }
-        else
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y - distanceToMove,
-                transform.position.z);
-        }
+        ClampPosition(transform.position.y - distanceToMove);
     }
 }
