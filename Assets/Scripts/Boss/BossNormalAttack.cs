@@ -6,11 +6,20 @@ public class BossNormalAttack : MonoBehaviour
 {
     [SerializeField] private GameObject projectilePrefab;
     private GameObject target;
+    private Vector3 projectileSpawnLoc;
+    [SerializeField] private float playFieldPosConstraint = 8f;
 
     private void Awake() {
         target = FindObjectOfType<PlayerMovement>().gameObject;
+        projectileSpawnLoc = transform.position;
+    }
+    public void RandomSpawnLoc() {
+        float randomClampedPosY = Random.Range(-playFieldPosConstraint, playFieldPosConstraint);
+        //float clampedPositionY = Mathf.Clamp(valueToCheck, -playFieldPosConstraint, playFieldPosConstraint);
+        projectileSpawnLoc = new Vector3(transform.position.x, randomClampedPosY, transform.position.z);
     }
     public void SpawnProjectile() {
-        Instantiate(projectilePrefab, this.transform.position, Quaternion.identity);
+        RandomSpawnLoc();
+        Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
     }
 }
