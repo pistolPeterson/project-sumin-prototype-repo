@@ -12,10 +12,10 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     private Canvas canvas;
     public bool IsDragging { get; private set; }
     [Header("Movement")]
-    [SerializeField] [Range(25f, 75f)]private float moveSpeedLimit = 50f;
+    [SerializeField] [Range(30f, 70f)]private float moveSpeedLimit = 50f;
 
     [Header("Selection Data")] 
-    [SerializeField] [Range(10f, 250f)] private float selectedOffset = 125f;
+    [SerializeField] [Range(10f, 40f)] private float selectedOffset = 25f;
     [field: SerializeField] public bool IsSelected { get; set; }
    
     [Header("Card Events")] 

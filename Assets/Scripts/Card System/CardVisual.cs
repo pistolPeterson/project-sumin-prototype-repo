@@ -7,7 +7,10 @@ using UnityEngine.Serialization;
 
 public class CardVisual : MonoBehaviour
 {
-   private Card parentCard;
+   
+   private Vector3 movementDelta;
+   
+   
    [SerializeField] private Transform shakeParent;
    [Header("Scale Parameters")]
    [SerializeField] private float scaleOnHover = 1.15f;
@@ -25,10 +28,15 @@ public class CardVisual : MonoBehaviour
    [Header("Follow Parameters")]
    [SerializeField] private float followSpeed = 30;
 
+   [Header("Rotation Parameters")]
+   [SerializeField] private float rotationAmount = 20;
+   [SerializeField] private float rotationSpeed = 20;
+   private Vector3 rotationDelta;
    
+   private Card parentCard;
    private Transform cardTransform;
    
-   private float curveYOffset = 1f;
+   private float curveYOffset = 0f; // not implemented yet
    public void Initialize(Card targetCard)
    {
       parentCard = targetCard;
@@ -41,6 +49,7 @@ public class CardVisual : MonoBehaviour
    private void Update()
    {
       SmoothFollow();
+      FollowRotation();
    }
 
    private void CardSelected(Card arg0, bool isCardSelected)
@@ -67,6 +76,17 @@ public class CardVisual : MonoBehaviour
    private void SmoothFollow()
    {
       Vector3 verticalOffset = (Vector3.up * (parentCard.IsDragging ? 0 : curveYOffset));
+      if (!parentCard.IsDragging)
+         Debug.Log("vertical offset " + verticalOffset);
       transform.position = Vector3.Lerp(transform.position, cardTransform.position + verticalOffset, followSpeed * Time.deltaTime);
+   }
+   
+   private void FollowRotation()
+   {
+      Vector3 movement = (transform.position - cardTransform.position);
+      movementDelta = Vector3.Lerp(movementDelta, movement, 25 * Time.deltaTime);
+      Vector3 movementRotation = (parentCard.IsDragging ? movementDelta : movement) * rotationAmount;
+      rotationDelta = Vector3.Lerp(rotationDelta, movementRotation, rotationSpeed * Time.deltaTime);
+      transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, Mathf.Clamp(rotationDelta.x, -60, 60));
    }
 }
