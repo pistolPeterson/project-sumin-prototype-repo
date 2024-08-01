@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, 
     IPointerExitHandler, IPointerUpHandler, IPointerDownHandler
@@ -11,21 +12,29 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     private Vector3 offset;
     private Canvas canvas;
     public bool IsDragging { get; private set; }
+    public bool WasDragged { get; private set; }
     [Header("Movement")]
     [SerializeField] [Range(30f, 70f)]private float moveSpeedLimit = 50f;
 
     [Header("Selection Data")] 
     [SerializeField] [Range(10f, 40f)] private float selectedOffset = 25f;
+    private float pointerDownTime; //time values to check for long press
+    private float pointerUpTime;
     [field: SerializeField] public bool IsSelected { get; set; }
    
     [Header("Card Events")] 
     [HideInInspector] public UnityEvent<Card> OnCardBeginDrag;
     [HideInInspector] public UnityEvent<Card> OnCardEndDrag;
     [HideInInspector] public UnityEvent<Card, bool> OnCardSelected;
-
+    [HideInInspector] public UnityEvent<Card> OnCardPointerEnter;
+    [HideInInspector] public UnityEvent<Card> OnCardPointerExit;
+    [HideInInspector] public UnityEvent<Card, bool> OnCardPointerUp;
+    [HideInInspector] public UnityEvent<Card> OnCardPointerDown;
     private CardVisual cardVisual;
     [SerializeField] private GameObject cardVisualPrefab;
     private VisualCardHandler visualHandler;
+   
+
     private void Awake()
     {
         canvas = GetComponentInParent<Canvas>();
@@ -65,7 +74,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     public void OnDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+      //sfx?
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -74,26 +83,54 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         offset = mousePosition - (Vector2)transform.position;
         IsDragging = true;
         OnCardBeginDrag?.Invoke(this);
+        WasDragged = true;
+        canvas.GetComponent<GraphicRaycaster>().enabled = false;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         IsDragging = false;
+        canvas.GetComponent<GraphicRaycaster>().enabled = true;
         OnCardEndDrag?.Invoke(this);
+        
+        StartCoroutine(FrameWait()); 
+
+        IEnumerator FrameWait()
+        {
+            yield return new WaitForEndOfFrame();
+            WasDragged = false; 
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        OnCardPointerEnter?.Invoke(this);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        OnCardPointerExit?.Invoke(this);
+
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        if (eventData.button != PointerEventData.InputButton.Left)
+            return;
+
+        pointerUpTime = Time.time;
+
+        float longPressTime = .2f;
+        bool isLongPress = pointerUpTime - pointerDownTime > longPressTime;
+        OnCardPointerUp?.Invoke(this, isLongPress);
+        
+        if (isLongPress)
+            return;
+        
+        if(WasDragged)
+            return;
+
+        
         IsSelected = !IsSelected;
         OnCardSelected?.Invoke(this, IsSelected);
 
@@ -106,6 +143,10 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        if (eventData.button != PointerEventData.InputButton.Left)
+            return;
+
+        OnCardPointerDown.Invoke(this);
+        pointerDownTime = Time.time;
     }
 }

@@ -35,16 +35,25 @@ public class CardVisual : MonoBehaviour
    
    private Card parentCard;
    private Transform cardTransform;
+   private Canvas canvas;
    
    private float curveYOffset = 0f; // not implemented yet
    public void Initialize(Card targetCard)
    {
+      canvas = GetComponent<Canvas>();
       parentCard = targetCard;
       cardTransform = targetCard.transform;
       parentCard.OnCardBeginDrag.AddListener(BeginDrag);
       parentCard.OnCardEndDrag.AddListener(EndDrag);
       parentCard.OnCardSelected.AddListener(CardSelected);
+      parentCard.OnCardPointerEnter.AddListener(PointerEnter);
+      parentCard.OnCardPointerExit.AddListener(PointerExit);
+      parentCard.OnCardPointerUp.AddListener(PointerUp);
+      parentCard.OnCardPointerDown.AddListener(PointerDown);
    }
+
+  
+
 
    private void Update()
    {
@@ -65,13 +74,44 @@ public class CardVisual : MonoBehaviour
    private void BeginDrag(Card card)
    {
       transform.DOScale(scaleOnSelect, scaleTransitionTime).SetEase(scaleEase);
+      canvas.overrideSorting = true;//always make it show on top
    }
    
    private void EndDrag(Card card)
    {
+      canvas.overrideSorting = false;
+
       transform.DOScale(1, scaleTransitionTime).SetEase(scaleEase);
    }
+
+   private void PointerEnter(Card card)
+   {
+      transform.DOScale(scaleOnHover, scaleTransitionTime).SetEase(scaleEase);
+      DOTween.Kill(2, true); //kill all tweens with ID of 2, but let them finish before it dies
+      
+      int vibrato = 20;
+      float elasticity = 1f;
+      shakeParent.DOPunchRotation(Vector3.forward * hoverPunchAngle, hoverTransitionTime, vibrato, elasticity).SetId(2);
+   }
+
+   private void PointerExit(Card card)
+   {
+      if (!parentCard.WasDragged)
+         transform.DOScale(1, scaleTransitionTime).SetEase(scaleEase);
+   }
    
+   private void PointerUp(Card card, bool isLongPress)
+   {
+      Debug.Log("pointing up brub " + isLongPress);
+      transform.DOScale(isLongPress ? scaleOnHover : scaleOnSelect, scaleTransitionTime).SetEase(scaleEase);
+      canvas.overrideSorting = false;
+
+   }
+   
+   private void PointerDown(Card card)
+   {
+      transform.DOScale(scaleOnSelect, scaleTransitionTime).SetEase(scaleEase);
+   }
    
    private void SmoothFollow()
    {

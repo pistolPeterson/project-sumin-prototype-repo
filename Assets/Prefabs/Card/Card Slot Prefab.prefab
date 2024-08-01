@@ -107,6 +107,18 @@ MonoBehaviour:
   OnCardSelected:
     m_PersistentCalls:
       m_Calls: []
+  OnCardPointerEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCardPointerExit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCardPointerUp:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCardPointerDown:
+    m_PersistentCalls:
+      m_Calls: []
   cardVisualPrefab: {fileID: 4994053767192716713, guid: e4105d1d041d48c42951d45c517ed2e4, type: 3}
 --- !u!114 &2042327440937888079
 MonoBehaviour:
