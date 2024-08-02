@@ -9,11 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1475500994392751976}
-  - component: {fileID: 7403790296157546993}
   - component: {fileID: 4280716572688490629}
   - component: {fileID: 3406195817275387699}
   - component: {fileID: 8522120854348172294}
-  - component: {fileID: 5661954067817607206}
+  - component: {fileID: 7403790296157546993}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -35,44 +34,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9133647523650871525}
-  - {fileID: 8491408434191228391}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &7403790296157546993
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567892376238581741}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!114 &4280716572688490629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,13 +99,9 @@ MonoBehaviour:
   OnShieldUse:
     m_PersistentCalls:
       m_Calls: []
-  OnShieldHeld:
-    m_PersistentCalls:
-      m_Calls: []
   OnMovement:
     m_PersistentCalls:
       m_Calls: []
-  shieldIntervalDelay: 0.3
 --- !u!114 &8522120854348172294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,62 +116,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDistance: 3
   positionConstraint: 8
---- !u!114 &5661954067817607206
-MonoBehaviour:
+--- !u!58 &7403790296157546993
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1567892376238581741}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ad554d03e998a47896bcba872e784b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  input: {fileID: 3406195817275387699}
-  maxCharge: 10
-  shieldCost: 1
-  durationTillRegen: 3
-  regenDelay: 1
-  regenRate: 1
-  currentCharge: 0
-  timeWithoutUse: 0
-  usingShield: 0
-  canUse: 1
-  OnShieldUse:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!1 &2987121648663654760
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8491408434191228391}
-  m_Layer: 0
-  m_Name: Shield Visual
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8491408434191228391
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2987121648663654760}
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1475500994392751976}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Radius: 0.5
 --- !u!1 &6229857468133473494
 GameObject:
   m_ObjectHideFlags: 0
