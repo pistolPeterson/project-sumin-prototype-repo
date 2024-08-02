@@ -102,9 +102,6 @@ MonoBehaviour:
   OnMovement:
     m_PersistentCalls:
       m_Calls: []
-  OnMoving:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &8522120854348172294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,7 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc98775f0a5041489b495390d5bb027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputManager: {fileID: 3406195817275387699}
   moveDistance: 3
   positionConstraint: 8
 --- !u!58 &7403790296157546993
@@ -228,8 +224,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.54509807, g: 0.1764706, b: 0.854902, a: 1}
+  m_Sprite: {fileID: 1051871255, guid: 2a95e37252bf90a43b01418809b240aa, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
