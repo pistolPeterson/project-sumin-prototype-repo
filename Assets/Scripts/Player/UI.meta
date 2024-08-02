@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Prefabs/Encounter Bar.prefab.meta
-guid: 6080191a3ec92b34989266ca215e9fc5
-PrefabImporter:
+<<<<<<<< HEAD:Assets/Scenes/Encounter.unity.meta
+guid: 77fc4ce363963084eb2053a9f6f93831
 ========
 guid: 722828c47a32b894ab8315edc118e48c
 folderAsset: yes
-DefaultImporter:
 >>>>>>>> main:Assets/Scripts/Player/UI.meta
+DefaultImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
