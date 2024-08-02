@@ -12,11 +12,18 @@ public class InputManager : MonoBehaviour
     private Vector2 currMoveDir;
 
     [HideInInspector] public UnityEvent OnShieldUse;
+    [HideInInspector] public UnityEvent<bool> OnShieldHeld;
     [HideInInspector] public UnityEvent<Vector2> OnMovement;
+    
+    [SerializeField] private float shieldIntervalDelay = 0.3f;
+    private bool shieldHeld = false;
+    private bool alreadyHeld = false;
     private void Awake() {
         playerControls = new PlayerControls();
     }
     private void Update() {
+        shield.started += HoldingShield;
+        shield.canceled += ReleasingShield;
         shield.performed += UseShield;
         movement.performed += Move;
     }
@@ -27,6 +34,8 @@ public class InputManager : MonoBehaviour
         shield.Enable();
     }
     private void OnDisable() {
+        shield.started -= HoldingShield;
+        shield.canceled -= ReleasingShield;
         shield.performed -= UseShield;
         movement.performed -= Move;
     }
@@ -39,6 +48,23 @@ public class InputManager : MonoBehaviour
         OnMovement.Invoke(currMoveDir);
     }
     public void UseShield(InputAction.CallbackContext context) {
-        OnShieldUse.Invoke();
-    }    
+        if (alreadyHeld) return;
+        StartCoroutine(Shielding());
+    }
+    public void HoldingShield(InputAction.CallbackContext context) {
+        shieldHeld = true;
+        OnShieldHeld.Invoke(shieldHeld);
+    }
+    public void ReleasingShield(InputAction.CallbackContext context) {
+        shieldHeld = false;
+        OnShieldHeld.Invoke(shieldHeld);
+    }
+    private IEnumerator Shielding() {
+        while (shieldHeld) {
+            alreadyHeld = true;
+            OnShieldUse.Invoke();
+            yield return new WaitForSeconds(shieldIntervalDelay);
+        }
+        alreadyHeld = false;
+    }
 }
