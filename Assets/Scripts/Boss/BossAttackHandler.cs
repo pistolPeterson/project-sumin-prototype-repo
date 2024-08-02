@@ -10,8 +10,6 @@ public class BossAttackHandler : MonoBehaviour
     public void Attack() {
         attackPatterns[attackIndex].StartAttack();
     }
-    public void StopAttack() {
-        attackPatterns[attackIndex].StopAttack();
-    }
+
 
 }

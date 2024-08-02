@@ -6,7 +6,8 @@ public class InLineAttackPattern : AttackPattern
 {
     private int currPos;
 
-    private void Start() {
+    protected override void Start() {
+        base.Start();
         currPos = (int)playFieldPosConstraint;
     }
     public override void Attack() {
