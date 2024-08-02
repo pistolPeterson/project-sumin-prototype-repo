@@ -214,7 +214,7 @@ MonoBehaviour:
   attackPatterns:
   - {fileID: 6459888391310063384}
   - {fileID: 148761779276015738}
-  attackIndex: 1
+  attackIndex: 0
 --- !u!1 &6276778812562161108
 GameObject:
   m_ObjectHideFlags: 0
