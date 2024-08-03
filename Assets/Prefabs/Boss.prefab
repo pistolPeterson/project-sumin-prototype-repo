@@ -271,7 +271,7 @@ MonoBehaviour:
   attackDuration: 5
   delayBetweenAttacks: 0.8
   projectilesPerWall: 5
-  spaceInWall: 0.08
+  spaceInWall: 0.06
 --- !u!1 &4015649400429665020
 GameObject:
   m_ObjectHideFlags: 0
