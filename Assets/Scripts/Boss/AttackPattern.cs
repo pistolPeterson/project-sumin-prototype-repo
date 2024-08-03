@@ -32,6 +32,9 @@ public abstract class AttackPattern : MonoBehaviour
     }
     protected int GetRandomYPos() {
         int randomPosY = (int)UnityEngine.Random.Range(-playFieldPosConstraint, playFieldPosConstraint);
+        if (randomPosY % 2 != 0) {
+            randomPosY++;
+        }
         return randomPosY;
     }
     

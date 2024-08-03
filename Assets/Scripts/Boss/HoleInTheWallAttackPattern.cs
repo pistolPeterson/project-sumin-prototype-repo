@@ -16,9 +16,6 @@ public class HoleInTheWallAttackPattern : AttackPattern {
         SpawnProjectiles(avoid);
     }
     private void SpawnProjectiles(int yPosAvoid) {
-        if (yPosAvoid % 2 != 0) {
-            yPosAvoid++;
-        }
         for (int yPos = (int)playFieldPosConstraint; yPos >= -playFieldPosConstraint; yPos-= 2) {
             if (yPos == yPosAvoid) continue;
             SetSpawnLoc(yPos);
