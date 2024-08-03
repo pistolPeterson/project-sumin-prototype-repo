@@ -10,15 +10,17 @@ public class RandomAttackPattern : AttackPattern
         base.Start();
     }
 
-    public override void Attack() {
+    protected override void Attack() {
         SpawnRandomProjectile();
     }
-    public void SpawnRandomProjectile() {
+    private void SpawnRandomProjectile() {
+        attackComplete = false;
         RandomSpawnLoc();
         Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
+        attackComplete = true;
     }
-    public void RandomSpawnLoc() {
-        float randomClampedPosY = Random.Range(-playFieldPosConstraint, playFieldPosConstraint);
+    private void RandomSpawnLoc() {
+        int randomClampedPosY = GetRandomYPos();
         SetSpawnLoc(randomClampedPosY);
     }
 }

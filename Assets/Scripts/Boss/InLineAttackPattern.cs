@@ -4,25 +4,32 @@ using UnityEngine;
 
 public class InLineAttackPattern : AttackPattern
 {
-    private int currPos;
+    [Header("In Line Attack")]
+    [SerializeField] private float delayBetweenProjSpawn = 0.1f;
 
     protected override void Start() {
         base.Start();
-        currPos = (int)playFieldPosConstraint;
     }
-    public override void Attack() {
+    protected override void Attack() {
         SpawnInLineProjectile();
     }
-    public void SpawnInLineProjectile() {
-        InLinePatternAttack();
-        Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
+    private void SpawnInLineProjectile() {
+        attackComplete = false;
+        StartCoroutine(DownLineAttack());
     }
-
-    public void InLinePatternAttack() {
-        SetSpawnLoc(currPos);
-        currPos--;
-        if (currPos < -playFieldPosConstraint) {
-            currPos = (int)playFieldPosConstraint;
+    private IEnumerator DownLineAttack() {
+        int currPos = (int)playFieldPosConstraint;
+        while (currPos > -(int)playFieldPosConstraint) {
+            SetSpawnLoc(currPos);
+            Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
+            SetSpawnLoc(playFieldPosConstraint);
+            Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
+            SetSpawnLoc(-playFieldPosConstraint);
+            Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
+            yield return new WaitForSeconds(delayBetweenProjSpawn);
+            if (currPos == playFieldPosConstraint / 2)
+                attackComplete = true;
+            currPos--;
         }
     }
 }
