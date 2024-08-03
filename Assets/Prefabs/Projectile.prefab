@@ -205,4 +205,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6661032197290677594}
   projectileSpeed: 10
-  maxLifeTime: 3
+  maxLifeTime: 2
