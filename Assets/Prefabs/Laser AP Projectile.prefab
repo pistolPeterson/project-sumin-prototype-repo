@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.869418, y: 0.48371905, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3743648053699737899}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2644111941861987761}
   - component: {fileID: -3669983245704617656}
   m_Layer: 0
-  m_Name: Projectile
+  m_Name: Laser AP Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,5 +204,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6661032197290677594}
-  projectileSpeed: 10
+  projectileSpeed: 20
   maxLifeTime: 2

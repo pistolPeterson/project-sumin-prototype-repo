@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using com.cyborgAssets.inspectorButtonPro;
 using UnityEngine;
 
 public class BossAttackHandler : MonoBehaviour
@@ -9,6 +10,12 @@ public class BossAttackHandler : MonoBehaviour
 
     public void Attack() {
         attackPatterns[attackIndex].StartAttack();
+    }
+
+    
+    [ProButton]
+    private void StopAttack() {
+        attackPatterns[attackIndex].StopAttack();
     }
 
 

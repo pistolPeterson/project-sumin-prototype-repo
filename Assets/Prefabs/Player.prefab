@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc98775f0a5041489b495390d5bb027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 3
+  moveDistance: 2
   positionConstraint: 8
 --- !u!114 &5661954067817607206
 MonoBehaviour:
