@@ -25,8 +25,8 @@ public abstract class AttackPattern : MonoBehaviour
        
         StartCoroutine(AttackLoop());
     }
-    [ProButton]
-    private void StopAttack() {
+   
+    public void StopAttack() {
         StopCoroutine(AttackLoop());
         timer = attackDuration;
     }
