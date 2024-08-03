@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class Health : MonoBehaviour
+public class Health : MonoBehaviour
 {
     [HideInInspector] public UnityEvent<bool> OnHealthChange; //bool is if its a positive health change
     [HideInInspector] public UnityEvent OnDeath; //common problem: making sure this event doesnt get spammed
@@ -19,7 +19,10 @@ public abstract class Health : MonoBehaviour
     }
 
 
-    public abstract void HandleDeath(); 
+    public virtual void HandleDeath()
+    {
+        
+    }
     
     public void Heal(int healthAmt)
     {

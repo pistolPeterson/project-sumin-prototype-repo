@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Damageable : MonoBehaviour //simple class that hurts player on contact
+public class Damager : MonoBehaviour //simple class that hurts player on contact
 {
         [SerializeField] private int initialDamageAmt = 6; 
         [field: SerializeField] public int currentDamage { get; private set; }
