@@ -42,6 +42,7 @@ public abstract class AttackPattern : MonoBehaviour
            // Debug.Log("Attacking Time remaining: " + (attackDuration - timer));
             Attack();
             yield return new WaitUntil(IsAttackComplete);
+          //  Debug.Break();
             yield return new WaitForSeconds(delayBetweenAttacks);
             timer += Time.fixedDeltaTime + delayBetweenAttacks; // to normalize the time
         }
