@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2917217397812189587}
   - component: {fileID: 8654410150022813726}
+  - component: {fileID: 8613162324366198617}
   m_Layer: 0
   m_Name: Eye
   m_TagString: Untagged
@@ -26,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 54655413331200120}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.03, y: -0.21, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: -0.13, y: -0.13, z: 0}
+  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5834890632048992448}
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1730577485, guid: 7f6b174bdebf2c94894c0ea391b3ea69, type: 3}
+  m_Sprite: {fileID: 1451106322, guid: 1351a071197826d4b869ef7b793ca319, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8613162324366198617
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54655413331200120}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c855d5b0cf17a1f41b69cd5139f36dcc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &640321816556135449
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +243,7 @@ MonoBehaviour:
   - {fileID: 3729095955242728652}
   - {fileID: 340127678865642243}
   - {fileID: 4223706075345611221}
-  attackIndex: 4
+  attackIndex: 0
 --- !u!1 &3764587820980448543
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,6 +484,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6537469273723913995}
   - component: {fileID: 4767234518099440826}
+  - component: {fileID: 304306260298583545}
+  - component: {fileID: 2095333939981900281}
   m_Layer: 0
   m_Name: Wings
   m_TagString: Untagged
@@ -478,7 +502,7 @@ Transform:
   m_GameObject: {fileID: 7232524160225720510}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -525,7 +549,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1720516432, guid: 7f6b174bdebf2c94894c0ea391b3ea69, type: 3}
+  m_Sprite: {fileID: 1766622206, guid: 6d46aea6eb8d1ca47a37fe7f6287e313, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -536,3 +560,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &304306260298583545
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7232524160225720510}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f1b468f4d42e43a44b8373792152d84f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2095333939981900281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7232524160225720510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51502fa19b3d7ce49be45cf8fa88e310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wingsToRotate: {fileID: 7232524160225720510}
+  isRotating: 1
+  rotationSpeed: -4
+  rotationDelay: 0.05
