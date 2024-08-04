@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.13, y: -0.13, z: 0}
-  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
+  m_LocalScale: {x: 2.2, y: 2.2, z: 2.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5834890632048992448}
@@ -292,8 +292,8 @@ MonoBehaviour:
   playFieldPosConstraint: 8
   attackDuration: 5
   delayBetweenAttacks: 0.8
-  projectilesPerWall: 5
-  spaceInWall: 0.06
+  projectilesPerWall: 3
+  spaceInWall: 0.1
 --- !u!1 &4015649400429665020
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,7 +391,7 @@ MonoBehaviour:
   attackDuration: 5
   delayBetweenAttacks: 0.3
   projectilesPerLaser: 5
-  delayBetweenProjSpawn: 0.09
+  delayBetweenProjSpawn: 0.095
   trackPlayerMovement: 1
 --- !u!1 &6276778812562161108
 GameObject:

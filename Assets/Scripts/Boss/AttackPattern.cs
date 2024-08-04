@@ -31,7 +31,7 @@ public abstract class AttackPattern : MonoBehaviour
         timer = attackDuration;
     }
     protected int GetRandomYPos() {
-        int randomPosY = (int)UnityEngine.Random.Range(-playFieldPosConstraint, playFieldPosConstraint);
+        int randomPosY = (int)UnityEngine.Random.Range(-playFieldPosConstraint - 1, playFieldPosConstraint + 1); // +-1 to include constraint
         if (randomPosY % 2 != 0) {
             randomPosY++;
         }
