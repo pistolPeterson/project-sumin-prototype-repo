@@ -5,8 +5,8 @@ using UnityEngine;
 
 public abstract class AttackPattern : MonoBehaviour
 {
+    protected float playFieldPosConstraint = 8f;
     [SerializeField] protected GameObject projectilePrefab;
-    [SerializeField] protected float playFieldPosConstraint = 8f;
     [SerializeField] private float attackDuration = 5f; // how long an attack lasts for
     [SerializeField] protected float delayBetweenAttacks = 0.5f; // delay time before calling the next attack
     protected Vector3 projectileSpawnLoc;
@@ -31,7 +31,7 @@ public abstract class AttackPattern : MonoBehaviour
         timer = attackDuration;
     }
     protected int GetRandomYPos() {
-        int randomPosY = (int)UnityEngine.Random.Range(-playFieldPosConstraint, playFieldPosConstraint);
+        int randomPosY = (int)UnityEngine.Random.Range(-playFieldPosConstraint - 1, playFieldPosConstraint + 1); // +-1 to include constraint
         if (randomPosY % 2 != 0) {
             randomPosY++;
         }

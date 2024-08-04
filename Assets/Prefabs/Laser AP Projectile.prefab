@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9217746039276879448}
   - component: {fileID: 8644711571011013921}
+  - component: {fileID: 8756442526878896921}
   m_Layer: 0
   m_Name: Projectile Visual
   m_TagString: Untagged
@@ -27,8 +28,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.869418, y: 0.48371905, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 3, y: 2, z: 0}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3743648053699737899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -73,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.50980395, b: 0.6627451, a: 1}
+  m_Sprite: {fileID: 564789819, guid: 8d222f49f41a6c94393ec8202e6679b3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8756442526878896921
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3558790977511202343}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c8dfe016c295b424da64fe9735199173, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4039656847502053378
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6661032197290677594}
-  projectileSpeed: 20
+  projectileSpeed: 15
   maxLifeTime: 2
 --- !u!114 &7017257923343792021
 MonoBehaviour:
@@ -219,5 +241,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97eeedcf9946e5498de367103ca3759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialDamageAmt: 6
+  initialDamageAmt: 1
   <currentDamage>k__BackingField: 0

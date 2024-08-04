@@ -48,6 +48,9 @@ public class Health : MonoBehaviour
         OnHealthChange?.Invoke(false);
         
     }
+    public int GetInitialHealth() {
+        return initialHealth;
+    }
   
 
 }
