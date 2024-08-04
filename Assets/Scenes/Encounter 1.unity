@@ -1202,10 +1202,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc69f65e72e4bd34ea1b2ce33640d531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerShield: {fileID: 1881914011}
+  playerShield: {fileID: 0}
   shieldText: {fileID: 1696619576}
   shieldBar: {fileID: 688893084}
---- !u!114 &1285713578 stripped
+--- !u!114 &1285713584 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3675811685090691327, guid: 7ddbac7f742ab6e41ac355cebc6201fb, type: 3}
   m_PrefabInstance: {fileID: 1924647637058952197}
@@ -1901,17 +1901,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759813365}
   m_CullTransparentMesh: 1
---- !u!114 &1881914011 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1961297487399659223, guid: 7ddbac7f742ab6e41ac355cebc6201fb, type: 3}
-  m_PrefabInstance: {fileID: 1924647637058952197}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ad554d03e998a47896bcba872e784b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1963978977
 GameObject:
   m_ObjectHideFlags: 0
@@ -2046,7 +2035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3675811685090691327, guid: 7ddbac7f742ab6e41ac355cebc6201fb, type: 3}
       propertyPath: initialHealth
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2233,7 +2222,15 @@ PrefabInstance:
     - target: {fileID: 6615249349132533952, guid: da55f65ed218d7044b32364463d682c3, type: 3}
       propertyPath: hp
       value: 
-      objectReference: {fileID: 1285713578}
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615249349132533952, guid: da55f65ed218d7044b32364463d682c3, type: 3}
+      propertyPath: playerHp
+      value: 
+      objectReference: {fileID: 1285713584}
+    - target: {fileID: 6615249349132533952, guid: da55f65ed218d7044b32364463d682c3, type: 3}
+      propertyPath: hpPerHeart
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7295120063564722079, guid: da55f65ed218d7044b32364463d682c3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

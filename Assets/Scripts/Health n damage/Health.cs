@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    [HideInInspector] public UnityEvent<bool> OnHealthChange; //bool is if its a positive health change
+    [HideInInspector] public UnityEvent<int> OnHealthChange; 
     [HideInInspector] public UnityEvent OnDeath; //common problem: making sure this event doesnt get spammed
     [SerializeField] private int initialHealth = 30; //im scaling health x5 incase we need to balance 
     
@@ -29,7 +29,7 @@ public class Health : MonoBehaviour
         CurrentHealth += healthAmt;
         if (CurrentHealth > initialHealth)
             CurrentHealth = initialHealth;
-        OnHealthChange?.Invoke(true);
+        OnHealthChange?.Invoke(healthAmt);
     }
 
     public void Damage(int damageAmt)
@@ -45,7 +45,7 @@ public class Health : MonoBehaviour
                 isDead = true;
                 return;
         }
-        OnHealthChange?.Invoke(false);
+        OnHealthChange?.Invoke(-damageAmt);
         
     }
     public int GetInitialHealth() {
