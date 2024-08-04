@@ -175,7 +175,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
-  initialHealth: 30
+  initialHealth: 10
   isDead: 0
   invincibleMode: 0
   <CurrentHealth>k__BackingField: 0

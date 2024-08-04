@@ -241,5 +241,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97eeedcf9946e5498de367103ca3759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialDamageAmt: 5
+  initialDamageAmt: 1
   <currentDamage>k__BackingField: 0

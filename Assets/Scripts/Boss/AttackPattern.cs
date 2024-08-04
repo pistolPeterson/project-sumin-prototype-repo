@@ -5,8 +5,8 @@ using UnityEngine;
 
 public abstract class AttackPattern : MonoBehaviour
 {
+    protected float playFieldPosConstraint = 8f;
     [SerializeField] protected GameObject projectilePrefab;
-    [SerializeField] protected float playFieldPosConstraint = 8f;
     [SerializeField] private float attackDuration = 5f; // how long an attack lasts for
     [SerializeField] protected float delayBetweenAttacks = 0.5f; // delay time before calling the next attack
     protected Vector3 projectileSpawnLoc;
