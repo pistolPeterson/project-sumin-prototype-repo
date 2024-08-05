@@ -2,20 +2,24 @@ using System;
 using System.Collections;
 using com.cyborgAssets.inspectorButtonPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class AttackPattern : MonoBehaviour
 {
     protected float playFieldPosConstraint = 8f;
+    [HideInInspector] public UnityEvent OnCompleteAttack; // when the entire attack loop is complete
+    [HideInInspector] public UnityEvent OnCompleteSpecial; // when the entire special loop is complete
     [SerializeField] protected GameObject projectilePrefab;
     [SerializeField] private float attackDuration = 5f; // how long an attack lasts for
     [SerializeField] protected float delayBetweenAttacks = 0.5f; // delay time before calling the next attack
     protected Vector3 projectileSpawnLoc;
     protected bool attackComplete = false;
+    protected bool attackStopped = false;
+    [SerializeField] protected bool isSpecialMove = false;
     private float timer = 0f;
 
     protected virtual void Start() {
-        projectileSpawnLoc = transform.position;
-        
+        projectileSpawnLoc = transform.position;        
     }
     protected abstract void Attack();
     protected void SetSpawnLoc(float yPos) {
@@ -27,8 +31,8 @@ public abstract class AttackPattern : MonoBehaviour
     }
    
     public void StopAttack() {
-        StopCoroutine(AttackLoop());
         timer = attackDuration;
+        attackStopped = true;
     }
     protected int GetRandomYPos() {
         int randomPosY = (int)UnityEngine.Random.Range(-playFieldPosConstraint - 1, playFieldPosConstraint + 1); // +-1 to include constraint
@@ -49,8 +53,15 @@ public abstract class AttackPattern : MonoBehaviour
             yield return new WaitForSeconds(delayBetweenAttacks);
             timer += Time.fixedDeltaTime + delayBetweenAttacks; // to normalize the time
         }
+        yield return new WaitForSeconds(delayBetweenAttacks);
+        if (!attackStopped)
+            OnCompleteAttack.Invoke();
+        if (isSpecialMove) OnCompleteSpecial.Invoke();
     }
     private bool IsAttackComplete() {
         return attackComplete;
+    }
+    public float GetAttackDuration() {
+        return attackDuration;
     }
 }
