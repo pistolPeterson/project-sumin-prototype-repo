@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using com.cyborgAssets.inspectorButtonPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class AttackPattern : MonoBehaviour
 {
     protected float playFieldPosConstraint = 8f;
+    [HideInInspector] public UnityEvent OnCompleteAttack; // when the entire attack loop is complete
     [SerializeField] protected GameObject projectilePrefab;
     [SerializeField] private float attackDuration = 5f; // how long an attack lasts for
     [SerializeField] protected float delayBetweenAttacks = 0.5f; // delay time before calling the next attack
@@ -14,8 +16,7 @@ public abstract class AttackPattern : MonoBehaviour
     private float timer = 0f;
 
     protected virtual void Start() {
-        projectileSpawnLoc = transform.position;
-        
+        projectileSpawnLoc = transform.position;        
     }
     protected abstract void Attack();
     protected void SetSpawnLoc(float yPos) {
@@ -49,8 +50,13 @@ public abstract class AttackPattern : MonoBehaviour
             yield return new WaitForSeconds(delayBetweenAttacks);
             timer += Time.fixedDeltaTime + delayBetweenAttacks; // to normalize the time
         }
+        yield return new WaitForSeconds(delayBetweenAttacks);
+        OnCompleteAttack.Invoke();
     }
     private bool IsAttackComplete() {
         return attackComplete;
+    }
+    public float GetAttackDuration() {
+        return attackDuration;
     }
 }
