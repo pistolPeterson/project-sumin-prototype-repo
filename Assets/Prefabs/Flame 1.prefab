@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9217746039276879448}
   - component: {fileID: 8644711571011013921}
-  - component: {fileID: 3969802039586568284}
+  - component: {fileID: 8756442526878896921}
   m_Layer: 0
   m_Name: Projectile Visual
   m_TagString: Untagged
@@ -28,8 +28,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 3, y: 2, z: 0}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3743648053699737899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 515500877, guid: 880cdf079ee3b014182529c6bed094bb, type: 3}
+  m_Sprite: {fileID: 564789819, guid: 8d222f49f41a6c94393ec8202e6679b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &3969802039586568284
+--- !u!95 &8756442526878896921
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 3558790977511202343}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a6fa6412ba0135448a80f2a00bd82c5a, type: 2}
+  m_Controller: {fileID: 9100000, guid: c8dfe016c295b424da64fe9735199173, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -118,9 +118,9 @@ GameObject:
   - component: {fileID: 6661032197290677594}
   - component: {fileID: 2644111941861987761}
   - component: {fileID: -3669983245704617656}
-  - component: {fileID: 1361159891616533064}
+  - component: {fileID: 7017257923343792021}
   m_Layer: 0
-  m_Name: Projectile
+  m_Name: Flame 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,7 +229,7 @@ MonoBehaviour:
   rb: {fileID: 6661032197290677594}
   projectileSpeed: 10
   maxLifeTime: 2
---- !u!114 &1361159891616533064
+--- !u!114 &7017257923343792021
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
