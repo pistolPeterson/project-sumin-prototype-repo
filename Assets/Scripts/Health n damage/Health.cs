@@ -51,6 +51,10 @@ public class Health : MonoBehaviour
     public int GetInitialHealth() {
         return initialHealth;
     }
+    public void SetMaxHealth(int newMaxHealth)
+    {
+        initialHealth += newMaxHealth;
+    }
   
 
 }
