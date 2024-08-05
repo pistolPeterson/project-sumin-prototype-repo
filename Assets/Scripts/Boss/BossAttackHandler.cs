@@ -33,7 +33,8 @@ public class BossAttackHandler : MonoBehaviour
         StartEncounterAttacks();
         // Default Special
         AddSpecial(possibleSpecialMoves[0].name);
-       // AddSpecial(possibleSpecialMoves[0].name);
+        AddSpecial(possibleSpecialMoves[1].name);
+        // AddSpecial(possibleSpecialMoves[0].name);
     }
     private void Listeners() {
         if (possibleAttackPatterns.Count > 0) {

@@ -230,7 +230,6 @@ MonoBehaviour:
   attackDuration: 2.5
   delayBetweenAttacks: 0.5
   isSpecialMove: 1
-  amountOfLasers: 2
   projectilesPerLaser: 2
   delayBetweenProjSpawn: 0.5
 --- !u!1 &2026825034753180007
@@ -374,6 +373,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2352017179839106953}
+  - {fileID: 1559119591329815979}
   m_Father: {fileID: 356326976198503490}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3037956134694025502
@@ -431,12 +431,13 @@ MonoBehaviour:
   - {fileID: 3593351973866457073}
   possibleSpecialMoves:
   - {fileID: 2316699520785260243}
+  - {fileID: 1654650690050702535}
   currentAttack: {fileID: 0}
   OnEncounterActive:
     m_PersistentCalls:
       m_Calls: []
   encounterDuration: 40
-  percentageForSpecialMove: 0.25
+  percentageForSpecialMove: 0.5
   <encounterTimer>k__BackingField: 0
 --- !u!1 &3764587820980448543
 GameObject:
@@ -605,6 +606,62 @@ MonoBehaviour:
   projectilesPerLaser: 5
   delayBetweenProjSpawn: 0.095
   trackPlayerMovement: 1
+--- !u!1 &5838777940141777570
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1559119591329815979}
+  - component: {fileID: 1654650690050702535}
+  m_Layer: 0
+  m_Name: Blocking SM (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1559119591329815979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5838777940141777570}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1864810838111183756}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1654650690050702535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5838777940141777570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b2b2ca20a7ec34aaf7301ed83b09bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnCompleteAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCompleteSpecial:
+    m_PersistentCalls:
+      m_Calls: []
+  projectilePrefab: {fileID: 4039656847502053378, guid: 4e90356d33e69714b9567c6fbe2d791e, type: 3}
+  attackDuration: 2.5
+  delayBetweenAttacks: 0.5
+  isSpecialMove: 1
+  projectilesPerLaser: 2
+  delayBetweenProjSpawn: 0.5
 --- !u!1 &6276778812562161108
 GameObject:
   m_ObjectHideFlags: 0
