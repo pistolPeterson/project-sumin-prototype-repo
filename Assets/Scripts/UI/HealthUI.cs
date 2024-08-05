@@ -2,11 +2,12 @@ using com.cyborgAssets.inspectorButtonPro;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class HealthUI : MonoBehaviour
 {
-    [SerializeField] private PlayerHeatlh hp;
+   [SerializeField] private PlayerHeatlh playerHp;
     [SerializeField] private GameObject heartsParentGroup;
     [SerializeField] private GameObject heartTemplate;
     public List<Image> hearts;
@@ -17,14 +18,14 @@ public class HealthUI : MonoBehaviour
     [SerializeField] private Sprite fullHeartSprite;
     [SerializeField] private Sprite halfHeartSprite;
     [SerializeField] private Sprite emptyHeartSprite;
-
+    
     private void Start() {
         if (hpPerHeart % 2 == 0)
             DisplayHealth();
         else Debug.LogWarning("HP per heart must be divisible by 2");
     }
     public void DisplayHealth() {
-        int initialHP = hp.GetInitialHealth();
+        int initialHP = playerHp.GetInitialHealth();
         int fullHearts = initialHP / hpPerHeart; // amount of full hearts
         int halfHearts = initialHP % hpPerHeart;
         halfHearts /= (hpPerHeart / 2); // amount of half hearts
