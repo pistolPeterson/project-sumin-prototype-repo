@@ -36,8 +36,7 @@ public class ShieldVisual : MonoBehaviour
         colorPalleteIndex++;
         if(colorPalleteIndex >= colorPallete.Length)
             return;
-        float punchForce = 2.5f;
-        //transform.DOPunchScale(Vector3.one * punchForce, colorChangeTime, 5, 1f);
+      
         sr.DOColor(colorPallete[colorPalleteIndex], colorChangeTime).OnComplete(NextColor);
         
     }
