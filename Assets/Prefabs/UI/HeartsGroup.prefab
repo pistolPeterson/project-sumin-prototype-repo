@@ -49,9 +49,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8041d653742ad646b84073aa54cec74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: {fileID: 0}
+  playerHp: {fileID: 0}
   heartsParentGroup: {fileID: 7914522875452766189}
   heartTemplate: {fileID: 8843956616633018025, guid: 075b8a79ffb4d204cbacb10aa9f5a34c, type: 3}
+  hearts: []
   hpPerHeart: 2
   fullHeartSprite: {fileID: -1560752647, guid: d72b9a52e7281424a886b2b85ebf1c6b, type: 3}
   halfHeartSprite: {fileID: 1466072949, guid: d72b9a52e7281424a886b2b85ebf1c6b, type: 3}

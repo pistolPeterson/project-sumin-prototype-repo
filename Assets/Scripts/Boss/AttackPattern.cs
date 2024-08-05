@@ -33,6 +33,7 @@ public abstract class AttackPattern : MonoBehaviour
     public void StopAttack() {
         timer = attackDuration;
         attackStopped = true;
+        Debug.Log("Attack stopped");
     }
     protected int GetRandomYPos() {
         int randomPosY = (int)UnityEngine.Random.Range(-playFieldPosConstraint - 1, playFieldPosConstraint + 1); // +-1 to include constraint
