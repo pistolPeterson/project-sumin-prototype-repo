@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class PlayerVisual : MonoBehaviour
 {
+    [SerializeField] private PlayerHealth hp;
     [SerializeField] private PlayerImpactVisual impactVisual;
-
-    public void PlayImpact() {
-        impactVisual.PlayImpactClip();
+    private void Start() {
+        hp.OnHealthChange.AddListener(PlayImpact);
+    }
+    public void PlayImpact(int num) {
+        if (num < 0) {
+            impactVisual.PlayImpactClip();
+        }
     }
 }

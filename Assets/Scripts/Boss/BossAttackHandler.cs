@@ -7,8 +7,10 @@ using System.Linq;
 
 public class BossAttackHandler : MonoBehaviour
 {
-    public Dictionary<string, AttackPattern> currentAttackPatterns = new Dictionary<string, AttackPattern>();
-    public Dictionary<string, AttackPattern> currentSpecialMoves = new Dictionary<string, AttackPattern>();
+    public List<AttackPattern> currentAttackPatterns = new List<AttackPattern>();
+    public List<AttackPattern> currentSpecialMoves = new List<AttackPattern>();
+    //public Dictionary<string, AttackPattern> currentAttackPatters = new Dictionary<string, AttackPattern>();
+    //public Dictionary<string, AttackPattern> currentSpecialMoves = new Dictionary<string, AttackPattern>();
     [SerializeField] private List<AttackPattern> possibleAttackPatterns;
     [SerializeField] private List<AttackPattern> possibleSpecialMoves;
     public AttackPattern currentAttack;
@@ -22,19 +24,8 @@ public class BossAttackHandler : MonoBehaviour
     private bool specialPhaseActive = false;
 
     private void Start() {
-        // Default Attack
         Listeners();
-        AddAttack(possibleAttackPatterns[0].name);
-        AddAttack(possibleAttackPatterns[1].name);
-        AddAttack(possibleAttackPatterns[2].name);
-        AddAttack(possibleAttackPatterns[3].name);
-        AddAttack(possibleAttackPatterns[4].name);
-        AddAttack(possibleAttackPatterns[5].name);
         StartEncounterAttacks();
-        // Default Special
-        AddSpecial(possibleSpecialMoves[0].name);
-        AddSpecial(possibleSpecialMoves[1].name);
-        // AddSpecial(possibleSpecialMoves[0].name);
     }
     private void Listeners() {
         if (possibleAttackPatterns.Count > 0) {
@@ -49,14 +40,6 @@ public class BossAttackHandler : MonoBehaviour
             }
         }
     }
-    public void AddStartingAttacks(List<AttackPattern> attackPatterns, List<AttackPattern> specialMoves) {
-        foreach (AttackPattern ap in attackPatterns) {
-            AddAttack(ap.name);
-        }
-        foreach (AttackPattern sm in specialMoves) {
-            AddSpecial(sm.name);
-        }
-    }
     [ProButton]
     public void StartEncounterAttacks() {
         StartCoroutine(StartEncounterTimer());
@@ -66,24 +49,20 @@ public class BossAttackHandler : MonoBehaviour
         if (encounterComplete) {
             return;
         }
-        string nextAttack = GetRandomAttack();
-        PerformAttack(nextAttack);
+        PerformAttack(GetRandomAttack());
     }
     private void NextSpecial() {
         if (encounterComplete) {
             return;
         }
         Debug.Log("Special !");
-        string nextSpecial = GetRandomSpecial();
-        PerformSpecial(nextSpecial);
+        PerformSpecial(GetRandomSpecial());
     }
-    private string GetRandomAttack() {
-        string randomAttack = currentAttackPatterns.OrderBy(x => Random.value).First().Value.name;
-        return randomAttack;
+    private AttackPattern GetRandomAttack() {
+        return currentAttackPatterns.OrderBy(x => Random.value).First();
     }
-    private string GetRandomSpecial() {
-        string randomSpecial = currentSpecialMoves.OrderBy(x => Random.value).First().Value.name;
-        return randomSpecial;
+    private AttackPattern GetRandomSpecial() {
+        return currentSpecialMoves.OrderBy(x => Random.value).First();
     }
     private IEnumerator StartEncounterTimer() {
         encounterComplete = false;
@@ -117,45 +96,39 @@ public class BossAttackHandler : MonoBehaviour
         specialPhaseActive = false;
     }
     [ProButton]
-    public void PerformAttack(int index) {
-        PerformAttack(possibleAttackPatterns[index].name);
-    }
-    public void PerformAttack(string nameOfAttack) {
-        currentAttack = currentAttackPatterns[nameOfAttack];
+    public void PerformAttack(AttackPattern ap) {
+        currentAttack = ap;
         currentAttack.StartAttack();
     }
-    public void PerformSpecial(int index) {
-        PerformSpecial(possibleSpecialMoves[index].name);
-    }
-    public void PerformSpecial(string nameOfSpecial) {
-        currentAttack = currentSpecialMoves[nameOfSpecial];
+    public void PerformSpecial(AttackPattern ap) {
+        currentAttack = ap;
         currentAttack.StartAttack();
     }
-    public void AddAttack(string nameOfAttack) {
-        foreach (AttackPattern ap in possibleAttackPatterns) {
-            if (ap.name.Equals(nameOfAttack)) {
-                currentAttackPatterns.Add(ap.name, ap);
+    public void AddAttack(AttackPattern ap) {
+        foreach (AttackPattern patterns in possibleAttackPatterns) {
+            if (patterns == ap) {
+                currentAttackPatterns.Add(ap);
             }
         }
     }
-    public void AddSpecial(string nameOfSpecial) {
-        foreach (AttackPattern sm in possibleSpecialMoves) {
-            if (sm.name.Equals(nameOfSpecial)) {
-                currentSpecialMoves.Add(sm.name, sm);
+    public void AddSpecial(AttackPattern sm) {
+        foreach (AttackPattern special in possibleSpecialMoves) {
+            if (special == sm) {
+                currentSpecialMoves.Add(sm);
             }
         }
     }
-    public void RemoveAttack(string nameOfAttack) {
-        if (currentAttackPatterns.ContainsKey(nameOfAttack)) {
-            currentAttackPatterns.Remove(nameOfAttack);
+    public void RemoveAttack(AttackPattern ap) {
+        if (currentAttackPatterns.Contains(ap)) {
+            currentAttackPatterns.Remove(ap);
         }
-        else Debug.LogWarning("attack not found: Nothing removed.");
+        else Debug.LogWarning(ap + "attack not found: Nothing removed.");
     }
-    public void RemoveSpecial(string nameOfSpecial) {
-        if (currentSpecialMoves.ContainsKey(nameOfSpecial)) {
-            currentSpecialMoves.Remove(nameOfSpecial);
+    public void RemoveSpecial(AttackPattern sm) {
+        if (currentSpecialMoves.Contains(sm)) {
+            currentSpecialMoves.Remove(sm);
         }
-        else Debug.LogWarning("special not found: Nothing removed.");
+        else Debug.LogWarning(sm + " special not found: Nothing removed.");
     }
     public float GetEncounterDuration() {
         return encounterDuration;

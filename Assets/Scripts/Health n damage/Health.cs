@@ -37,15 +37,15 @@ public class Health : MonoBehaviour
         if(invincibleMode)
             return;
         CurrentHealth = Mathf.Max(CurrentHealth - damageAmt, 0);
+        OnHealthChange?.Invoke(-damageAmt);
         
         if (CurrentHealth == 0 && !isDead)
         {
-                OnDeath?.Invoke();
                 HandleDeath();
                 isDead = true;
+                OnDeath?.Invoke();
                 return;
         }
-        OnHealthChange?.Invoke(-damageAmt);
         
     }
     public int GetInitialHealth() {
