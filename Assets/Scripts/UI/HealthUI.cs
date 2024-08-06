@@ -7,11 +7,11 @@ using UnityEngine.UI;
 
 public class HealthUI : MonoBehaviour
 {
-   [SerializeField] private PlayerHeatlh playerHp;
+   [SerializeField] private PlayerHealth playerHp;
     [SerializeField] private GameObject heartsParentGroup;
     [SerializeField] private GameObject heartTemplate;
     public List<Image> hearts;
-    [SerializeField] private int hpPerHeart = 2; // Must be divisible by 2
+    private int hpPerHeart = 2; // Must be divisible by 2
     private int lastHeartIndex = 0;
 
     [Header("Visual")]
@@ -22,8 +22,25 @@ public class HealthUI : MonoBehaviour
     private void Start() {
         if (hpPerHeart % 2 == 0)
             DisplayHealth();
-        else Debug.LogWarning("HP per heart must be divisible by 2");
+        else 
+            Debug.LogWarning("HP per heart must be divisible by 2");
+        
+       playerHp.OnHealthChange.AddListener(UpdateHealth);
     }
+
+    private void UpdateHealth(int healthChange)
+    {
+        if (healthChange > 0)
+        {
+            OnHeal(healthChange);
+        }
+        else
+        {
+            OnTakeDamage(-healthChange); //the value coming in is already negative, we are negating it to positive again
+        }
+    }
+
+
     public void DisplayHealth() {
         int initialHP = playerHp.GetInitialHealth();
         int fullHearts = initialHP / hpPerHeart; // amount of full hearts
@@ -45,7 +62,7 @@ public class HealthUI : MonoBehaviour
         }
     }
     [ProButton]
-    public void TakeDamage(int damageTaken) {
+    private void OnTakeDamage(int damageTaken) {
         int halfHearts = damageTaken / (hpPerHeart / 2);
         RemoveHearts(halfHearts);
     }
@@ -62,7 +79,7 @@ public class HealthUI : MonoBehaviour
         }
     }
     [ProButton]
-    public void Heal(int healAmount) {
+    private void OnHeal(int healAmount) {
         int halfHearts = healAmount / (hpPerHeart / 2);
         AddHearts(halfHearts);
     }

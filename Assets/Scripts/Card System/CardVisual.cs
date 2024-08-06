@@ -116,8 +116,7 @@ public class CardVisual : MonoBehaviour
    private void SmoothFollow()
    {
       Vector3 verticalOffset = (Vector3.up * (parentCard.IsDragging ? 0 : curveYOffset));
-      if (!parentCard.IsDragging)
-         Debug.Log("vertical offset " + verticalOffset);
+      
       transform.position = Vector3.Lerp(transform.position, cardTransform.position + verticalOffset, followSpeed * Time.deltaTime);
    }
    
