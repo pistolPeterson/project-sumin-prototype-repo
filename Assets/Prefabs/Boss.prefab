@@ -174,6 +174,7 @@ Transform:
   - {fileID: 6631620929048341300}
   - {fileID: 5427951450655707717}
   - {fileID: 6274199666048529553}
+  - {fileID: 8484377495135304953}
   m_Father: {fileID: 356326976198503490}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1543902853894023040
@@ -422,6 +423,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a8af925acbfae24b8aeb863d8aeac70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentAttackPatterns:
+  - {fileID: 919360715582552311}
+  currentSpecialMoves:
+  - {fileID: 2316699520785260243}
+  - {fileID: 1654650690050702535}
   possibleAttackPatterns:
   - {fileID: 6459888391310063384}
   - {fileID: 148761779276015738}
@@ -432,10 +438,10 @@ MonoBehaviour:
   possibleSpecialMoves:
   - {fileID: 2316699520785260243}
   - {fileID: 1654650690050702535}
-  currentAttack: {fileID: 0}
   OnEncounterActive:
     m_PersistentCalls:
       m_Calls: []
+  skipSpecial: 1
   encounterDuration: 40
   percentageForSpecialMove: 0.5
   <encounterTimer>k__BackingField: 0
@@ -606,6 +612,65 @@ MonoBehaviour:
   projectilesPerLaser: 5
   delayBetweenProjSpawn: 0.095
   trackPlayerMovement: 1
+--- !u!1 &5268815010495291669
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8484377495135304953}
+  - component: {fileID: 919360715582552311}
+  m_Layer: 0
+  m_Name: Curved AP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8484377495135304953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5268815010495291669}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4226514926928524505}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &919360715582552311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5268815010495291669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e65880783c28f742822f615ecd5827b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnCompleteAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCompleteSpecial:
+    m_PersistentCalls:
+      m_Calls: []
+  projectilePrefab: {fileID: 4039656847502053378, guid: 51e91e40953a7f24588f4103883a5cb8, type: 3}
+  attackDuration: 40
+  delayBetweenAttacks: 0.5
+  isSpecialMove: 0
+  projectileCount: 5
+  delayBetweenRandomStat: 1
+  archHeight: 2
+  horizontalSpacing: 2
+  verticalSpacing: 1
 --- !u!1 &5838777940141777570
 GameObject:
   m_ObjectHideFlags: 0

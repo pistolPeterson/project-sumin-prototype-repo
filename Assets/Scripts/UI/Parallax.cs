@@ -13,8 +13,8 @@ public class Parallax : MonoBehaviour
         moveSpeed = -moveSpeed;
     }
     private void Update() {
-        Scroll();
         CheckReset();
+        Scroll();
     }
 
     private void SetUpTexture() {

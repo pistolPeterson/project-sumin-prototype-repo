@@ -9,12 +9,11 @@ public class BossAttackHandler : MonoBehaviour
 {
     public List<AttackPattern> currentAttackPatterns = new List<AttackPattern>();
     public List<AttackPattern> currentSpecialMoves = new List<AttackPattern>();
-    //public Dictionary<string, AttackPattern> currentAttackPatters = new Dictionary<string, AttackPattern>();
-    //public Dictionary<string, AttackPattern> currentSpecialMoves = new Dictionary<string, AttackPattern>();
-    [SerializeField] private List<AttackPattern> possibleAttackPatterns;
-    [SerializeField] private List<AttackPattern> possibleSpecialMoves;
-    public AttackPattern currentAttack;
+    public List<AttackPattern> possibleAttackPatterns;
+    public List<AttackPattern> possibleSpecialMoves;
+    private AttackPattern currentAttack;
     [HideInInspector] public UnityEvent OnEncounterActive;
+    [SerializeField] private bool skipSpecial = false;
 
     [Header("Attacking Stats")]
     [SerializeField] private float encounterDuration = 10f;
@@ -73,7 +72,7 @@ public class BossAttackHandler : MonoBehaviour
         while (encounterTimer < encounterDuration) {
             encounterTimer += Time.deltaTime + 1f;
             OnEncounterActive.Invoke();
-            if (!specialPhaseActive && encounterTimer >= intervalForSpecial * (intervalCounter + 1)) {
+            if (!skipSpecial && !specialPhaseActive && encounterTimer >= intervalForSpecial * (intervalCounter + 1)) {
                 currentAttack?.StopAttack();
                 NextSpecial();
                 specialPhaseActive = true;
