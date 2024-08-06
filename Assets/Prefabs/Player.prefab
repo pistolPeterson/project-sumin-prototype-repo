@@ -256,6 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 3406195817275387699}
+  hp: {fileID: 3675811685090691327}
   maxCharge: 10
   shieldCost: 1
   durationTillRegen: 3
@@ -487,4 +488,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: accdd3c870e072742b010b34e548b395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: {fileID: 3675811685090691327}
   impactVisual: {fileID: 7390691789244827855}

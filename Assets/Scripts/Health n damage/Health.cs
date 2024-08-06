@@ -62,4 +62,7 @@ public class Health : MonoBehaviour
         if (initialHealth < 2)
             initialHealth = 2;
     }
+    public void SetInvincibility(bool invincible) {
+        invincibleMode = invincible;
+    }
 }
