@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class HealthUI : MonoBehaviour
 {
-   [SerializeField] private PlayerHeatlh playerHp;
+   [SerializeField] private PlayerHealth playerHp;
     [SerializeField] private GameObject heartsParentGroup;
     [SerializeField] private GameObject heartTemplate;
     public List<Image> hearts;

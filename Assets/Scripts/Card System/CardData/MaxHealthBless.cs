@@ -7,6 +7,6 @@ public class MaxHealthBless : BlessCardBase
 {
     public override void CardEffect(GameManager gameManager)
     {
-        gameManager.playerObject.GetComponent<PlayerHeatlh>().AddMaxHealth(2); //this would need to be called before its updated by UI
+        gameManager.playerObject.GetComponent<PlayerHealth>().AddMaxHealth(2); //this would need to be called before its updated by UI
     }
 }

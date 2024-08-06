@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHeatlh : Health
+public class PlayerHealth : Health
 {
     public override void Start()
     {

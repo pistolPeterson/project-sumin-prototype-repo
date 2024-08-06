@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
         if (!playerObject)
         {
             Debug.LogError("player gameobject not assigned in gamemanager. attempting to find in scene");
-            playerObject = FindObjectOfType<PlayerHeatlh>().gameObject;
+            playerObject = FindObjectOfType<PlayerHealth>().gameObject;
             if (playerObject)
                 Debug.Log("found player GO, youre lucky for now. punk.");
         }
