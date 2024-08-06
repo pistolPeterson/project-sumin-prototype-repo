@@ -6,6 +6,14 @@ public class PlayerVisual : MonoBehaviour
 {
     [SerializeField] private PlayerHealth hp;
     [SerializeField] private PlayerImpactVisual impactVisual;
+    [SerializeField] private Animator eye;
+    [SerializeField] private Animator wings;
+
+    [Header("Clips")]
+    [SerializeField] private AnimationClip eyeUp;
+    [SerializeField] private AnimationClip eyeDown;
+    [SerializeField] private AnimationClip wingUp;
+    [SerializeField] private AnimationClip wingDown;
     private void Start() {
         hp.OnHealthChange.AddListener(PlayImpact);
     }
@@ -13,5 +21,13 @@ public class PlayerVisual : MonoBehaviour
         if (num < 0) {
             impactVisual.PlayImpactClip();
         }
+    }
+    public void PlayUp() {
+        eye.Play(eyeUp.name);
+        wings.Play(wingUp.name);
+    }
+    public void PlayDown() {
+        eye.Play(eyeDown.name);
+        wings.Play(wingDown.name);
     }
 }
