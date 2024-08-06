@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Create Card Instance/MaxHealthCurse")]
-public class MaxHealthCurse : BlessCardBase
+public class MaxHealthCurse : CurseCardBase
 {
     //TODO: add a check for leaving a min of 2 hearts
     public override void CardEffect(GameManager gameManager)

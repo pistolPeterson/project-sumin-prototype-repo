@@ -3,7 +3,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Create Card Instance/MaxHealthBless")]
-public class MaxHealthBless : CardDataBaseSO
+public class MaxHealthBless : BlessCardBase
 {
     public override void CardEffect(GameManager gameManager)
     {
