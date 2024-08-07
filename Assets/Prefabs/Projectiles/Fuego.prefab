@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3743648053699737899}
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 79136527, guid: c3bf411c5f328a144bd5175c2daa55a9, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 515500877, guid: 880cdf079ee3b014182529c6bed094bb, type: 3}
+  m_Color: {r: 0.43665767, g: 0.4251958, b: 0.990566, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 3558790977511202343}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b26b18455a7b26744ac509c67d72f0de, type: 2}
+  m_Controller: {fileID: 9100000, guid: a6fa6412ba0135448a80f2a00bd82c5a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -117,10 +117,10 @@ GameObject:
   - component: {fileID: 3743648053699737899}
   - component: {fileID: 6661032197290677594}
   - component: {fileID: 2644111941861987761}
-  - component: {fileID: -3669983245704617656}
+  - component: {fileID: 8712240467627786073}
   - component: {fileID: 1361159891616533064}
   m_Layer: 0
-  m_Name: Pulse
+  m_Name: Fuego
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,7 +201,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.5763784, y: -0.051095724}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -212,9 +212,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.0409175, y: 0.8521347}
   m_EdgeRadius: 0
---- !u!114 &-3669983245704617656
+--- !u!114 &8712240467627786073
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -223,12 +223,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4039656847502053378}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d46899e154393b246aa3c00d0f013d23, type: 3}
+  m_Script: {fileID: 11500000, guid: 51d9f01a1199fc043aa9415cf78ecb61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6661032197290677594}
-  projectileSpeed: 10
+  projectileSpeed: 6
   maxLifeTime: 4
+  xOffsetToAngle: 7
+  <angledDirection>k__BackingField: 0
+  objToRotate: {fileID: 3558790977511202343}
 --- !u!114 &1361159891616533064
 MonoBehaviour:
   m_ObjectHideFlags: 0

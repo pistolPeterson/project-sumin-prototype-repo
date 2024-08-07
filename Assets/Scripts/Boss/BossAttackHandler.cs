@@ -42,7 +42,6 @@ public class BossAttackHandler : MonoBehaviour
     [ProButton]
     public void StartEncounterAttacks() {
         StartCoroutine(StartEncounterTimer());
-        NextAttack();
     }
     private void NextAttack() {
         if (encounterComplete) {
@@ -58,7 +57,7 @@ public class BossAttackHandler : MonoBehaviour
         PerformSpecial(GetRandomSpecial());
     }
     private AttackPattern GetRandomAttack() {
-        return currentAttackPatterns.OrderBy(x => Random.value).First();
+        return currentAttackPatterns.OrderBy(x => Random.value).First(); // get the first element from a randomly ordered list
     }
     private AttackPattern GetRandomSpecial() {
         return currentSpecialMoves.OrderBy(x => Random.value).First();
@@ -66,13 +65,15 @@ public class BossAttackHandler : MonoBehaviour
     private IEnumerator StartEncounterTimer() {
         encounterComplete = false;
         encounterTimer = 0f;
-        float intervalForSpecial = encounterDuration * percentageForSpecialMove;
+        float intervalForSpecial = (encounterDuration * percentageForSpecialMove) - 0.5f; // slight offset so the UI doesnt look off
         int intervalCounter = 0;
+        NextAttack();
 
         while (encounterTimer < encounterDuration) {
             encounterTimer += Time.deltaTime + 1f;
-            OnEncounterActive.Invoke();
+            OnEncounterActive.Invoke(); // this is for the encounter UI bar to update
             if (!skipSpecial && !specialPhaseActive && encounterTimer >= intervalForSpecial * (intervalCounter + 1)) {
+                Debug.Log("Phase");
                 currentAttack?.StopAttack();
                 NextSpecial();
                 specialPhaseActive = true;
@@ -82,13 +83,14 @@ public class BossAttackHandler : MonoBehaviour
                 specialPhaseActive = false;
             }
             yield return new WaitForSeconds(1f);
-            yield return new WaitUntil(PhaseNotActive);
+            yield return new WaitUntil(SpecialPhaseNotActive); // to stop timer when special phase is active
         }        
+        // this is for when the encounter is complete:
         currentAttack.StopAttack();
         encounterComplete = true;
         Debug.Log("Encounter complete");        
     }
-    private bool PhaseNotActive() {
+    private bool SpecialPhaseNotActive() {
         return specialPhaseActive == false;
     }
     private void SpecialMoveDone() {

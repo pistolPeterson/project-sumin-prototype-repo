@@ -1960,33 +1960,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 919360715582552311, guid: 0ae7af5cd73003b49a243dadb7132d51, type: 3}
-      propertyPath: archHeight
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 919360715582552311, guid: 0ae7af5cd73003b49a243dadb7132d51, type: 3}
-      propertyPath: attackDuration
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 919360715582552311, guid: 0ae7af5cd73003b49a243dadb7132d51, type: 3}
-      propertyPath: projectileCount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 919360715582552311, guid: 0ae7af5cd73003b49a243dadb7132d51, type: 3}
-      propertyPath: verticalSpacing
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919360715582552311, guid: 0ae7af5cd73003b49a243dadb7132d51, type: 3}
-      propertyPath: horizontalSpacing
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 2058051184727044921, guid: 0ae7af5cd73003b49a243dadb7132d51, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.84
       objectReference: {fileID: 0}
     - target: {fileID: 2058051184727044921, guid: 0ae7af5cd73003b49a243dadb7132d51, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.22
+      value: 0.92
       objectReference: {fileID: 0}
     - target: {fileID: 2058051184727044921, guid: 0ae7af5cd73003b49a243dadb7132d51, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2023,10 +2003,6 @@ PrefabInstance:
     - target: {fileID: 6276778812562161108, guid: 0ae7af5cd73003b49a243dadb7132d51, type: 3}
       propertyPath: m_Name
       value: Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 6276778812562161108, guid: 0ae7af5cd73003b49a243dadb7132d51, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
