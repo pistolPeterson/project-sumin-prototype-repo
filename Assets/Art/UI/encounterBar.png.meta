@@ -126,9 +126,9 @@ TextureImporter:
       name: encounterBar_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 28
         y: 6
-        width: 287
+        width: 301
         height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -147,7 +147,7 @@ TextureImporter:
       name: empty_encounterBar
       rect:
         serializedVersion: 2
-        x: 19
+        x: 48
         y: 27
         width: 262
         height: 3
@@ -168,7 +168,7 @@ TextureImporter:
       name: progress_encounterBar
       rect:
         serializedVersion: 2
-        x: 19
+        x: 48
         y: 32
         width: 262
         height: 3
@@ -181,6 +181,48 @@ TextureImporter:
       bones: []
       spriteID: 1a5f5951a113e3f4b8aceb694e7135cd
       internalID: 36439204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shieldBar_full
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 45
+        width: 46
+        height: 1
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ef3f6ae492603b41bc4812e6ff5d073
+      internalID: 338212728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shieldBar
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 50
+        width: 60
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fa49a5132c5b2a4ca243e84609c6211
+      internalID: 820605207
       vertices: []
       indices: 
       edges: []
@@ -199,6 +241,8 @@ TextureImporter:
       empty_encounterBar: -1390593150
       encounterBar_0: -1883051529
       progress_encounterBar: 36439204
+      shieldBar: 820605207
+      shieldBar_full: 338212728
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

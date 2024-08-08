@@ -6,14 +6,13 @@ using TMPro;
 public class ShieldUI : MonoBehaviour
 {
     [SerializeField] private Shield playerShield;
-    [SerializeField] private TextMeshProUGUI shieldText;
     [SerializeField] private Slider shieldBar;
 
     private void Start() {
+        shieldBar.maxValue = playerShield.GetMaxShieldCharge();
         playerShield.OnShieldUse.AddListener(UpdateShieldUI);
     }
     private void UpdateShieldUI(float currentShield) {
-        shieldText.text = "Shield: " + currentShield;
         shieldBar.value = currentShield;
     }
 }

@@ -169,11 +169,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6780912157329969072}
-  - {fileID: 8054161674941978569}
   - {fileID: 6756334195073617251}
   - {fileID: 6631620929048341300}
   - {fileID: 5427951450655707717}
   - {fileID: 6274199666048529553}
+  - {fileID: 1559119591329815979}
   m_Father: {fileID: 356326976198503490}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1543902853894023040
@@ -227,7 +227,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   projectilePrefab: {fileID: 4039656847502053378, guid: 99ad5afcf49d7d042a691f25e45992ec, type: 3}
-  attackDuration: 2.5
+  attackDuration: 7
   delayBetweenAttacks: 0.5
   isSpecialMove: 1
   projectilesPerLaser: 2
@@ -283,7 +283,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   projectilePrefab: {fileID: 4039656847502053378, guid: 51e91e40953a7f24588f4103883a5cb8, type: 3}
-  attackDuration: 10
+  attackDuration: 7
   delayBetweenAttacks: 0.5
   isSpecialMove: 0
   trackPlayerMovement: 1
@@ -318,7 +318,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4226514926928524505}
+  m_Father: {fileID: 1864810838111183756}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &148761779276015738
 MonoBehaviour:
@@ -339,10 +339,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   projectilePrefab: {fileID: 4039656847502053378, guid: 00ecc4353aa4c5144844a9005bc626cb, type: 3}
-  attackDuration: 2
+  attackDuration: 0.5
   delayBetweenAttacks: 0.1
-  isSpecialMove: 0
-  delayBetweenProjSpawn: 0.3
+  isSpecialMove: 1
+  delayBetweenProjSpawn: 0.4
 --- !u!1 &2408580760653925367
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +373,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2352017179839106953}
-  - {fileID: 1559119591329815979}
+  - {fileID: 8484377495135304953}
+  - {fileID: 1582537289723531024}
+  - {fileID: 8054161674941978569}
   m_Father: {fileID: 356326976198503490}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3037956134694025502
@@ -422,22 +424,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a8af925acbfae24b8aeb863d8aeac70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possibleAttackPatterns:
+  currentAttackPatterns:
   - {fileID: 6459888391310063384}
-  - {fileID: 148761779276015738}
   - {fileID: 3729095955242728652}
   - {fileID: 340127678865642243}
   - {fileID: 4223706075345611221}
   - {fileID: 3593351973866457073}
-  possibleSpecialMoves:
+  - {fileID: 1654650690050702535}
+  currentSpecialMoves:
   - {fileID: 2316699520785260243}
   - {fileID: 1654650690050702535}
-  currentAttack: {fileID: 0}
+  - {fileID: 919360715582552311}
+  - {fileID: 2863239878310645266}
+  - {fileID: 148761779276015738}
+  possibleAttackPatterns:
+  - {fileID: 6459888391310063384}
+  - {fileID: 3729095955242728652}
+  - {fileID: 340127678865642243}
+  - {fileID: 4223706075345611221}
+  - {fileID: 3593351973866457073}
+  - {fileID: 1654650690050702535}
+  possibleSpecialMoves:
+  - {fileID: 2316699520785260243}
+  - {fileID: 919360715582552311}
+  - {fileID: 2863239878310645266}
+  - {fileID: 148761779276015738}
   OnEncounterActive:
     m_PersistentCalls:
       m_Calls: []
-  encounterDuration: 40
-  percentageForSpecialMove: 0.5
+  skipSpecial: 0
+  encounterDuration: 60
+  percentageForSpecialMove: 0.25
   <encounterTimer>k__BackingField: 0
 --- !u!1 &3764587820980448543
 GameObject:
@@ -601,11 +618,69 @@ MonoBehaviour:
       m_Calls: []
   projectilePrefab: {fileID: 4039656847502053378, guid: 00ecc4353aa4c5144844a9005bc626cb, type: 3}
   attackDuration: 5
-  delayBetweenAttacks: 0.3
+  delayBetweenAttacks: 0.5
   isSpecialMove: 0
   projectilesPerLaser: 5
   delayBetweenProjSpawn: 0.095
   trackPlayerMovement: 1
+--- !u!1 &5268815010495291669
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8484377495135304953}
+  - component: {fileID: 919360715582552311}
+  m_Layer: 0
+  m_Name: Curved AP SM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8484377495135304953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5268815010495291669}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1864810838111183756}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &919360715582552311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5268815010495291669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e65880783c28f742822f615ecd5827b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnCompleteAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCompleteSpecial:
+    m_PersistentCalls:
+      m_Calls: []
+  projectilePrefab: {fileID: 4039656847502053378, guid: 51e91e40953a7f24588f4103883a5cb8, type: 3}
+  attackDuration: 7
+  delayBetweenAttacks: 0.3
+  isSpecialMove: 1
+  angledProjectilesPrefabs:
+  - {fileID: 4039656847502053378, guid: 51e91e40953a7f24588f4103883a5cb8, type: 3}
+  - {fileID: 4039656847502053378, guid: fe1639ee665f7d9489a65c0a918e9909, type: 3}
+  - {fileID: 4039656847502053378, guid: 8d7c2729f86dd2745ac5911617e44dbf, type: 3}
 --- !u!1 &5838777940141777570
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,12 +706,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5838777940141777570}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1864810838111183756}
+  m_Father: {fileID: 4226514926928524505}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1654650690050702535
 MonoBehaviour:
@@ -657,9 +732,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   projectilePrefab: {fileID: 4039656847502053378, guid: 4e90356d33e69714b9567c6fbe2d791e, type: 3}
-  attackDuration: 2.5
+  attackDuration: 7
   delayBetweenAttacks: 0.5
-  isSpecialMove: 1
+  isSpecialMove: 0
   projectilesPerLaser: 2
   delayBetweenProjSpawn: 0.5
 --- !u!1 &6276778812562161108
@@ -872,3 +947,63 @@ MonoBehaviour:
   isRotating: 1
   rotationSpeed: -4
   rotationDelay: 0.05
+--- !u!1 &7497703969282301583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1582537289723531024}
+  - component: {fileID: 2863239878310645266}
+  m_Layer: 0
+  m_Name: Tracked Block AP SM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1582537289723531024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7497703969282301583}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1864810838111183756}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2863239878310645266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7497703969282301583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17938e2298540394087e19464ee8c61b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnCompleteAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCompleteSpecial:
+    m_PersistentCalls:
+      m_Calls: []
+  projectilePrefab: {fileID: 4039656847502053378, guid: 00ecc4353aa4c5144844a9005bc626cb, type: 3}
+  attackDuration: 7
+  delayBetweenAttacks: 1
+  isSpecialMove: 1
+  laserProjectile: {fileID: 4039656847502053378, guid: 4e90356d33e69714b9567c6fbe2d791e, type: 3}
+  projectilesPerBlocker: 7
+  projectilesPerlaser: 4
+  delayBetweenProjSpawn: 0.1
+  delayBetweenlaserProjSpawn: 0.2
+  trackPlayerMovement: 1

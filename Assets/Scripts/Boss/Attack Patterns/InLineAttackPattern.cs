@@ -22,12 +22,15 @@ public class InLineAttackPattern : AttackPattern
         while (currPos > -(int)playFieldPosConstraint) {
             SetSpawnLoc(currPos);
             Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
-            SetSpawnLoc(playFieldPosConstraint);
+
+            // horizontal projectiles
+            SetSpawnLoc(playFieldPosConstraint); // top
             Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
-            SetSpawnLoc(-playFieldPosConstraint);
+
+            SetSpawnLoc(-playFieldPosConstraint); // bot
             Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
             yield return new WaitForSeconds(delayBetweenProjSpawn);
-            if (currPos == playFieldPosConstraint / 2)
+            if (currPos == playFieldPosConstraint - 4)
                 attackComplete = true;
             currPos--;
         }

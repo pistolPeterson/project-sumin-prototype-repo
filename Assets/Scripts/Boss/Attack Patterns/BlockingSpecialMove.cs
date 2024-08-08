@@ -23,8 +23,8 @@ public class BlockingSpecialMove : AttackPattern
     }
     private void RandomSpawnLoc() {
         int yPos1 = GetRandomYPos();
-        var list = Enumerable.Range(-8, 17).Where(a => a != yPos1 && a % 2 == 0).ToArray(); // what is this doing? what is this list? 
-        int yPos2 = list[Random.Range(0, list.Length)];
+        var randomYPositions = Enumerable.Range(-8, 17).Where(a => a != yPos1 && a % 2 == 0).ToArray();
+        int yPos2 = randomYPositions[Random.Range(0, randomYPositions.Length)];
         SetSpawnLoc(yPos1);
         projectileSpawnLoc2 = new Vector3(transform.position.x, yPos2, transform.position.z);
     }

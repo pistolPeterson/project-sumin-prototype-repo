@@ -11,9 +11,9 @@ public class PlayerMovement : MonoBehaviour
      * Click to move
      */
      private InputManager inputManager;
-
     [SerializeField] [Range(1f, 5f)] private float moveDistance = 3f;
     [SerializeField] private float positionConstraint = 8f;
+    [SerializeField] private PlayerVisual playerVisual;
 
     private Vector2 moveInput;
 
@@ -29,10 +29,12 @@ public class PlayerMovement : MonoBehaviour
         moveInput = inputDirection;
         if (moveInput == Vector2.up)
         {
+            playerVisual.PlayUp();
             MovePlayerUp(moveDistance);
         }
         else if (moveInput == Vector2.down)
         {
+            playerVisual.PlayDown();
             MovePlayerDown(moveDistance);
         }
     }

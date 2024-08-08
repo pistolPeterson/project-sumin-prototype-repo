@@ -228,7 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6661032197290677594}
   projectileSpeed: 12
-  maxLifeTime: 2
+  maxLifeTime: 4
 --- !u!114 &1361159891616533064
 MonoBehaviour:
   m_ObjectHideFlags: 0

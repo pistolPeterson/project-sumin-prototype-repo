@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b5e551e2b73820541bc5112c014d7cfc
+guid: 72d9b9b83dd1dd241afd58a7da2065c1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: colorPalette_0
+      name: playerEYE_IDLE_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 94
-        height: 94
+        width: 80
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a2584ddc62e5304d8a17bcde709c31a
-      internalID: 248029968
+      spriteID: 833afdfc6e01e36458b5cdfe93c0ec71
+      internalID: -1509250306
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: colorPalette_1
+      name: playerEYE_IDLE_1
       rect:
         serializedVersion: 2
-        x: 97
+        x: 80
         y: 0
-        width: 94
-        height: 94
+        width: 80
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0267c0146daa7b4a981cb711d7a73b3
-      internalID: -196755194
+      spriteID: cedecc7d4ac0dd04c8c7c6b18751fd62
+      internalID: 1439178012
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: colorPalette_2
+      name: playerEYE_IDLE_2
       rect:
         serializedVersion: 2
-        x: 193
+        x: 160
         y: 0
-        width: 94
-        height: 94
+        width: 80
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 106907751f10ecb4aaf6c88bb28327aa
-      internalID: -391626363
+      spriteID: 46f7dca0ded6cc64fa94139c1c8e52d2
+      internalID: 1453948611
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: colorPalette_3
+      name: playerEYE_IDLE_3
       rect:
         serializedVersion: 2
-        x: 289
+        x: 240
         y: 0
-        width: 94
-        height: 94
+        width: 80
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,134 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 033824108e2001e4c9342dd0ca8edeb5
-      internalID: 1397894264
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colorPalette_4
-      rect:
-        serializedVersion: 2
-        x: 385
-        y: 0
-        width: 94
-        height: 94
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0b89cb3245dd65d46ab7b2ae62e60c25
-      internalID: 837268844
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colorPalette_5
-      rect:
-        serializedVersion: 2
-        x: 481
-        y: 0
-        width: 94
-        height: 94
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5643425b2a62c8a4e85e3a087a3b6066
-      internalID: -451208910
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colorPalette_6
-      rect:
-        serializedVersion: 2
-        x: 577
-        y: 0
-        width: 94
-        height: 94
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f6f82d7fa709a884db214fd1c479ecb3
-      internalID: 2027837204
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colorPalette_7
-      rect:
-        serializedVersion: 2
-        x: 673
-        y: 0
-        width: 94
-        height: 94
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9478b9fe2dbeec34183dd52ac174af63
-      internalID: -1739657874
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colorPalette_8
-      rect:
-        serializedVersion: 2
-        x: 769
-        y: 0
-        width: 94
-        height: 94
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: df36c5a1294fa2e4caa3c6c32fa47219
-      internalID: -867644811
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colorPalette_9
-      rect:
-        serializedVersion: 2
-        x: 865
-        y: 0
-        width: 93
-        height: 94
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ee49b8e8aa73211489c046333a565f01
-      internalID: -1167803993
+      spriteID: ddab8947084692a4da177a337a38f158
+      internalID: 1402360975
       vertices: []
       indices: 
       edges: []
@@ -343,16 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      colorPalette_0: 248029968
-      colorPalette_1: -196755194
-      colorPalette_2: -391626363
-      colorPalette_3: 1397894264
-      colorPalette_4: 837268844
-      colorPalette_5: -451208910
-      colorPalette_6: 2027837204
-      colorPalette_7: -1739657874
-      colorPalette_8: -867644811
-      colorPalette_9: -1167803993
+      playerEYE_IDLE_0: -1509250306
+      playerEYE_IDLE_1: 1439178012
+      playerEYE_IDLE_2: 1453948611
+      playerEYE_IDLE_3: 1402360975
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

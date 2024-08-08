@@ -14,7 +14,7 @@ public abstract class AttackPattern : MonoBehaviour
     [SerializeField] protected float delayBetweenAttacks = 0.5f; // delay time before calling the next attack
     protected Vector3 projectileSpawnLoc;
     protected bool attackComplete = false;
-    protected bool attackStopped = false;
+    protected bool attackForceStopped = false;
     [SerializeField] protected bool isSpecialMove = false;
     private float timer = 0f;
 
@@ -26,13 +26,13 @@ public abstract class AttackPattern : MonoBehaviour
         projectileSpawnLoc = new Vector3(transform.position.x, yPos, transform.position.z);
     }
     public void StartAttack() {
-       
+        attackForceStopped = false;
         StartCoroutine(AttackLoop());
     }
    
     public void StopAttack() {
         timer = attackDuration;
-        attackStopped = true;
+        attackForceStopped = true;
         Debug.Log("Attack stopped");
     }
     protected int GetRandomYPos() {
@@ -45,21 +45,19 @@ public abstract class AttackPattern : MonoBehaviour
     
     private IEnumerator AttackLoop() {
         timer = 0f;
-      
         while (timer < attackDuration) {
-           // Debug.Log("Attacking Time remaining: " + (attackDuration - timer));
             Attack();
             yield return new WaitUntil(IsAttackComplete);
-          //  Debug.Break();
             yield return new WaitForSeconds(delayBetweenAttacks);
             timer += Time.fixedDeltaTime + delayBetweenAttacks; // to normalize the time
         }
-        yield return new WaitForSeconds(delayBetweenAttacks);
-        if (!attackStopped)
-            OnCompleteAttack.Invoke();
+        yield return new WaitUntil(IsAttackComplete);
+        if (!attackForceStopped) // only if this has not been forced stopped
+                                 // This is for the special. So that the next attack is not called
+            OnCompleteAttack.Invoke(); // invoke to start next attack
         if (isSpecialMove) OnCompleteSpecial.Invoke();
     }
-    private bool IsAttackComplete() {
+    public bool IsAttackComplete() {
         return attackComplete;
     }
     public float GetAttackDuration() {

@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class Shield : MonoBehaviour {
     
     [SerializeField] private InputManager input;
+    [SerializeField] private PlayerHealth hp;
     [SerializeField] private float maxCharge = 10f;
     [SerializeField] private float shieldCost = 1f;
     [SerializeField] private float durationTillRegen = 1f;
@@ -38,6 +39,7 @@ public class Shield : MonoBehaviour {
             timeWithoutUse = 0f;
             return;
         }
+        hp.SetInvincibility(false);
         timeWithoutUse += Time.deltaTime;
         if (timeWithoutUse >= durationTillRegen) {
             if (canUse)
@@ -65,6 +67,7 @@ public class Shield : MonoBehaviour {
             Debug.Log("Not enough charge");
             return;
         }
+        hp.SetInvincibility(true);
         RemoveCharge(shieldCost);
     }
     public void AddCharge(float amt) {
@@ -79,5 +82,8 @@ public class Shield : MonoBehaviour {
         if (currentCharge < 0) {
             currentCharge = 0;
         }
+    }
+    public float GetMaxShieldCharge() {
+        return maxCharge;
     }
 }

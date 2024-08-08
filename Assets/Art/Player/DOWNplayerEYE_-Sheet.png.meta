@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b5e551e2b73820541bc5112c014d7cfc
+guid: fdf82327e7ebde74eb0cc00e782e6625
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: colorPalette_0
+      name: DOWNplayerEYE_-Sheet_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 94
-        height: 94
+        width: 80
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a2584ddc62e5304d8a17bcde709c31a
-      internalID: 248029968
+      spriteID: 1cf5f1c3b83f1f843a601383831d05c0
+      internalID: 1005309809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: colorPalette_1
+      name: DOWNplayerEYE_-Sheet_1
       rect:
         serializedVersion: 2
-        x: 97
+        x: 80
         y: 0
-        width: 94
-        height: 94
+        width: 80
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0267c0146daa7b4a981cb711d7a73b3
-      internalID: -196755194
+      spriteID: 253e5b93f37fc614ba4cc39c5391131d
+      internalID: -1809807417
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: colorPalette_2
+      name: DOWNplayerEYE_-Sheet_2
       rect:
         serializedVersion: 2
-        x: 193
+        x: 160
         y: 0
-        width: 94
-        height: 94
+        width: 80
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,155 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 106907751f10ecb4aaf6c88bb28327aa
-      internalID: -391626363
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colorPalette_3
-      rect:
-        serializedVersion: 2
-        x: 289
-        y: 0
-        width: 94
-        height: 94
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 033824108e2001e4c9342dd0ca8edeb5
-      internalID: 1397894264
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colorPalette_4
-      rect:
-        serializedVersion: 2
-        x: 385
-        y: 0
-        width: 94
-        height: 94
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0b89cb3245dd65d46ab7b2ae62e60c25
-      internalID: 837268844
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colorPalette_5
-      rect:
-        serializedVersion: 2
-        x: 481
-        y: 0
-        width: 94
-        height: 94
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5643425b2a62c8a4e85e3a087a3b6066
-      internalID: -451208910
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colorPalette_6
-      rect:
-        serializedVersion: 2
-        x: 577
-        y: 0
-        width: 94
-        height: 94
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f6f82d7fa709a884db214fd1c479ecb3
-      internalID: 2027837204
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colorPalette_7
-      rect:
-        serializedVersion: 2
-        x: 673
-        y: 0
-        width: 94
-        height: 94
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9478b9fe2dbeec34183dd52ac174af63
-      internalID: -1739657874
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colorPalette_8
-      rect:
-        serializedVersion: 2
-        x: 769
-        y: 0
-        width: 94
-        height: 94
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: df36c5a1294fa2e4caa3c6c32fa47219
-      internalID: -867644811
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colorPalette_9
-      rect:
-        serializedVersion: 2
-        x: 865
-        y: 0
-        width: 93
-        height: 94
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ee49b8e8aa73211489c046333a565f01
-      internalID: -1167803993
+      spriteID: 6794b8924b3368b4cbc089f1c402b055
+      internalID: -1143680726
       vertices: []
       indices: 
       edges: []
@@ -343,16 +196,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      colorPalette_0: 248029968
-      colorPalette_1: -196755194
-      colorPalette_2: -391626363
-      colorPalette_3: 1397894264
-      colorPalette_4: 837268844
-      colorPalette_5: -451208910
-      colorPalette_6: 2027837204
-      colorPalette_7: -1739657874
-      colorPalette_8: -867644811
-      colorPalette_9: -1167803993
+      DOWNplayerEYE_-Sheet_0: 1005309809
+      DOWNplayerEYE_-Sheet_1: -1809807417
+      DOWNplayerEYE_-Sheet_2: -1143680726
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
