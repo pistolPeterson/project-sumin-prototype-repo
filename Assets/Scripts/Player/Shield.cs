@@ -83,4 +83,7 @@ public class Shield : MonoBehaviour {
             currentCharge = 0;
         }
     }
+    public float GetMaxShieldCharge() {
+        return maxCharge;
+    }
 }
