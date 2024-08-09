@@ -25,7 +25,8 @@ public class BombsAttackPattern : AttackPattern {
             float randomX = GetRandomYPos();
             projectileSpawnLoc = new Vector3(randomX, randomY, 0);
         }
-        Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
+        var projGO =Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
+        SetProjectileSpeedState(projGO);
         attackComplete = true;
     }
 }

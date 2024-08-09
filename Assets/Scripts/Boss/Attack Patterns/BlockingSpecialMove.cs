@@ -31,7 +31,8 @@ public class BlockingSpecialMove : AttackPattern
     private IEnumerator LaserShot(Vector3 spawnLoc) {
         int projectilesSpawned = 0;
         while (projectilesSpawned < projectilesPerLaser) {
-            Instantiate(projectilePrefab, spawnLoc, Quaternion.identity);
+          var projectileGO =  Instantiate(projectilePrefab, spawnLoc, Quaternion.identity);
+          SetProjectileSpeedState(projectileGO);
             yield return new WaitForSeconds(delayBetweenProjSpawn);
             projectilesSpawned++;
         }
@@ -40,4 +41,6 @@ public class BlockingSpecialMove : AttackPattern
             attackComplete = true;
         }
     }
+
+   
 }

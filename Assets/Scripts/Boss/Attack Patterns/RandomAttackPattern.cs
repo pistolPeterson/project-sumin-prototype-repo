@@ -16,7 +16,8 @@ public class RandomAttackPattern : AttackPattern
     private void SpawnRandomProjectile() {
         attackComplete = false;
         RandomSpawnLoc();
-        Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
+        var projGO = Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
+        SetProjectileSpeedState(projGO);
         attackComplete = true;
     }
     private void RandomSpawnLoc() {

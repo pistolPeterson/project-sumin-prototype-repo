@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,5 +21,23 @@ public class Projectile : MonoBehaviour
     }
     private void MoveProjectile() {
         rb.velocity = new Vector2(-120f, 0f) * projectileSpeed * Time.fixedDeltaTime;
+    }
+
+    public void SetProjectile(ProjectileSpeedUpgradeEnum projectileSpeedUpgradeEnum)
+    {
+        switch (projectileSpeedUpgradeEnum)
+        {
+            case ProjectileSpeedUpgradeEnum.NORMAL:
+                //we chillin
+                break;
+            case ProjectileSpeedUpgradeEnum.HIGH_SPEED:
+                projectileSpeed = projectileSpeed * 2;
+                break;
+            case ProjectileSpeedUpgradeEnum.LOW_SPEED:
+                projectileSpeed = projectileSpeed / 2;
+                break;
+            default:
+                break;
+        }
     }
 }
