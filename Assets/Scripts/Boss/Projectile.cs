@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float projectileSpeed = 6f;
     [SerializeField] private float maxLifeTime = 3f;
     private float timer;
+    private float projectileMultiplier = 1.5f;
     
     private void FixedUpdate() {
         MoveProjectile();
@@ -31,10 +32,10 @@ public class Projectile : MonoBehaviour
                 //we chillin
                 break;
             case ProjectileSpeedUpgradeEnum.HIGH_SPEED:
-                projectileSpeed = projectileSpeed * 2;
+                projectileSpeed = projectileSpeed * projectileMultiplier;
                 break;
             case ProjectileSpeedUpgradeEnum.LOW_SPEED:
-                projectileSpeed = projectileSpeed / 2;
+                projectileSpeed = projectileSpeed / projectileMultiplier;
                 break;
             default:
                 break;
