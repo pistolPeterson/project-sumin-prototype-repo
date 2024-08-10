@@ -6,6 +6,7 @@ public class PlayerVisual : MonoBehaviour
 {
     [SerializeField] private PlayerHealth hp;
     [SerializeField] private PlayerImpactVisual impactVisual;
+    [SerializeField] private DamageFlash damageFlash;
     [SerializeField] private Animator eye;
     [SerializeField] private Animator wings;
 
@@ -20,6 +21,7 @@ public class PlayerVisual : MonoBehaviour
     public void PlayImpact(int num) {
         if (num < 0) {
             impactVisual.PlayImpact();
+            damageFlash.TriggerDamageFlash();
         }
     }
     public void PlayUp() {
