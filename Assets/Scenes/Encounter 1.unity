@@ -446,6 +446,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8041d653742ad646b84073aa54cec74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &546225958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 546225959}
+  - component: {fileID: 546225960}
+  m_Layer: 0
+  m_Name: Gamemanager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &546225959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546225958}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &546225960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546225958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa3aa23cbeea4d24cadb1ea90548dd1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <playerObject>k__BackingField: {fileID: 547567679}
+  <BossAttackHandler>k__BackingField: {fileID: 1523286168}
+  testingCardEffects:
+  - {fileID: 11400000, guid: 47c318e7530a4ea47b784deababebf1f, type: 2}
+  - {fileID: 11400000, guid: 1a8656e0a8a737a4ab601e90a41d3f27, type: 2}
+--- !u!1 &547567679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1567892376238581741, guid: 7ddbac7f742ab6e41ac355cebc6201fb, type: 3}
+  m_PrefabInstance: {fileID: 1924647637058952197}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &688893085 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5550844673530078201, guid: 19911dff1cd16ac44a8b214e00d39970, type: 3}
@@ -807,7 +861,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3675811685090691327, guid: 7ddbac7f742ab6e41ac355cebc6201fb, type: 3}
   m_PrefabInstance: {fileID: 1924647637058952197}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 547567679}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 309629ad64f00124581226ff756d95b6, type: 3}
@@ -1808,3 +1862,4 @@ SceneRoots:
   - {fileID: 4310939682925902174}
   - {fileID: 1924647637058952197}
   - {fileID: 6356984324116435118}
+  - {fileID: 546225959}

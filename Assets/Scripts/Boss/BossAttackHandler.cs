@@ -12,6 +12,7 @@ public class BossAttackHandler : MonoBehaviour
     public List<AttackPattern> possibleAttackPatterns;
     public List<AttackPattern> possibleSpecialMoves;
     private AttackPattern currentAttack;
+    
     [HideInInspector] public UnityEvent OnEncounterActive;
     [SerializeField] private bool skipSpecial = false;
 
@@ -22,7 +23,20 @@ public class BossAttackHandler : MonoBehaviour
     private bool encounterComplete = false;
     private bool specialPhaseActive = false;
 
-    private void Start() {
+    public List<AttackPattern> attackPatterns;
+    //UPGRADES 
+    [field: SerializeField] public ProjectileSpeedUpgradeEnum ProjectileSpeedState { get; set; } = ProjectileSpeedUpgradeEnum.NORMAL;
+    
+    
+    private void Start()
+    {
+       var potentialAttacks = GetComponentsInChildren<AttackPattern>();
+       foreach (var ap in potentialAttacks)
+       {
+           attackPatterns.Add(ap);
+           ap.Initialize(this);
+       }
+        
         Listeners();
         StartEncounterAttacks();
     }

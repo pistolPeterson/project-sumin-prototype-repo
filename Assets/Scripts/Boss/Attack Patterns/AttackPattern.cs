@@ -17,7 +17,7 @@ public abstract class AttackPattern : MonoBehaviour
     protected bool attackForceStopped = false;
     [SerializeField] protected bool isSpecialMove = false;
     private float timer = 0f;
-
+    protected BossAttackHandler bossAttackHandler;
     protected virtual void Start() {
         projectileSpawnLoc = transform.position;        
     }
@@ -62,5 +62,18 @@ public abstract class AttackPattern : MonoBehaviour
     }
     public float GetAttackDuration() {
         return attackDuration;
+    }
+
+    public void Initialize(BossAttackHandler bossAttackHandler) //can also set up listenerrs with this too
+    {
+        this.bossAttackHandler = bossAttackHandler;
+    }
+    
+    protected void SetProjectileSpeedState(GameObject projectileGO)
+    {
+        if (bossAttackHandler.ProjectileSpeedState == ProjectileSpeedUpgradeEnum.NORMAL)
+            return; //rejected, how tragic
+        projectileGO.GetComponent<Projectile>().SetProjectile(bossAttackHandler.ProjectileSpeedState);
+
     }
 }

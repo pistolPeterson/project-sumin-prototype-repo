@@ -19,7 +19,8 @@ public class HoleInTheWallAttackPattern : AttackPattern {
         for (int yPos = (int)playFieldPosConstraint; yPos >= -playFieldPosConstraint; yPos-= 2) {
             if (yPos == yPosAvoid) continue;
             SetSpawnLoc(yPos);
-            Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
+            var projGO =Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
+            SetProjectileSpeedState(projGO);
         }
         attackComplete = true;
     }

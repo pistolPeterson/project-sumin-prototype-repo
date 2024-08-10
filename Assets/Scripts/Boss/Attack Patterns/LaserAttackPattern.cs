@@ -33,7 +33,8 @@ public class LaserAttackPattern : AttackPattern {
     private IEnumerator LaserShot() {
         int projectilesSpawned = 0;
         while (projectilesSpawned < projectilesPerLaser) {
-            Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
+            var projGO = Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
+            SetProjectileSpeedState(projGO);
             yield return new WaitForSeconds(delayBetweenProjSpawn);
             projectilesSpawned++;
         }
