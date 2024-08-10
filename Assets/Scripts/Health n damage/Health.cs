@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,6 +14,7 @@ public class Health : MonoBehaviour
     [SerializeField] private bool isDead = false;
     [SerializeField] private bool invincibleMode = false;
     [field: SerializeField] public int CurrentHealth { get; private set; }
+    [SerializeField] private float invincibilityDuration = 0.2f;
     public virtual void Start()
     {
         CurrentHealth = initialHealth;
@@ -46,7 +48,15 @@ public class Health : MonoBehaviour
                 OnDeath?.Invoke();
                 return;
         }
-        
+        StartCoroutine(InvincibilityFrameDuration());
+    }
+    private IEnumerator InvincibilityFrameDuration() {
+
+        if (!invincibleMode) {
+            invincibleMode = true;
+            yield return new WaitForSeconds(invincibilityDuration);
+        }
+        invincibleMode = false;
     }
     public int GetInitialHealth() {
         return initialHealth;

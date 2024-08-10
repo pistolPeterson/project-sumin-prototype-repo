@@ -53,7 +53,6 @@ MonoBehaviour:
   heartsParentGroup: {fileID: 7914522875452766189}
   heartTemplate: {fileID: 8843956616633018025, guid: 075b8a79ffb4d204cbacb10aa9f5a34c, type: 3}
   hearts: []
-  hpPerHeart: 2
   fullHeartSprite: {fileID: -1560752647, guid: d72b9a52e7281424a886b2b85ebf1c6b, type: 3}
   halfHeartSprite: {fileID: 1466072949, guid: d72b9a52e7281424a886b2b85ebf1c6b, type: 3}
   emptyHeartSprite: {fileID: 451463298, guid: d72b9a52e7281424a886b2b85ebf1c6b, type: 3}
@@ -123,8 +122,8 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
-  m_Spacing: -25
+  m_ChildAlignment: 4
+  m_Spacing: -55
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0

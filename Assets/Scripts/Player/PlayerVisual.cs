@@ -19,7 +19,7 @@ public class PlayerVisual : MonoBehaviour
     }
     public void PlayImpact(int num) {
         if (num < 0) {
-            impactVisual.PlayImpactClip();
+            impactVisual.PlayImpact();
         }
     }
     public void PlayUp() {
