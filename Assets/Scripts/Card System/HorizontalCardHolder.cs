@@ -7,13 +7,29 @@ using UnityEngine;
 public class HorizontalCardHolder : MonoBehaviour
 {
    public List<Card> cardsInHand;
-
+   public List<CardDataBaseSO> cardsDataInHand;
    [Header("Debug Card Status")] 
    [SerializeField] private Card selectedCard;
 
+   [SerializeField] private bool isBlessCards; 
+   
    private void Awake()
    {
       SetUpListeners();
+      //another script has a global list of all the cards 
+      var cardPool = FindObjectOfType<AllCards>().CardPool;
+      //get all the bless/curse cards and add to hand
+      foreach (var card in cardPool)
+      {
+         if (isBlessCards)
+         {
+            if (card is BlessCardBase)
+            {
+               cardsDataInHand.Add(card);
+            }
+         }
+      }
+      
    }
 
    private void SetUpListeners()
