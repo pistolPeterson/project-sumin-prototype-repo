@@ -115,6 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5834890632048992448}
+  - component: {fileID: 5871720256364126353}
   m_Layer: 0
   m_Name: Boss Visual
   m_TagString: Untagged
@@ -139,6 +140,22 @@ Transform:
   - {fileID: 6537469273723913995}
   m_Father: {fileID: 2058051184727044921}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5871720256364126353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640321816556135449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5487c5a88303434c990a0c95a9956b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handler: {fileID: 6133417446292666911}
+  wingsAnimation: {fileID: 2095333939981900281}
+  shake: {fileID: 3177150730035638050}
+  rotationSpeedMultiplier: 1.5
 --- !u!1 &1327442855682013846
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,7 +304,7 @@ MonoBehaviour:
   delayBetweenAttacks: 0.5
   isSpecialMove: 0
   trackPlayerMovement: 1
-  spawnOffsetX: 11
+  spawnOffsetX: 15
 --- !u!1 &2249655712451561451
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,6 +404,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 356326976198503490}
+  - component: {fileID: 4666512018437751616}
   - component: {fileID: 6133417446292666911}
   m_Layer: 0
   m_Name: Attack Handler
@@ -412,7 +430,7 @@ Transform:
   - {fileID: 1864810838111183756}
   m_Father: {fileID: 2058051184727044921}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6133417446292666911
+--- !u!114 &4666512018437751616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -421,7 +439,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3037956134694025502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a8af925acbfae24b8aeb863d8aeac70, type: 3}
+  m_Script: {fileID: 11500000, guid: 7fc1d4250e060ed40ab2d83864d4f927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentAttackPatterns:
@@ -446,16 +464,35 @@ MonoBehaviour:
   - {fileID: 1654650690050702535}
   possibleSpecialMoves:
   - {fileID: 2316699520785260243}
+  - {fileID: 1654650690050702535}
   - {fileID: 919360715582552311}
   - {fileID: 2863239878310645266}
   - {fileID: 148761779276015738}
+--- !u!114 &6133417446292666911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3037956134694025502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a8af925acbfae24b8aeb863d8aeac70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handlerData: {fileID: 4666512018437751616}
   OnEncounterActive:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSpecialPerformed:
     m_PersistentCalls:
       m_Calls: []
   skipSpecial: 0
   encounterDuration: 60
   percentageForSpecialMove: 0.25
   <encounterTimer>k__BackingField: 0
+  attackPatterns: []
+  <ProjectileSpeedState>k__BackingField: 0
 --- !u!1 &3764587820980448543
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,6 +873,7 @@ GameObject:
   - component: {fileID: 4767234518099440826}
   - component: {fileID: 304306260298583545}
   - component: {fileID: 2095333939981900281}
+  - component: {fileID: 3177150730035638050}
   m_Layer: 0
   m_Name: Wings
   m_TagString: Untagged
@@ -947,6 +985,21 @@ MonoBehaviour:
   isRotating: 1
   rotationSpeed: -4
   rotationDelay: 0.05
+  <speedMultiplier>k__BackingField: 1
+--- !u!114 &3177150730035638050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7232524160225720510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc662d0554023674691da11464d15bbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.5
+  strength: 2
 --- !u!1 &7497703969282301583
 GameObject:
   m_ObjectHideFlags: 0

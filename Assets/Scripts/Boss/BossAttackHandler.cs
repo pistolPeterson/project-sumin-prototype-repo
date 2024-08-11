@@ -7,17 +7,14 @@ using System.Linq;
 
 public class BossAttackHandler : MonoBehaviour
 {
-    public List<AttackPattern> currentAttackPatterns = new List<AttackPattern>();
-    public List<AttackPattern> currentSpecialMoves = new List<AttackPattern>();
-    public List<AttackPattern> possibleAttackPatterns;
-    public List<AttackPattern> possibleSpecialMoves;
-    private AttackPattern currentAttack;
-    
+    [SerializeField] private BossAttackHandlerData handlerData;
     [HideInInspector] public UnityEvent OnEncounterActive;
+    [HideInInspector] public UnityEvent OnSpecialPerformed;
     [SerializeField] private bool skipSpecial = false;
+    private AttackPattern currentAttack;
 
     [Header("Attacking Stats")]
-    [SerializeField] private float encounterDuration = 10f;
+    [SerializeField] private float encounterDuration = 60f;
     [SerializeField] private float percentageForSpecialMove = 0.25f;
     [field: SerializeField] public float encounterTimer { get; private set; }
     private bool encounterComplete = false;
@@ -26,7 +23,6 @@ public class BossAttackHandler : MonoBehaviour
     public List<AttackPattern> attackPatterns;
     //UPGRADES 
     [field: SerializeField] public ProjectileSpeedUpgradeEnum ProjectileSpeedState { get; set; } = ProjectileSpeedUpgradeEnum.NORMAL;
-    
     
     private void Start()
     {
@@ -41,13 +37,13 @@ public class BossAttackHandler : MonoBehaviour
         StartEncounterAttacks();
     }
     private void Listeners() {
-        if (possibleAttackPatterns.Count > 0) {
-            foreach (AttackPattern ap in possibleAttackPatterns) {
+        if (handlerData.possibleAttackPatterns.Count > 0) {
+            foreach (AttackPattern ap in handlerData.possibleAttackPatterns) {
                 ap.OnCompleteAttack.AddListener(NextAttack);
             }
         }
-        if (possibleSpecialMoves.Count > 0) {
-            foreach (AttackPattern sm in possibleSpecialMoves) {
+        if (handlerData.possibleSpecialMoves.Count > 0) {
+            foreach (AttackPattern sm in handlerData.possibleSpecialMoves) {
                 sm.OnCompleteAttack.AddListener(NextAttack);
                 sm.OnCompleteSpecial.AddListener(SpecialMoveDone);
             }
@@ -61,21 +57,17 @@ public class BossAttackHandler : MonoBehaviour
         if (encounterComplete) {
             return;
         }
-        PerformAttack(GetRandomAttack());
+        PerformAttack(handlerData.GetRandomAttack());
     }
     private void NextSpecial() {
         if (encounterComplete) {
             return;
         }
         Debug.Log("Special !");
-        PerformSpecial(GetRandomSpecial());
+        PerformSpecial(handlerData.GetRandomSpecial());
     }
-    private AttackPattern GetRandomAttack() {
-        return currentAttackPatterns.OrderBy(x => Random.value).First(); // get the first element from a randomly ordered list
-    }
-    private AttackPattern GetRandomSpecial() {
-        return currentSpecialMoves.OrderBy(x => Random.value).First();
-    }
+    
+    // ENCOUNTER LOOP:
     private IEnumerator StartEncounterTimer() {
         encounterComplete = false;
         encounterTimer = 0f;
@@ -88,9 +80,9 @@ public class BossAttackHandler : MonoBehaviour
             OnEncounterActive.Invoke(); // this is for the encounter UI bar to update
             if (!skipSpecial && !specialPhaseActive && encounterTimer >= intervalForSpecial * (intervalCounter + 1)) {
                 Debug.Log("Phase");
+                specialPhaseActive = true;
                 currentAttack?.StopAttack();
                 NextSpecial();
-                specialPhaseActive = true;
                 intervalCounter++;
             }
             if (encounterTimer >= intervalForSpecial * (intervalCounter + 1) + intervalForSpecial) {
@@ -104,13 +96,12 @@ public class BossAttackHandler : MonoBehaviour
         encounterComplete = true;
         Debug.Log("Encounter complete");        
     }
-    private bool SpecialPhaseNotActive() {
+    public bool SpecialPhaseNotActive() {
         return specialPhaseActive == false;
     }
     private void SpecialMoveDone() {
         specialPhaseActive = false;
     }
-    [ProButton]
     public void PerformAttack(AttackPattern ap) {
         currentAttack = ap;
         currentAttack.StartAttack();
@@ -118,32 +109,7 @@ public class BossAttackHandler : MonoBehaviour
     public void PerformSpecial(AttackPattern ap) {
         currentAttack = ap;
         currentAttack.StartAttack();
-    }
-    public void AddAttack(AttackPattern ap) {
-        foreach (AttackPattern patterns in possibleAttackPatterns) {
-            if (patterns == ap) {
-                currentAttackPatterns.Add(ap);
-            }
-        }
-    }
-    public void AddSpecial(AttackPattern sm) {
-        foreach (AttackPattern special in possibleSpecialMoves) {
-            if (special == sm) {
-                currentSpecialMoves.Add(sm);
-            }
-        }
-    }
-    public void RemoveAttack(AttackPattern ap) {
-        if (currentAttackPatterns.Contains(ap)) {
-            currentAttackPatterns.Remove(ap);
-        }
-        else Debug.LogWarning(ap + "attack not found: Nothing removed.");
-    }
-    public void RemoveSpecial(AttackPattern sm) {
-        if (currentSpecialMoves.Contains(sm)) {
-            currentSpecialMoves.Remove(sm);
-        }
-        else Debug.LogWarning(sm + " special not found: Nothing removed.");
+        OnSpecialPerformed.Invoke();
     }
     public float GetEncounterDuration() {
         return encounterDuration;

@@ -7,8 +7,9 @@ public class PlayerImpactVisual : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private AnimationClip impactAnimationClip;
-    
-    public void PlayImpactClip() {
+    [SerializeField] private Shake shake;
+    public void PlayImpact() {
         animator.Play(impactAnimationClip.name);
+        shake.TriggerShake();
     }
 }
