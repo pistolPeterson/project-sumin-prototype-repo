@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour//dont touch raeus :)
     [field: SerializeField] public GameObject playerObject { get; private set; }
     [field: SerializeField] public BossAttackHandler BossAttackHandler { get; private set; }
     private bool showLogs = true;
-
+    public List<CardDataBaseSO> currentPlayerHand;
+    
+    
     [Header("Debug cards")] 
     public List<CardDataBaseSO> testingCardEffects;
     private void Awake()
@@ -26,7 +28,8 @@ public class GameManager : MonoBehaviour//dont touch raeus :)
     {
         if (testingCardEffects.Count != 0)
         {
-            ReadCards(testingCardEffects);
+            currentPlayerHand = testingCardEffects;
+            ReadCards(currentPlayerHand);
         }
     }
 
