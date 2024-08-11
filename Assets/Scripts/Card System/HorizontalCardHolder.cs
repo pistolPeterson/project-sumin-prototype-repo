@@ -21,15 +21,17 @@ public class HorizontalCardHolder : MonoBehaviour
       //get all the bless/curse cards and add to hand
       foreach (var card in cardPool)
       {
-         if (isBlessCards)
+         if (isBlessCards && card.GetCardType() == CardFateType.BlessCard)
          {
-            if (card is BlessCardBase)
-            {
-               cardsDataInHand.Add(card);
-            }
+            cardsDataInHand.Add(card);
          }
+         if (!isBlessCards && card.GetCardType() == CardFateType.CurseCard)
+         {
+            cardsDataInHand.Add(card);
+         }
+         
+         
       }
-      //wtf
       
    }
 

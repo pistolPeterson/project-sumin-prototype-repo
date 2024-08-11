@@ -1283,8 +1283,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardsInHand:
   - {fileID: 1417343557}
+  cardsDataInHand: []
   selectedCard: {fileID: 0}
-  isBlessCards: 0
+  isBlessCards: 1
 --- !u!114 &1516159343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1469,6 +1470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardsInHand:
   - {fileID: 6052019612106059811}
+  cardsDataInHand: []
   selectedCard: {fileID: 0}
   isBlessCards: 0
 --- !u!1 &1997240899
