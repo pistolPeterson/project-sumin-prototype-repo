@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class HorizontalCardHolder : MonoBehaviour
@@ -11,28 +12,55 @@ public class HorizontalCardHolder : MonoBehaviour
    [Header("Debug Card Status")] 
    [SerializeField] private Card selectedCard;
 
-   [SerializeField] private bool isBlessCards; 
-   
+   [SerializeField] private bool isBlessCards;
+   [SerializeField] private int amountOfCards = 3;
+   [SerializeField] private GameObject cardBasePrefab;
    private void Awake()
    {
       SetUpListeners();
       //another script has a global list of all the cards 
+    
+   }
+
+
+   private void Start()
+   {
       var cardPool = FindObjectOfType<AllCards>().CardPool;
+      //TODO: shuffle the cards?
       //get all the bless/curse cards and add to hand
+      int currentAmt = 0;
       foreach (var card in cardPool)
       {
          if (isBlessCards && card.GetCardType() == CardFateType.BlessCard)
          {
             cardsDataInHand.Add(card);
+            currentAmt++;
+
          }
+
          if (!isBlessCards && card.GetCardType() == CardFateType.CurseCard)
          {
             cardsDataInHand.Add(card);
+            currentAmt++;
          }
-         
+         if (currentAmt >= amountOfCards)
+            break;
          
       }
       
+      //spawn the cards in cardsInHand, and set the visuals
+      for (int i = 0; i < amountOfCards; i++)
+      {
+         var cardGO = Instantiate(cardBasePrefab, this.transform);
+         var card = cardGO.GetComponentInChildren<Card>();
+         if (card.GetCardVisual() == null)
+         {
+            Debug.Log("card is null bro");
+         }
+         var cardSOVisual = card.GetCardVisual().gameObject.GetComponent<CardSOVisual>();
+         cardSOVisual.cardSo = cardsDataInHand[i];
+         cardSOVisual.UpdateCardVisual();
+      }
    }
 
    private void SetUpListeners()

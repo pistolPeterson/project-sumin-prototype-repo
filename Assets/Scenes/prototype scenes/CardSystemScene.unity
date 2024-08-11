@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card Slot Prefab (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 869628220691881547, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -153,7 +157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchorMin.x
@@ -161,11 +165,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 380.29
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_SizeDelta.y
@@ -201,11 +205,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 570.135
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -141.25
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -249,6 +253,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card Slot Prefab (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 869628220691881547, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -263,7 +271,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchorMin.x
@@ -271,11 +279,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 380.29
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_SizeDelta.y
@@ -311,11 +319,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 950.12506
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -141.25
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -771,6 +779,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1177840616 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1567892376238581741, guid: 7ddbac7f742ab6e41ac355cebc6201fb, type: 3}
+  m_PrefabInstance: {fileID: 525585383}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1210180041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -787,6 +800,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card Slot Prefab (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 869628220691881547, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -801,7 +818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchorMin.x
@@ -809,11 +826,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 380.29
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_SizeDelta.y
@@ -849,11 +866,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 570.135
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -141.25
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -897,6 +914,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card Slot Prefab (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 869628220691881547, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -911,7 +932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchorMin.x
@@ -919,11 +940,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 380.29
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_SizeDelta.y
@@ -959,11 +980,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 950.12506
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -141.25
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1007,6 +1028,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card Slot Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 869628220691881547, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1021,7 +1046,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1029,11 +1054,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 380.29
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1069,11 +1094,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 190.14502
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -141.25
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1224,7 +1249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa3aa23cbeea4d24cadb1ea90548dd1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <playerObject>k__BackingField: {fileID: 0}
+  <playerObject>k__BackingField: {fileID: 1177840616}
   <BossAttackHandler>k__BackingField: {fileID: 0}
   testingCardEffects: []
 --- !u!1 &1516159340
@@ -1286,6 +1311,8 @@ MonoBehaviour:
   cardsDataInHand: []
   selectedCard: {fileID: 0}
   isBlessCards: 1
+  amountOfCards: 3
+  cardBasePrefab: {fileID: 869628220691881547, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
 --- !u!114 &1516159343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1473,6 +1500,8 @@ MonoBehaviour:
   cardsDataInHand: []
   selectedCard: {fileID: 0}
   isBlessCards: 0
+  amountOfCards: 3
+  cardBasePrefab: {fileID: 869628220691881547, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
 --- !u!1 &1997240899
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,6 +1551,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 47c318e7530a4ea47b784deababebf1f, type: 2}
   - {fileID: 11400000, guid: 1a8656e0a8a737a4ab601e90a41d3f27, type: 2}
   - {fileID: 11400000, guid: 2aac9ef82ed11b34497d0fe746224e7a, type: 2}
+  - {fileID: 11400000, guid: 2aac9ef82ed11b34497d0fe746224e7a, type: 2}
+  - {fileID: 11400000, guid: 2aac9ef82ed11b34497d0fe746224e7a, type: 2}
+  - {fileID: 11400000, guid: 2aac9ef82ed11b34497d0fe746224e7a, type: 2}
+  - {fileID: 11400000, guid: 1a8656e0a8a737a4ab601e90a41d3f27, type: 2}
 --- !u!1001 &1932374779941244897
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1538,6 +1571,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card Slot Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 869628220691881547, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1552,7 +1589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1560,11 +1597,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 380.29
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1600,11 +1637,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 190.145
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -141.25
       objectReference: {fileID: 0}
     - target: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
