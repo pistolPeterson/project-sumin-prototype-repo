@@ -10,6 +10,7 @@ public class AngledProjectile : MonoBehaviour
     [SerializeField] private float xOffsetToAngle = 3;
     [field: SerializeField] public Direction angledDirection { get; set; }
     [SerializeField] private GameObject objToRotate;
+    private float projectileMultiplier = 1.5f;
     private Transform player;
     private float timer;
     private Vector2 moveDirection;
@@ -63,6 +64,21 @@ public class AngledProjectile : MonoBehaviour
                 break;
             case Direction.UP_LEFT:
                 objToRotate.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, -45f));
+                break;
+        }
+    }
+    public void SetProjectile(ProjectileSpeedUpgradeEnum projectileSpeedUpgradeEnum) {
+        switch (projectileSpeedUpgradeEnum) {
+            case ProjectileSpeedUpgradeEnum.NORMAL:
+                //we chillin
+                break;
+            case ProjectileSpeedUpgradeEnum.HIGH_SPEED:
+                projectileSpeed = projectileSpeed * projectileMultiplier;
+                break;
+            case ProjectileSpeedUpgradeEnum.LOW_SPEED:
+                projectileSpeed = projectileSpeed / projectileMultiplier;
+                break;
+            default:
                 break;
         }
     }

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 9217746039276879448}
   - component: {fileID: 8644711571011013921}
   - component: {fileID: 3969802039586568284}
+  - component: {fileID: 2064367255699874275}
+  - component: {fileID: 7995462743409636117}
   m_Layer: 0
   m_Name: Projectile Visual
   m_TagString: Untagged
@@ -106,6 +108,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2064367255699874275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3558790977511202343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5b5c294d93fe644fb702b84114ca1c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damager: {fileID: 1361159891616533064}
+  shake: {fileID: 7995462743409636117}
+--- !u!114 &7995462743409636117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3558790977511202343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc662d0554023674691da11464d15bbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.1
+  strength: 0.5
 --- !u!1 &4039656847502053378
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,3 +273,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialDamageAmt: 2
   <currentDamage>k__BackingField: 0
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls: []

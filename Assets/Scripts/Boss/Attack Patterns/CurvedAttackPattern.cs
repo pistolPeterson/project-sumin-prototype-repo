@@ -14,7 +14,7 @@ public class CurvedAttackPattern : AttackPattern {
         attackComplete = false;
         RandomSpawnLoc();
         ChooseRandomProjectile();
-       var projGO = Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
+        GameObject projGO = Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
         SetProjectileSpeedState(projGO);
         attackComplete = true;
     }

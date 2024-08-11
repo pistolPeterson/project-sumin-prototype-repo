@@ -73,7 +73,13 @@ public abstract class AttackPattern : MonoBehaviour
     {
         if (bossAttackHandler.ProjectileSpeedState == ProjectileSpeedUpgradeEnum.NORMAL)
             return; //rejected, how tragic
-        projectileGO.GetComponent<Projectile>().SetProjectile(bossAttackHandler.ProjectileSpeedState);
+        AngledProjectile angled = projectileGO.GetComponent<AngledProjectile>();
+        if (angled) {
+            angled.SetProjectile(bossAttackHandler.ProjectileSpeedState);
+        }
+        else {
+            projectileGO.GetComponent<Projectile>().SetProjectile(bossAttackHandler.ProjectileSpeedState);
+        }
 
     }
 }
