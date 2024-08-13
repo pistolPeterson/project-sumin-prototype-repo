@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/Encounter.unity.meta
+guid: 76961dfac76580e448269ecc1a9d6f43
+========
+guid: 722828c47a32b894ab8315edc118e48c
+folderAsset: yes
+>>>>>>>> main:Assets/Scripts/Player/UI.meta
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
