@@ -102,7 +102,7 @@ public class CardVisual : MonoBehaviour
    
    private void PointerUp(Card card, bool isLongPress)
    {
-      Debug.Log("pointing up brub " + isLongPress);
+      
       transform.DOScale(isLongPress ? scaleOnHover : scaleOnSelect, scaleTransitionTime).SetEase(scaleEase);
       canvas.overrideSorting = false;
 

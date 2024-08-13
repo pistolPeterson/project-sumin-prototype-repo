@@ -142,6 +142,12 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     }
 
+    public void DeselectCard()
+    {
+        transform.localPosition = Vector3.zero;
+        IsSelected = false;
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         if (eventData.button != PointerEventData.InputButton.Left)

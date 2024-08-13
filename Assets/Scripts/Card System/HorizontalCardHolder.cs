@@ -17,7 +17,7 @@ public class HorizontalCardHolder : MonoBehaviour
    [SerializeField] private GameObject cardBasePrefab;
    private void Awake()
    {
-      SetUpListeners();
+      
       //another script has a global list of all the cards 
     
    }
@@ -55,27 +55,33 @@ public class HorizontalCardHolder : MonoBehaviour
          var card = cardGO.GetComponentInChildren<Card>();
          if (card.GetCardVisual() == null)
          {
-            Debug.Log("card is null bro");
+            Debug.Log("card visual is null bro");
          }
+         SetUpListener(card);
          var cardSOVisual = card.GetCardVisual().gameObject.GetComponent<CardSOVisual>();
          cardSOVisual.cardSo = cardsDataInHand[i];
          cardSOVisual.UpdateCardVisual();
       }
    }
 
-   private void SetUpListeners()
+   private void SetUpListener(Card card)
    {
-      foreach (var card in cardsInHand)
-      {
+     
          card.OnCardBeginDrag.AddListener(OnBeginDrag);
          card.OnCardEndDrag.AddListener(OnEndDrag);
          card.OnCardSelected.AddListener(_OnCardSelected);
-      }
+      
    }
 
    private void _OnCardSelected(Card card, bool isCardSelected)
    {
       
+      if(isCardSelected)
+      {
+         selectedCard?.DeselectCard();
+         selectedCard = card;
+
+      }
    }
 
    public void OnBeginDrag(Card card)
@@ -91,4 +97,6 @@ public class HorizontalCardHolder : MonoBehaviour
       selectedCard = null;
      
    }
+
+   public Card GetSelectedCard() => selectedCard;
 }
