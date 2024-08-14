@@ -13,6 +13,7 @@ public class BossAttackHandler : MonoBehaviour
     [SerializeField] private bool skipSpecial = false;
     private AttackPattern currentAttack;
 
+    [SerializeField] private float startDelay = 3f; //for audio, any initialize animations, will be cool to time the music with it
     [Header("Attacking Stats")]
     [SerializeField] private float encounterDuration = 60f;
     [SerializeField] private float percentageForSpecialMove = 0.25f;
@@ -23,7 +24,7 @@ public class BossAttackHandler : MonoBehaviour
     public List<AttackPattern> attackPatterns;
     //UPGRADES 
     [field: SerializeField] public ProjectileSpeedUpgradeEnum ProjectileSpeedState { get; set; } = ProjectileSpeedUpgradeEnum.NORMAL;
-    
+    private GameManager gameManager;
     private void Start()
     {
        var potentialAttacks = GetComponentsInChildren<AttackPattern>();
@@ -34,7 +35,16 @@ public class BossAttackHandler : MonoBehaviour
        }
         
         Listeners();
-        StartEncounterAttacks();
+        gameManager = GameManager.Instance;
+        gameManager.ReadCards(); //TODO: will be updated to a start/init method that sets things and does other stuff. 
+
+
+        StartCoroutine(DelayThenStart());
+        IEnumerator DelayThenStart()
+        {
+            yield return new WaitForSeconds(startDelay);
+            StartEncounterAttacks();
+        }
     }
     private void Listeners() {
         if (handlerData.possibleAttackPatterns.Count > 0) {

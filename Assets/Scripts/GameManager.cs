@@ -42,6 +42,16 @@ public class GameManager : PersistentSingleton<GameManager>//dont touch raeus :)
             Log($"{cardOrCurse} Card applied: {cardData.cardDescription}");
         }
     }
+
+     public void ReadCards() //Reads through the cards and applies their BS
+    {
+        foreach (var cardData in currentPlayerHand)
+        {
+            cardData.CardEffect(this);
+            String cardOrCurse = cardData.GetType().ToString();
+            Log($"{cardOrCurse} Card applied: {cardData.cardDescription}");
+        }
+    }
     
     private void Log(object message)
     {
