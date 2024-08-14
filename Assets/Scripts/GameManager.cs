@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : PersistentSingleton<GameManager>//dont touch raeus :)
+public class GameManager : PersistentSingleton<GameManager> 
 {
     [field: SerializeField] public GameObject playerObject { get; private set; }
     [field: SerializeField] public BossAttackHandler BossAttackHandler { get; private set; }
