@@ -13,13 +13,27 @@ public abstract class CardDataBaseSO : ScriptableObject //TODO: will probably be
   {
     
   }
+
+  public virtual CardFateType GetCardType() => CardFateType.NONE;
 }
 
 //These scripts are the ones you inherit from 2
-public class BlessCardBase : CardDataBaseSO { }
-public class CurseCardBase : CardDataBaseSO { }
+public class BlessCardBase : CardDataBaseSO
+{
+  public override CardFateType GetCardType() => CardFateType.BlessCard;
+}
+
+public class CurseCardBase : CardDataBaseSO
+{
+  public override CardFateType GetCardType() => CardFateType.CurseCard;
+}
 
 
-
+public enum CardFateType
+{
+  NONE,
+  BlessCard,
+  CurseCard
+}
 
 

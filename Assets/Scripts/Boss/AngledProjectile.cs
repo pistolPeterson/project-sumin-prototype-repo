@@ -2,34 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AngledProjectile : MonoBehaviour
+public class AngledProjectile : Projectile
 {
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float projectileSpeed = 6f;
-    [SerializeField] private float maxLifeTime = 4f;
+   
     [SerializeField] private float xOffsetToAngle = 3;
     [field: SerializeField] public Direction angledDirection { get; set; }
     [SerializeField] private GameObject objToRotate;
-    private float projectileMultiplier = 1.5f;
-    private Transform player;
-    private float timer;
+    private Transform playerTransform;
     private Vector2 moveDirection;
 
     private void Start() {
-        player = FindObjectOfType<PlayerMovement>()?.transform;
-        Debug.Log(player);
+        playerTransform = FindObjectOfType<PlayerMovement>()?.transform;
+        Debug.Log(playerTransform);
         SetMoveDirection(Direction.LEFT); // default
     }
-    private void FixedUpdate() {
-        MoveProjectile();
-        timer += Time.deltaTime;
-        if (timer >= maxLifeTime) {
-            Destroy(gameObject);
-            timer = 0;
-        }
-    }
-    private void MoveProjectile() {
-        if (transform.position.x <= player?.position.x + xOffsetToAngle) {
+    public override void MoveProjectile() {
+        if (transform.position.x <= playerTransform?.position.x + xOffsetToAngle) {
             SetMoveDirection(angledDirection);
         }
         else {
@@ -67,21 +55,7 @@ public class AngledProjectile : MonoBehaviour
                 break;
         }
     }
-    public void SetProjectile(ProjectileSpeedUpgradeEnum projectileSpeedUpgradeEnum) {
-        switch (projectileSpeedUpgradeEnum) {
-            case ProjectileSpeedUpgradeEnum.NORMAL:
-                //we chillin
-                break;
-            case ProjectileSpeedUpgradeEnum.HIGH_SPEED:
-                projectileSpeed = projectileSpeed * projectileMultiplier;
-                break;
-            case ProjectileSpeedUpgradeEnum.LOW_SPEED:
-                projectileSpeed = projectileSpeed / projectileMultiplier;
-                break;
-            default:
-                break;
-        }
-    }
+    
 }
 public enum Direction {
     UP_LEFT,
