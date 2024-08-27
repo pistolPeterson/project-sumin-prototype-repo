@@ -8,7 +8,7 @@ public class BossNode : MonoBehaviour, INode
     public void OnNodeInteract()
     {
         //increase boss stats 
-        //show player somehow?
-        Debug.Log("Increasing Boss stats... oh boy");
+        //show player somehow in UI
+        Debug.Log("Increasing Boss stats... thats a raeus problem :) ");
     }
 }

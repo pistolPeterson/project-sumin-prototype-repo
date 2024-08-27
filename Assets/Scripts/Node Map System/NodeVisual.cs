@@ -52,6 +52,8 @@ public class NodeVisual : MonoBehaviour
 
     }
 
-  
-   
+    private void OnDestroy()
+    {
+        transform.DOKill(false);
+    }
 }

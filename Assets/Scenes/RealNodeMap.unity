@@ -181,6 +181,9 @@ MonoBehaviour:
   OnNodePointerExit:
     m_PersistentCalls:
       m_Calls: []
+  OnNodeSelected:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &97857385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,6 +381,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeButton: {fileID: 744705072}
+--- !u!1 &549986013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 549986014}
+  - component: {fileID: 549986015}
+  m_Layer: 0
+  m_Name: 'TEMP GAMEMANAGER '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &549986014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549986013}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &549986015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549986013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa3aa23cbeea4d24cadb1ea90548dd1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AutoUnparentOnAwake: 1
+  <playerObject>k__BackingField: {fileID: 0}
+  <BossAttackHandler>k__BackingField: {fileID: 0}
+  currentPlayerHand: []
+  testingCardEffects: []
 --- !u!1 &635337544
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,6 +799,9 @@ MonoBehaviour:
   OnNodePointerExit:
     m_PersistentCalls:
       m_Calls: []
+  OnNodeSelected:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &879931999
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,6 +950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd198652b1b36d45b9a3009c6a9ea2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <willHealNextRound>k__BackingField: 0
 --- !u!1 &1129877608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,6 +1187,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnNodePointerExit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnNodeSelected:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1322138661
@@ -1488,6 +1547,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnNodePointerExit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnNodeSelected:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1601328024
@@ -2730,3 +2792,4 @@ SceneRoots:
   - {fileID: 1124934368}
   - {fileID: 2014148036}
   - {fileID: 635337547}
+  - {fileID: 549986014}

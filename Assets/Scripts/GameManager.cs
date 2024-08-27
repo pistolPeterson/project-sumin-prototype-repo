@@ -6,31 +6,50 @@ using UnityEngine;
 public class GameManager : PersistentSingleton<GameManager> 
 {
     [field: SerializeField] public GameObject playerObject { get; private set; }
-    [field: SerializeField] public BossAttackHandler BossAttackHandler { get; private set; }
+    [field: SerializeField] public BossAttackHandler BossAttackHandler { get;  set; }
     private bool showLogs = true;
     public List<CardDataBaseSO> currentPlayerHand;
     
     
     [Header("Debug cards")] 
     public List<CardDataBaseSO> testingCardEffects;
-    private void Awake()
+
+    //PLAYER DATA
+    private int HEAL_AMOUNT = 5;
+    public bool willHealThisRound { get; set; } = false;
+    protected override void Awake()
+    {
+        base.Awake();
+       
+    }
+
+    private void Start()
+    {
+       OnStartEncounter();
+    }
+
+    public void OnStartEncounter()
     {
         if (!playerObject)
         {
             Debug.LogError("player gameobject not assigned in gamemanager. attempting to find in scene");
             playerObject = FindObjectOfType<PlayerHealth>().gameObject;
-            if (playerObject)
-                Debug.Log("found player GO, youre lucky for now. punk.");
         }
-    }
-
-    private void Start()
-    {
+        
         if (testingCardEffects.Count != 0)
         {
             currentPlayerHand = testingCardEffects;
             ReadCards(currentPlayerHand);
         }
+
+        if (playerObject != null && willHealThisRound)
+        {
+            Debug.Log("Healed the player");
+            playerObject.GetComponent<PlayerHealth>().Heal(HEAL_AMOUNT);
+
+        }
+        
+        ReadCards();
     }
 
     public void ReadCards(List<CardDataBaseSO> listOfCardData) //Reads through the cards and applies their BS
@@ -52,7 +71,14 @@ public class GameManager : PersistentSingleton<GameManager>
             Log($"{cardOrCurse} Card applied: {cardData.cardDescription}");
         }
     }
-    
+
+
+    public void OnEndEncounter()
+    {
+        willHealThisRound = false;
+        
+    }
+     
     private void Log(object message)
     {
         if(showLogs)
