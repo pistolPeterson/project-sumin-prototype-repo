@@ -39,13 +39,14 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     {
         canvas = GetComponentInParent<Canvas>();
         visualHandler = FindObjectOfType<VisualCardHandler>();
+        cardVisual = Instantiate(cardVisualPrefab, visualHandler ? visualHandler.transform : canvas.transform).GetComponent<CardVisual>();
+        cardVisual.Initialize(this);
 
     }
 
     private void Start()
     {
-        cardVisual = Instantiate(cardVisualPrefab, visualHandler ? visualHandler.transform : canvas.transform).GetComponent<CardVisual>();
-        cardVisual.Initialize(this);
+       
         IsSelected = false;
     }
 
@@ -141,6 +142,12 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     }
 
+    public void DeselectCard()
+    {
+        transform.localPosition = Vector3.zero;
+        IsSelected = false;
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         if (eventData.button != PointerEventData.InputButton.Left)
@@ -149,4 +156,6 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         OnCardPointerDown.Invoke(this);
         pointerDownTime = Time.time;
     }
+
+    public CardVisual GetCardVisual() => cardVisual;
 }

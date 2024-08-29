@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Create Card Instance/ProjSpeedCurse")]
-public class ProjSpeedCurse : BlessCardBase
+public class ProjSpeedCurse : CurseCardBase
 {
     
     public override void CardEffect(GameManager gameManager)

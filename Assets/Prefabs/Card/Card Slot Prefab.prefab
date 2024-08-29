@@ -73,7 +73,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 150}
+  m_SizeDelta: {x: 150, y: 230}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2898705345225933779
 CanvasRenderer:
@@ -95,8 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7825e7a2db14b124593303458075b08b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeedLimit: 49.5
-  selectedOffset: 25.21
+  moveSpeedLimit: 50.7
+  selectedOffset: 40
   <IsSelected>k__BackingField: 0
   OnCardBeginDrag:
     m_PersistentCalls:

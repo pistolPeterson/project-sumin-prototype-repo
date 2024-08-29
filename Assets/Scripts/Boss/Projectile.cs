@@ -6,13 +6,13 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     
-    [SerializeField] private Rigidbody2D rb; 
-    [SerializeField] private float projectileSpeed = 6f;
-    [SerializeField] private float maxLifeTime = 3f;
-    private float timer;
-    private float projectileMultiplier = 1.5f;
+    [SerializeField] protected Rigidbody2D rb; 
+    [SerializeField] protected float projectileSpeed = 6f;
+    [SerializeField] protected float maxLifeTime = 3f;
+    protected float timer;
+    protected float projectileMultiplier = 1.5f;
     
-    private void FixedUpdate() {
+    public virtual void FixedUpdate() {
         MoveProjectile();
         timer += Time.deltaTime;
         if (timer >= maxLifeTime) {
@@ -20,10 +20,16 @@ public class Projectile : MonoBehaviour
             timer = 0;
         }
     }
-    private void MoveProjectile() {
+    public virtual void MoveProjectile() {
         rb.velocity = new Vector2(-120f, 0f) * projectileSpeed * Time.fixedDeltaTime;
     }
 
+
+    public void ProjectileDeath()
+    {
+        //refactor to some type of explosion animation
+        Destroy(this.gameObject);
+    }
     public void SetProjectile(ProjectileSpeedUpgradeEnum projectileSpeedUpgradeEnum)
     {
         switch (projectileSpeedUpgradeEnum)
