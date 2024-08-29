@@ -36,7 +36,8 @@ public class BossAttackHandler : MonoBehaviour
         
         Listeners();
         gameManager = GameManager.Instance;
-        gameManager.ReadCards(); //TODO: will be updated to a start/init method that sets things and does other stuff. 
+        gameManager.BossAttackHandler = this;
+        gameManager.OnStartEncounter(); 
 
 
         StartCoroutine(DelayThenStart());

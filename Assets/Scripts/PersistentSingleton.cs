@@ -34,11 +34,12 @@ using UnityEngine;
 
             if (instance == null) {
                 instance = this as T;
-                DontDestroyOnLoad(gameObject);
+              
             } else {
                 if (instance != this) {
                     Destroy(gameObject);
                 }
             }
+            DontDestroyOnLoad(gameObject);
         }
     }
