@@ -28,10 +28,12 @@ public class Health : MonoBehaviour
     
     public void Heal(int healthAmt)
     {
+        
         CurrentHealth += healthAmt;
         if (CurrentHealth > initialHealth)
             CurrentHealth = initialHealth;
         OnHealthChange?.Invoke(healthAmt);
+        Debug.Log("WE HEALING");
     }
 
     public void Damage(int damageAmt)
