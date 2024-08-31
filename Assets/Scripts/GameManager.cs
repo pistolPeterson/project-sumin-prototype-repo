@@ -32,8 +32,8 @@ public class GameManager : PersistentSingleton<GameManager>
     {
         if (!playerObject)
         {
-            Debug.LogError("player gameobject not assigned in gamemanager. attempting to find in scene");
-            playerObject = FindObjectOfType<PlayerHealth>().gameObject;
+            Debug.LogError("Player GameObject not assigned in GameManager. Attempting to find in scene.");
+            playerObject = FindObjectOfType<PlayerHealth>()?.gameObject;
         }
         
         if (testingCardEffects.Count != 0)

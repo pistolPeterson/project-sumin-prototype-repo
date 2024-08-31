@@ -14,11 +14,10 @@ public class NodeVisual : MonoBehaviour
     [SerializeField] private NodeMapButton nodeButton;
     private float visualDefaultSize = 1.5f;
     private float hoverSize = 2.5f;
-   
+        
 
     private void Awake()
     {
-        spriteMaterial = GetComponent<Renderer>().material;
         nodeButton.OnNodePointerEnter.AddListener(VisualOnPointerEnter); 
         nodeButton.OnNodePointerExit.AddListener(VisualOnPointerExit);
         nodeButton.OnNodeSelected.AddListener(VisualOnSelected);
@@ -26,6 +25,8 @@ public class NodeVisual : MonoBehaviour
 
     private void Start()
     {
+        spriteMaterial = GetComponent<Renderer>().material;
+
         VisualOnPointerExit();
     }
 
@@ -37,6 +38,7 @@ public class NodeVisual : MonoBehaviour
     //[ProButton]
     private void VisualOnPointerExit()
     {
+       
        spriteMaterial.DOFloat(1, GREYSCALE_MATERIAL_TAG, transitionDuration );
        transform.DOScale(visualDefaultSize, transitionDuration);
        //spriteMaterial.SetFloat(GREYSCALE_MATERIAL_TAG, 1f);
