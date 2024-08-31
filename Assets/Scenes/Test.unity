@@ -490,8 +490,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa3aa23cbeea4d24cadb1ea90548dd1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AutoUnparentOnAwake: 1
   <playerObject>k__BackingField: {fileID: 547567679}
   <BossAttackHandler>k__BackingField: {fileID: 1523286168}
+  currentPlayerHand: []
   testingCardEffects:
   - {fileID: 11400000, guid: 47c318e7530a4ea47b784deababebf1f, type: 2}
   - {fileID: 11400000, guid: 1a8656e0a8a737a4ab601e90a41d3f27, type: 2}

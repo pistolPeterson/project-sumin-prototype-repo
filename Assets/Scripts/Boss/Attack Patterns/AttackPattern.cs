@@ -45,7 +45,7 @@ public abstract class AttackPattern : MonoBehaviour
     
     private IEnumerator AttackLoop() {
         timer = 0f;
-        while (timer < attackDuration) {
+        while (timer < attackDuration && !attackForceStopped) {
             Attack();
             yield return new WaitUntil(IsAttackComplete);
             yield return new WaitForSeconds(delayBetweenAttacks);
@@ -56,6 +56,8 @@ public abstract class AttackPattern : MonoBehaviour
                                  // This is for the special. So that the next attack is not called
             OnCompleteAttack.Invoke(); // invoke to start next attack
         if (isSpecialMove) OnCompleteSpecial.Invoke();
+
+        attackForceStopped = false;
     }
     public bool IsAttackComplete() {
         return attackComplete;
