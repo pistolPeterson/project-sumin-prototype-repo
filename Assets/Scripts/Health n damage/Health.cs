@@ -47,7 +47,6 @@ public class Health : MonoBehaviour
         {
                 HandleDeath();
                 isDead = true;
-                OnDeath?.Invoke();
                 return;
         }
         StartCoroutine(InvincibilityFrameDuration());

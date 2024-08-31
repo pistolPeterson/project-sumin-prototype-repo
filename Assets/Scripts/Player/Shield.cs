@@ -19,7 +19,7 @@ public class Shield : MonoBehaviour {
     [SerializeField] private bool usingShield = false;
     [SerializeField] private bool canUse = true;
 
-    [HideInInspector] public UnityEvent<float> OnShieldUse;
+    [HideInInspector] public UnityEvent<float> OnShieldUse; // to update UI
 
     private void Start() {
         input.OnShieldUse.AddListener(UseShield);
@@ -35,7 +35,7 @@ public class Shield : MonoBehaviour {
      * - during regen, cannot use until full
      */
     private void Update() {
-        if (usingShield || IsAtFullCharge()) {
+        if ((usingShield && currentCharge != 0) || ChargeAvailable()) {
             timeWithoutUse = 0f;
             return;
         }
@@ -43,7 +43,7 @@ public class Shield : MonoBehaviour {
         timeWithoutUse += Time.deltaTime;
         if (timeWithoutUse >= durationTillRegen) {
             if (canUse)
-                StartCoroutine(RegenerateShield());
+            StartCoroutine(RegenerateShield());
         }
     }
     public IEnumerator RegenerateShield() {
@@ -54,8 +54,8 @@ public class Shield : MonoBehaviour {
             yield return new WaitForSeconds(regenDelay);
         }
     }
-    public bool IsAtFullCharge() {
-        return currentCharge == maxCharge;
+    public bool ChargeAvailable() {
+        return currentCharge >= shieldCost;
     }
     public void IsUsingShield(bool shielding) {
         usingShield = shielding;
@@ -65,6 +65,7 @@ public class Shield : MonoBehaviour {
         OnShieldUse.Invoke(currentCharge);
         if (shieldCost > currentCharge) {
             Debug.Log("Not enough charge");
+            timeWithoutUse = durationTillRegen-1; // to stop usage when at 0 charge
             return;
         }
         hp.SetInvincibility(true);
@@ -85,5 +86,11 @@ public class Shield : MonoBehaviour {
     }
     public float GetMaxShieldCharge() {
         return maxCharge;
+    }
+    public bool GetUsingShield() {
+        return usingShield;
+    }
+    public bool GetCanUseShield() {
+        return canUse;
     }
 }
