@@ -9,21 +9,25 @@ public class ShieldVisual : MonoBehaviour
 {
     private SpriteRenderer sr;
     private Shield shield;
-    [Header("mind you business rae")]
-    public Color[] colorPallete; 
+    //[Header("mind you business rae")]
+    //public Color[] colorPallete; 
     private int colorPalleteIndex = 1; //skipping one since its same color as background
     private float colorChangeTime = 0.125f;
+
+    [SerializeField] private GameObject shieldVisual; 
 
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
         shield = GetComponentInParent<Shield>();
-        ShieldSpawn();
     }
-
-
-    [ProButton]
-    private void ShieldSpawn() //shield showcase at the begining of the round, just for some cool points. can be 
+    private void Update() {
+        if (shield.GetUsingShield() && shield.GetCanUseShield()) {
+            ShowShield();
+        }
+        else CloseShield();
+    }
+    /*private void ShieldSpawn() //shield showcase at the begining of the round, just for some cool points. can be 
     {
         //go through all colors of pallete...
         sr.DOColor(colorPallete[colorPalleteIndex], colorChangeTime).OnComplete(NextColor);
@@ -39,22 +43,14 @@ public class ShieldVisual : MonoBehaviour
       
         sr.DOColor(colorPallete[colorPalleteIndex], colorChangeTime).OnComplete(NextColor);
         
-    }
-    
-    [ProButton]
+    }*/
     private void ShowShield()
     {
-        
+        shieldVisual.SetActive(true);
     }
-
-    [ProButton]
     private void CloseShield()
     {
-        
+        shieldVisual.SetActive(false);
     }
-    [ProButton]
-    private void ShieldImpact()
-    {
-        
-    }
+
 }
