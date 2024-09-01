@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using com.cyborgAssets.inspectorButtonPro;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -10,10 +11,9 @@ public class NodeMap : MonoBehaviour
 {
 
     [Header("Game Data")] 
-    private int amountOfEncounters = 11; //amt of encounters player must play through, NOT the amt of nodes in game 
-    //Hello rae: I like the idea of the player having to play through 13 rounds. makes it feel spooky. 
+    private int amountOfEncounters = 11; //amt of nodes player must play through, NOT the amt of nodes in game 
     [SerializeField] private float distanceBetweenNodes = 10f;
-    
+    [SerializeField] private int currentNodeProgress = 0;
     [Header("Setup Data")]
     [SerializeField] private GameObject healNodePrefab;
     [SerializeField] private GameObject encounterNodePrefab;
@@ -69,7 +69,18 @@ public class NodeMap : MonoBehaviour
        currentNodesList.Add(finalNode);
     }
 
+    [ProButton]
+    private void UpdateNodeProgress() //warninng: doing logic and viusal in same method
+    {
+        foreach (var currentNode in currentNodesList)
+        {
+            currentNode.GetComponentInChildren<NodeVisual>().ShowNodeVisualActive(false);
+            currentNode.GetComponent<INode>().IsNodeActive = false;
+        }
 
+        currentNodesList[currentNodeProgress].GetComponentInChildren<NodeVisual>().ShowNodeVisualActive(true);
+        currentNodesList[currentNodeProgress].GetComponent<INode>().IsNodeActive = true;
+    }
     private GameObject GetRandomNode()
     {
         int randomNum = Random.Range(0, 4);
@@ -87,12 +98,9 @@ public class NodeMap : MonoBehaviour
             case 3:
                 return healNodePrefab;
                 break;
-            default:
-                Debug.LogError("ERROR GETTING RANDOM NODE");
-                return encounterNodePrefab;
-                break;
             
         }
 
+        return encounterNodePrefab;
     }
 }

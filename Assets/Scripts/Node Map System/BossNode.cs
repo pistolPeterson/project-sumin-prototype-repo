@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossNode : MonoBehaviour, INode
+public class BossNode : INode
 {
 
-    public void OnNodeInteract()
+    public override void OnNodeInteract()
     {
+        if(!IsNodeActive)
+            return;
         //increase boss stats 
         //show player somehow in UI
         Debug.Log("Increasing Boss stats... thats a raeus problem :) ");

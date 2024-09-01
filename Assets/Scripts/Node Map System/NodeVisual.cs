@@ -26,8 +26,8 @@ public class NodeVisual : MonoBehaviour
     private void Start()
     {
         spriteMaterial = GetComponent<Renderer>().material;
-
-        VisualOnPointerExit();
+        spriteMaterial.DOFloat(0, GREYSCALE_MATERIAL_TAG, transitionDuration );
+       
     }
 
     private void VisualOnSelected()
@@ -39,19 +39,25 @@ public class NodeVisual : MonoBehaviour
     private void VisualOnPointerExit()
     {
        
-       spriteMaterial.DOFloat(1, GREYSCALE_MATERIAL_TAG, transitionDuration );
        transform.DOScale(visualDefaultSize, transitionDuration);
-       //spriteMaterial.SetFloat(GREYSCALE_MATERIAL_TAG, 1f);
 
     }
 
    // [ProButton]
     private void VisualOnPointerEnter()
     {
-        spriteMaterial.DOFloat(0, GREYSCALE_MATERIAL_TAG, transitionDuration );
         transform.DOScale(hoverSize, transitionDuration);
-       //spriteMaterial.SetFloat(GREYSCALE_MATERIAL_TAG, 0f);
 
+    }
+
+    public void ShowNodeVisualActive(bool isActive)
+    {
+        if (isActive)
+            spriteMaterial.DOFloat(0, GREYSCALE_MATERIAL_TAG, transitionDuration);
+        else
+        {
+            spriteMaterial.DOFloat(1, GREYSCALE_MATERIAL_TAG, transitionDuration);
+        }
     }
 
     private void OnDestroy()
