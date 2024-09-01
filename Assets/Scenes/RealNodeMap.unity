@@ -284,13 +284,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b601cdf719873064fb4ab36a044c4f4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountOfEncounters: 11
   distanceBetweenNodes: 8
   healNodePrefab: {fileID: 143879047249541203, guid: 2c82f54851c1e0341b5ea9a9250f9cb0, type: 3}
   encounterNodePrefab: {fileID: 8718628035285084478, guid: c79c1d6289c855d40aa6af3cadb334e9, type: 3}
   tarotCardNodePrefab: {fileID: 8686296058111057337, guid: ecd958a43b2834541802b51f05d24ede, type: 3}
   bossStatIncPrefab: {fileID: 3654240089269926861, guid: d9ff831ad07282f43982e6f649f23803, type: 3}
   startingNodeLocation: {fileID: 1800213594}
+  currentNodesList: []
 --- !u!1 &1800213593
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,8 +10,8 @@ public class NodeMap : MonoBehaviour
 {
 
     [Header("Game Data")] 
-    [SerializeField] private int amountOfEncounters = 11; //amt of encounters player must play through, NOT the amt of nodes in game 
-    //Hi rae: I like the idea of the player having to play through 13 rounds. makes it feel spooky. 
+    private int amountOfEncounters = 11; //amt of encounters player must play through, NOT the amt of nodes in game 
+    //Hello rae: I like the idea of the player having to play through 13 rounds. makes it feel spooky. 
     [SerializeField] private float distanceBetweenNodes = 10f;
     
     [Header("Setup Data")]
@@ -20,18 +20,35 @@ public class NodeMap : MonoBehaviour
     [SerializeField] private GameObject tarotCardNodePrefab;
     [SerializeField] private GameObject bossStatIncPrefab;
     [SerializeField] private Transform startingNodeLocation;
-
-    
+    public List<GameObject> currentNodesList;
     
     private void Start()
     {
         SpawnNodeMap();
+        SetLineVisual();
     }
+
+    private void SetLineVisual()
+    {
+        for (int i = 0; i < currentNodesList.Count - 1; i++)
+        {
+            GameObject currentNode = currentNodesList[i];
+            LineRenderer lineRend = currentNode.GetComponentInChildren<LineRenderer>();
+            lineRend.positionCount = 2;
+            lineRend.SetPosition(0, currentNode.transform.position);
+            
+            lineRend.SetPosition(1, currentNodesList[i+1].transform.position);
+        }
+    }
+    
+
 
     private void SpawnNodeMap()
     {
-        Instantiate(encounterNodePrefab, startingNodeLocation.position, quaternion.identity); //spawn the starting encounter node
-
+        currentNodesList = new List<GameObject>();
+        var initialNode = Instantiate(encounterNodePrefab, startingNodeLocation.position, quaternion.identity); //spawn the starting encounter node
+        currentNodesList.Add(initialNode);
+        
         //spawn random nodes to the right
         for (int i = 0; i < amountOfEncounters; i++)
         {
@@ -42,12 +59,14 @@ public class NodeMap : MonoBehaviour
                 startingNodeLocation.position.y, 0);
            
             //spawn
-            Instantiate(nodeToSpawn, locationToSpawn, Quaternion.identity);
+           var gameNode = Instantiate(nodeToSpawn, locationToSpawn, Quaternion.identity);
+           currentNodesList.Add(gameNode);
         }
 
         Vector3 lastNodeLocation = new Vector3(startingNodeLocation.position.x + ((amountOfEncounters + 1) * distanceBetweenNodes),
             startingNodeLocation.position.y, 0);
-        Instantiate(encounterNodePrefab, lastNodeLocation, quaternion.identity); //spawn the last encounter node
+       var finalNode = Instantiate(encounterNodePrefab, lastNodeLocation, quaternion.identity); //spawn the last encounter node
+       currentNodesList.Add(finalNode);
     }
 
 
