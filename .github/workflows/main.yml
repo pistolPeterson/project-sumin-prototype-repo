@@ -1,14 +1,14 @@
-name: Actions 😎
+name: 💀 Pete's Cheap Unity DevOps Actions 😎
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   build:
-    name: Build my project ✨
+    name: Build Unity Project 🗣️🗣️🗣️
     runs-on: ubuntu-latest
     steps:
       # Checkout
-      - name: Checkout repository
+      - name: Checkout repository 🙄
         uses: actions/checkout@v4
         with:
           lfs: true
@@ -32,7 +32,7 @@ jobs:
       #     githubToken: ${{ secrets.GITHUB_TOKEN }}
 
       # Build
-      - name: Build project
+      - name: Build project 🤡
         uses: game-ci/unity-builder@v4
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -44,5 +44,5 @@ jobs:
       # Output
       - uses: actions/upload-artifact@v3
         with:
-          name: Build
+          name: Project Angel Windows Build
           path: build
