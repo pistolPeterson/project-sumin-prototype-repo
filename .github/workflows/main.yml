@@ -2,10 +2,6 @@ name: Actions 😎
 
 on: [push, pull_request]
 
-- name: Unity - Activate
-  uses: game-ci/unity-activate@v2.0.0
-            
-
 jobs:
   build:
     name: Build my project ✨
@@ -50,5 +46,3 @@ jobs:
         with:
           name: Build
           path: build
-
-
