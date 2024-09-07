@@ -285,6 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceBetweenNodes: 8
+  currentNodeProgress: 0
   healNodePrefab: {fileID: 143879047249541203, guid: 2c82f54851c1e0341b5ea9a9250f9cb0, type: 3}
   encounterNodePrefab: {fileID: 8718628035285084478, guid: c79c1d6289c855d40aa6af3cadb334e9, type: 3}
   tarotCardNodePrefab: {fileID: 8686296058111057337, guid: ecd958a43b2834541802b51f05d24ede, type: 3}

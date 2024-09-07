@@ -24,7 +24,10 @@ public class BaseAudio : MonoBehaviour
     [ProButton]
     public virtual void PlayAudio()
     {
-        if(baseAudioClips.Count > 0)
+        if (baseAudioClips.Count > 0)
+        {
             baseAudio.PlayOneShot(baseAudioClips[Random.Range(0, baseAudioClips.Count)]);
+            Debug.Log("tried to play");
+        }
     }
 }

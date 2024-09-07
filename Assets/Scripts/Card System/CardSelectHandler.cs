@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class CardSelectHandler : MonoBehaviour
@@ -8,6 +9,7 @@ public class CardSelectHandler : MonoBehaviour
     [SerializeField] private HorizontalCardHolder blessCardHolder;
     [SerializeField] private HorizontalCardHolder curseCardHolder;
 
+    [HideInInspector] public UnityEvent OnPlayerConfirmedCard;
     private bool playerHasChosen = false;
     //connect with button UI on click
     //TODO: 
@@ -28,10 +30,16 @@ public class CardSelectHandler : MonoBehaviour
         //send to gamemanager 
         GameManager.Instance.currentPlayerHand.Add(blessCardSO);
         GameManager.Instance.currentPlayerHand.Add(curseCardSO);
-        
+        OnPlayerConfirmedCard?.Invoke();
+        StartCoroutine(WaitThenLoadScene());
         //go to encounter scene (with encounter data?)
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
         playerHasChosen = true;
+    }
+
+    private IEnumerator WaitThenLoadScene()
+    {
+        yield return new WaitForSeconds(3.0f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
     }
 
 }
