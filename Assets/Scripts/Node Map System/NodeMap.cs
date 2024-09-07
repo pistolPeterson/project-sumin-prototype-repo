@@ -88,16 +88,12 @@ public class NodeMap : MonoBehaviour
         {
             case 0:
                 return tarotCardNodePrefab;
-                break;
             case 1:
                 return encounterNodePrefab;
-                break;
             case 2:
                 return bossStatIncPrefab;
-                break;
             case 3:
                 return healNodePrefab;
-                break;
             
         }
 
