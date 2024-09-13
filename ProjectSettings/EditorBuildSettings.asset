@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/MainMenu.unity
+    guid: 2de60a8fb659e5d4f86e018213effae1
+  - enabled: 1
+    path: Assets/Scenes/RealNodeMap.unity
+    guid: ffeebfc8c4edda146ba9df323ed1806f
   - enabled: 1
     path: Assets/Scenes/prototype scenes/CardSystemScene.unity
     guid: f685c4d1fb2b3bc4fb00d1b397559a0f

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerVisual playerVisual;
 
     private Vector2 moveInput;
+    [HideInInspector] public UnityEvent OnPlayerMove;
 
     private void Start()
     {
@@ -37,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
             playerVisual.PlayDown();
             MovePlayerDown(moveDistance);
         }
+        OnPlayerMove?.Invoke();
     }
 
     private void ClampPosition(float currentPosition)
