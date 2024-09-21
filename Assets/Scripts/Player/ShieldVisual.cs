@@ -11,8 +11,8 @@ public class ShieldVisual : MonoBehaviour
     private Shield shield;
     //[Header("mind you business rae")]
     //public Color[] colorPallete; 
-    private int colorPalleteIndex = 1; //skipping one since its same color as background
-    private float colorChangeTime = 0.125f;
+   // private int colorPalleteIndex = 1; //skipping one since its same color as background
+ //   private float colorChangeTime = 0.125f;
 
     [SerializeField] private GameObject shieldVisual; 
 

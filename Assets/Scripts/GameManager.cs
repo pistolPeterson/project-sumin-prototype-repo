@@ -17,16 +17,17 @@ public class GameManager : PersistentSingleton<GameManager>
     //PLAYER DATA
     private int HEAL_AMOUNT = 5;
     public bool willHealThisRound { get; set; } = false;
+    
+    
+    //NODE MAP DATA 
+    public List<NodeEnum> MapNodeEnums;
+    public int CurrentProgress { get; set; } = 0; 
     protected override void Awake()
     {
         base.Awake();
-       
+        MapNodeEnums = new List<NodeEnum>();
     }
 
-    private void Start()
-    {
-       OnStartEncounter();
-    }
 
     public void OnStartEncounter()
     {
