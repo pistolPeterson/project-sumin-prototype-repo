@@ -4,6 +4,7 @@ using com.cyborgAssets.inspectorButtonPro;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class BossAttackHandler : MonoBehaviour
 {
@@ -90,7 +91,7 @@ public class BossAttackHandler : MonoBehaviour
             encounterTimer += Time.deltaTime + 1f;
             OnEncounterActive.Invoke(); // this is for the encounter UI bar to update
             if (!skipSpecial && !specialPhaseActive && encounterTimer >= intervalForSpecial * (intervalCounter + 1)) {
-                Debug.Log("Phase");
+               // Debug.Log("Phase");
                 specialPhaseActive = true;
                 currentAttack?.StopAttack();
                 NextSpecial();
@@ -103,26 +104,41 @@ public class BossAttackHandler : MonoBehaviour
             yield return new WaitUntil(SpecialPhaseNotActive); // to stop timer when special phase is active
         }        
         // this is for when the encounter is complete:
+        EndEncounter();
+    }
+
+    private void EndEncounter()
+    {
         currentAttack.StopAttack();
         encounterComplete = true;
-        Debug.Log("Encounter complete");        
+        Debug.Log("Encounter complete");
+        SceneManager.LoadScene(1);
     }
+
     public bool SpecialPhaseNotActive() {
         return specialPhaseActive == false;
     }
     private void SpecialMoveDone() {
         specialPhaseActive = false;
+        Debug.Log("Special Move is Done");
     }
     public void PerformAttack(AttackPattern ap) {
         currentAttack = ap;
         currentAttack.StartAttack();
+        Debug.Log($"Performing Attack move: {ap.name}");
     }
     public void PerformSpecial(AttackPattern ap) {
         currentAttack = ap;
         currentAttack.StartAttack();
         OnSpecialPerformed.Invoke();
+        Debug.Log($"Performing special move: {ap.name}");
     }
     public float GetEncounterDuration() {
         return encounterDuration;
+    }
+
+    public void DebugNukeEncounterTime()
+    {
+        encounterTimer = float.MaxValue; //lol
     }
 }

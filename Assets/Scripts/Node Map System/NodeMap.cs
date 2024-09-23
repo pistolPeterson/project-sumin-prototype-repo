@@ -46,6 +46,11 @@ public class NodeMap : MonoBehaviour
             GenerateNewNodeMap();
             GameManager.Instance.MapNodeEnums = ConvertNodeObjectsIntoNodeEnum();
         }
+        else
+        {
+            Debug.Log("Loading Node Map From Game Manager");
+            GenerateUserNodeMap(GameManager.Instance.MapNodeEnums);
+        }
     }
 
     private void SetLineVisual()
