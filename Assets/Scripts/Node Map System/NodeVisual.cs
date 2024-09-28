@@ -10,7 +10,7 @@ public class NodeVisual : MonoBehaviour
 {
     private Material spriteMaterial;
     private const string GREYSCALE_MATERIAL_TAG = "_GreyscaleBlend";
-    /*[SerializeField] Hi Raeus*/ private float transitionDuration = 0.15f;
+    /*[SerializeField] Hi Raeus*/ private float transitionDuration = 0.075f;
     [SerializeField] private NodeMapButton nodeButton;
     private float visualDefaultSize = 1.5f;
     private float hoverSize = 2.5f;
@@ -21,12 +21,13 @@ public class NodeVisual : MonoBehaviour
         nodeButton.OnNodePointerEnter.AddListener(VisualOnPointerEnter); 
         nodeButton.OnNodePointerExit.AddListener(VisualOnPointerExit);
         nodeButton.OnNodeSelected.AddListener(VisualOnSelected);
+        spriteMaterial = GetComponent<Renderer>().material;
+
     }
 
     private void Start()
     {
-        spriteMaterial = GetComponent<Renderer>().material;
-        spriteMaterial.DOFloat(0, GREYSCALE_MATERIAL_TAG, transitionDuration );
+       // spriteMaterial.DOFloat(0, GREYSCALE_MATERIAL_TAG, transitionDuration );
        
     }
 

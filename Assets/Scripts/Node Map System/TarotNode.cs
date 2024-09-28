@@ -10,6 +10,7 @@ public class TarotNode :  INode
         if(!IsNodeActive)
             return;
         Debug.Log("tarot card system! ");
+        nodeMap.IncreaseProgress();
         SceneManager.LoadScene(1);
     }
 }

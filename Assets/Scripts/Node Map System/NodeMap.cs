@@ -5,6 +5,7 @@ using com.cyborgAssets.inspectorButtonPro;
 using JetBrains.Annotations;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 
@@ -23,8 +24,8 @@ public class NodeMap : MonoBehaviour
     [SerializeField] private GameObject bossStatIncPrefab;
     [SerializeField] private Transform startingNodeLocation;
 
-    [Header("Debug")] public List<NodeEnum> testNodeEnums;
-
+   [HideInInspector] public UnityEvent<int, int> OnProgressUpdated;
+    
     private void Start()
     {
         SetupNodeMap();
@@ -50,7 +51,10 @@ public class NodeMap : MonoBehaviour
         {
             Debug.Log("Loading Node Map From Game Manager");
             GenerateUserNodeMap(GameManager.Instance.MapNodeEnums);
+            currentNodeProgress = GameManager.Instance.CurrentProgress;
         }
+        UpdateNodeProgress();
+
     }
 
     private void SetLineVisual()
@@ -67,10 +71,11 @@ public class NodeMap : MonoBehaviour
     }
 
 
-    [ProButton]
-    private void DebugGenerateNodeMap()
+    public void IncreaseProgress()
     {
-        GenerateUserNodeMap(testNodeEnums);
+        currentNodeProgress++;
+        GameManager.Instance.CurrentProgress = currentNodeProgress;
+        UpdateNodeProgress();
     }
 
     private void GenerateUserNodeMap(List<NodeEnum> nodeEnums)
@@ -121,10 +126,11 @@ public class NodeMap : MonoBehaviour
     }
     
     [ProButton]
-    private void UpdateNodeProgress() //warninng: doing logic and viusal in same method
+    private void UpdateNodeProgress() //TODO: warninng doing logic and viusal in same method
     {
         for (int i = 0; i < currentNodesList.Count; i++)
         {
+          
             var nodeVisual = currentNodesList[i].GetComponentInChildren<NodeVisual>();
             var nodeComponent = currentNodesList[i].GetComponent<INode>();
 
@@ -132,6 +138,7 @@ public class NodeMap : MonoBehaviour
             nodeVisual.ShowNodeVisualActive(isActive);
             nodeComponent.IsNodeActive = isActive;
         }
+        OnProgressUpdated?.Invoke(currentNodeProgress, currentNodesList.Count);
     }
 
     private GameObject GetRandomNode()
