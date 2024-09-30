@@ -7,7 +7,7 @@ public class GameManager : PersistentSingleton<GameManager>
 {
     [field: SerializeField] public GameObject playerObject { get; private set; }
     [field: SerializeField] public BossAttackHandler BossAttackHandler { get;  set; }
-    private bool showLogs = true;
+    private bool showLogs = false;
     public List<CardDataBaseSO> currentPlayerHand;
     
     
