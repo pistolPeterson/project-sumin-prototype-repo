@@ -39,7 +39,7 @@ public class CardSelectHandler : MonoBehaviour
     private IEnumerator WaitThenLoadScene()
     {
         yield return new WaitForSeconds(3.0f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
+        SceneManager.LoadScene("MainEncounter"); 
     }
 
 }

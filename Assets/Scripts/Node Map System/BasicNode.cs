@@ -13,6 +13,6 @@ public class BasicNode : INode
         //TODO: verify data for next encounter
         Debug.Log("[Basic Node]: Going to boss scene");
         nodeMap.IncreaseProgress();
-       SceneManager.LoadScene(2);
+       SceneManager.LoadScene("MainEncounter");
     }
 }

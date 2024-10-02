@@ -24,7 +24,7 @@ public class GameDataUI : MonoBehaviour
 
     private void UpdateProgressText(int currentProgress, int maxProgress)
     {
-        progressText.text = $"Night {currentProgress} of {maxProgress} ";
+        progressText.text = $"Night {currentProgress+1} of {maxProgress} ";
     }
 
 

@@ -2469,6 +2469,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1081914049}
     - target: {fileID: 6133417446292666911, guid: 0ae7af5cd73003b49a243dadb7132d51, type: 3}
+      propertyPath: encounterDuration
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6133417446292666911, guid: 0ae7af5cd73003b49a243dadb7132d51, type: 3}
       propertyPath: percentageForSpecialMove
       value: 0.5
       objectReference: {fileID: 0}
