@@ -11,7 +11,8 @@ public class BasicNode : INode
         if(!IsNodeActive)
             return;
         //TODO: verify data for next encounter
-        Debug.Log("[Basic Node]: Going to boss scene");       
-       SceneManager.LoadScene(2);
+        Debug.Log("[Basic Node]: Going to boss scene");
+        nodeMap.IncreaseProgress();
+       SceneManager.LoadScene("MainEncounter");
     }
 }

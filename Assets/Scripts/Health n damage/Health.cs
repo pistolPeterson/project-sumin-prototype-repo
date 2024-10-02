@@ -15,6 +15,8 @@ public class Health : MonoBehaviour
     [SerializeField] private bool invincibleMode = false;
     [field: SerializeField] public int CurrentHealth { get; private set; }
     [SerializeField] private float invincibilityDuration = 0.2f;
+
+    public bool DebugInvincibilityMode { get; set; } = false;
     public virtual void Start()
     {
         CurrentHealth = initialHealth;
@@ -38,6 +40,8 @@ public class Health : MonoBehaviour
 
     public void Damage(int damageAmt)
     {
+        if(DebugInvincibilityMode)
+            return;
         if(invincibleMode)
             return;
         CurrentHealth = Mathf.Max(CurrentHealth - damageAmt, 0);

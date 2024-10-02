@@ -9,13 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 2de60a8fb659e5d4f86e018213effae1
   - enabled: 1
-    path: Assets/Scenes/RealNodeMap.unity
+    path: Assets/Scenes/Gameplay Scenes/RealNodeMap.unity
     guid: ffeebfc8c4edda146ba9df323ed1806f
   - enabled: 1
-    path: Assets/Scenes/prototype scenes/CardSystemScene.unity
+    path: Assets/Scenes/Gameplay Scenes/CardSystemScene.unity
     guid: f685c4d1fb2b3bc4fb00d1b397559a0f
   - enabled: 1
-    path: Assets/Scenes/Encounter 1.unity
+    path: Assets/Scenes/Gameplay Scenes/MainEncounter.unity
     guid: 56cd71ef851646940be70d218ea8c1e8
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 44a4ebc7311407f42b5117bab236b878, type: 2}

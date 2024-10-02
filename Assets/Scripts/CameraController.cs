@@ -5,7 +5,6 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
    [SerializeField] [Range(5f, 15f)] private float initialMovementSpeed = 10f;
-   [SerializeField] [Range(3f, 7f)]private float accelerationRate = 5f;
    private float lerpSpeed = 5f; // Lerp speed
    public float maxMovementSpeed = 50f;
    private float currentMovementSpeed;
