@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class Damager : MonoBehaviour //simple class that hurts player on contact
 {
-    [SerializeField] private int initialDamageAmt = 6; 
+    private int initialDamageAmt = 2; 
     [field: SerializeField] public int currentDamage { get; private set; }
     [HideInInspector] public UnityEvent OnDamage;
 

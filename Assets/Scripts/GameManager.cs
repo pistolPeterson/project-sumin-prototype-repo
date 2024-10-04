@@ -37,12 +37,6 @@ public class GameManager : PersistentSingleton<GameManager>
             playerObject = FindObjectOfType<PlayerHealth>()?.gameObject;
         }
         
-        if (testingCardEffects.Count != 0)
-        {
-            currentPlayerHand = testingCardEffects;
-            ReadCards(currentPlayerHand);
-        }
-
         if (playerObject != null && willHealThisRound)
         {
             Debug.Log("Healed the player");
@@ -50,10 +44,18 @@ public class GameManager : PersistentSingleton<GameManager>
 
         }
         
-        ReadCards();
+        if (testingCardEffects.Count != 0)
+        {
+            currentPlayerHand = testingCardEffects;
+            DebugReadCards(currentPlayerHand);
+        }
+        else
+        {
+            ReadCards();
+        }
     }
 
-    public void ReadCards(List<CardDataBaseSO> listOfCardData) //Reads through the cards and applies their BS
+    public void DebugReadCards(List<CardDataBaseSO> listOfCardData) //Reads through the cards and applies their BS
     {
         foreach (var cardData in listOfCardData)
         {

@@ -748,7 +748,8 @@ MonoBehaviour:
   <playerObject>k__BackingField: {fileID: 547567679}
   <BossAttackHandler>k__BackingField: {fileID: 1523286168}
   currentPlayerHand: []
-  testingCardEffects: []
+  testingCardEffects:
+  - {fileID: 11400000, guid: 4b1b2d0ce630eba48aea0a75677c0fe1, type: 2}
   MapNodeEnums: 
 --- !u!1 &547567679 stripped
 GameObject:
@@ -1049,6 +1050,11 @@ Transform:
   - {fileID: 304808638}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &806015340 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3037956134694025502, guid: 0ae7af5cd73003b49a243dadb7132d51, type: 3}
+  m_PrefabInstance: {fileID: 6356984324116435118}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1053624058 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 919360715582552311, guid: 0ae7af5cd73003b49a243dadb7132d51, type: 3}
@@ -1596,12 +1602,25 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6133417446292666911, guid: 0ae7af5cd73003b49a243dadb7132d51, type: 3}
   m_PrefabInstance: {fileID: 6356984324116435118}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 806015340}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a8af925acbfae24b8aeb863d8aeac70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1523286171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806015340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e85a12ff3ebbd684b946280472888b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <EncounterDuration>k__BackingField: 25
 --- !u!1 &1596844885
 GameObject:
   m_ObjectHideFlags: 0
@@ -2483,7 +2502,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3037956134694025502, guid: 0ae7af5cd73003b49a243dadb7132d51, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1523286171}
   m_SourcePrefab: {fileID: 100100000, guid: 0ae7af5cd73003b49a243dadb7132d51, type: 3}
 --- !u!1001 &8979906848635340230
 PrefabInstance:

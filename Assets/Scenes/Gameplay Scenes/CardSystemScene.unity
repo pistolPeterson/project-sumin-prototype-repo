@@ -1544,6 +1544,7 @@ MonoBehaviour:
   <BossAttackHandler>k__BackingField: {fileID: 0}
   currentPlayerHand: []
   testingCardEffects: []
+  MapNodeEnums: 
 --- !u!1 &1516159340
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,10 +2119,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 47c318e7530a4ea47b784deababebf1f, type: 2}
   - {fileID: 11400000, guid: 1a8656e0a8a737a4ab601e90a41d3f27, type: 2}
   - {fileID: 11400000, guid: 2aac9ef82ed11b34497d0fe746224e7a, type: 2}
-  - {fileID: 11400000, guid: 2aac9ef82ed11b34497d0fe746224e7a, type: 2}
-  - {fileID: 11400000, guid: 2aac9ef82ed11b34497d0fe746224e7a, type: 2}
-  - {fileID: 11400000, guid: 2aac9ef82ed11b34497d0fe746224e7a, type: 2}
-  - {fileID: 11400000, guid: 1a8656e0a8a737a4ab601e90a41d3f27, type: 2}
+  - {fileID: 11400000, guid: cd9a407cff537a54a8b93d6d47d82c87, type: 2}
+  - {fileID: 11400000, guid: 4b1b2d0ce630eba48aea0a75677c0fe1, type: 2}
 --- !u!21 &2011126139
 Material:
   serializedVersion: 8

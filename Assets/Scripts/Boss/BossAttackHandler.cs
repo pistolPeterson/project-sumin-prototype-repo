@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using com.cyborgAssets.inspectorButtonPro;
@@ -14,33 +15,37 @@ public class BossAttackHandler : MonoBehaviour
     [SerializeField] private bool skipSpecial = false;
     private AttackPattern currentAttack;
 
-    [SerializeField] private float startDelay = 3f; //for audio, any initialize animations, will be cool to time the music with it
-    [Header("Attacking Stats")]
-    [SerializeField] private float encounterDuration = 60f;
+    [SerializeField]
+    private float startDelay = 3f; //for audio, any initialize animations, will be cool to time the music with it
+
+    [Header("Attacking Stats")] 
     [SerializeField] private float percentageForSpecialMove = 0.25f;
-    [field: SerializeField] public float encounterTimer { get; private set; }
+    public float encounterTimer { get; private set; }
     private bool encounterComplete = false;
     private bool specialPhaseActive = false;
 
     public List<AttackPattern> attackPatterns;
-    //UPGRADES 
-    [field: SerializeField] public ProjectileSpeedUpgradeEnum ProjectileSpeedState { get; set; } = ProjectileSpeedUpgradeEnum.NORMAL;
+
+    [Header("Upgrades")] 
+     private EncounterDistanceDataHandler encounterDistanceData;
+    private float encounterDuration = 30f;
+
+    public ProjectileSpeedUpgradeEnum ProjectileSpeedState { get; set; } = ProjectileSpeedUpgradeEnum.NORMAL;
+
     private GameManager gameManager;
+
+    private void Awake()
+    {
+        encounterDistanceData = GetComponent<EncounterDistanceDataHandler>();
+    }
+
     private void Start()
     {
-       var potentialAttacks = GetComponentsInChildren<AttackPattern>();
-       foreach (var ap in potentialAttacks)
-       {
-           attackPatterns.Add(ap);
-           ap.Initialize(this);
-       }
+        InitializeAttackPatterns();
+        SetUpAttackListeners();
+        InitGamemanager();
+        encounterDuration = encounterDistanceData.EncounterDuration;
         
-        Listeners();
-        gameManager = GameManager.Instance;
-        gameManager.BossAttackHandler = this;
-        gameManager.OnStartEncounter(); 
-
-
         StartCoroutine(DelayThenStart());
         IEnumerator DelayThenStart()
         {
@@ -48,61 +53,103 @@ public class BossAttackHandler : MonoBehaviour
             StartEncounterAttacks();
         }
     }
-    private void Listeners() {
-        if (handlerData.possibleAttackPatterns.Count > 0) {
-            foreach (AttackPattern ap in handlerData.possibleAttackPatterns) {
+
+    private void InitGamemanager()
+    {
+        gameManager = GameManager.Instance;
+        gameManager.BossAttackHandler = this;
+        gameManager.OnStartEncounter();//read cards
+    }
+
+    private void InitializeAttackPatterns()
+    {
+        var potentialAttacks = GetComponentsInChildren<AttackPattern>();
+        foreach (var ap in potentialAttacks)
+        {
+            attackPatterns.Add(ap);
+            ap.Initialize(this);
+        }
+    }
+
+    private void SetUpAttackListeners()
+    {
+        if (handlerData.possibleAttackPatterns.Count > 0)
+        {
+            foreach (AttackPattern ap in handlerData.possibleAttackPatterns)
+            {
                 ap.OnCompleteAttack.AddListener(NextAttack);
             }
         }
-        if (handlerData.possibleSpecialMoves.Count > 0) {
-            foreach (AttackPattern sm in handlerData.possibleSpecialMoves) {
+
+        if (handlerData.possibleSpecialMoves.Count > 0)
+        {
+            foreach (AttackPattern sm in handlerData.possibleSpecialMoves)
+            {
                 sm.OnCompleteAttack.AddListener(NextAttack);
                 sm.OnCompleteSpecial.AddListener(SpecialMoveDone);
             }
         }
     }
+
     [ProButton]
-    public void StartEncounterAttacks() {
+    public void StartEncounterAttacks()
+    {
         StartCoroutine(StartEncounterTimer());
     }
-    private void NextAttack() {
-        if (encounterComplete) {
+
+    private void NextAttack()
+    {
+        if (encounterComplete)
+        {
             return;
         }
+
         PerformAttack(handlerData.GetRandomAttack());
     }
-    private void NextSpecial() {
-        if (encounterComplete) {
+
+    private void NextSpecial()
+    {
+        if (encounterComplete)
+        {
             return;
         }
+
         Debug.Log("Special !");
         PerformSpecial(handlerData.GetRandomSpecial());
     }
-    
+
     // ENCOUNTER LOOP:
-    private IEnumerator StartEncounterTimer() {
+    private IEnumerator StartEncounterTimer()
+    {
         encounterComplete = false;
         encounterTimer = 0f;
-        float intervalForSpecial = (encounterDuration * percentageForSpecialMove) - 0.5f; // slight offset so the UI doesnt look off
+        float intervalForSpecial =
+            (encounterDuration * percentageForSpecialMove) - 0.5f; // slight offset so the UI doesnt look off
         int intervalCounter = 0;
         NextAttack();
 
-        while (encounterTimer < encounterDuration) {
+        while (encounterTimer < encounterDuration)
+        {
             encounterTimer += Time.deltaTime + 1f;
             OnEncounterActive.Invoke(); // this is for the encounter UI bar to update
-            if (!skipSpecial && !specialPhaseActive && encounterTimer >= intervalForSpecial * (intervalCounter + 1)) {
-               // Debug.Log("Phase");
+            if (!skipSpecial && !specialPhaseActive && encounterTimer >= intervalForSpecial * (intervalCounter + 1))
+            {
+                // Debug.Log("Phase");
                 specialPhaseActive = true;
                 currentAttack?.StopAttack();
                 NextSpecial();
                 intervalCounter++;
             }
-            if (encounterTimer >= intervalForSpecial * (intervalCounter + 1) + intervalForSpecial) {
+
+            if (encounterTimer >= intervalForSpecial * (intervalCounter + 1) + intervalForSpecial)
+            {
                 specialPhaseActive = false;
             }
+
             yield return new WaitForSeconds(1f);
             yield return new WaitUntil(SpecialPhaseNotActive); // to stop timer when special phase is active
-        }        
+        }
+
         // this is for when the encounter is complete:
         EndEncounter();
     }
@@ -115,25 +162,34 @@ public class BossAttackHandler : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public bool SpecialPhaseNotActive() {
+    public bool SpecialPhaseNotActive()
+    {
         return specialPhaseActive == false;
     }
-    private void SpecialMoveDone() {
+
+    private void SpecialMoveDone()
+    {
         specialPhaseActive = false;
         Debug.Log("Special Move is Done");
     }
-    public void PerformAttack(AttackPattern ap) {
+
+    public void PerformAttack(AttackPattern ap)
+    {
         currentAttack = ap;
         currentAttack.StartAttack();
         Debug.Log($"Performing Attack move: {ap.name}");
     }
-    public void PerformSpecial(AttackPattern ap) {
+
+    public void PerformSpecial(AttackPattern ap)
+    {
         currentAttack = ap;
         currentAttack.StartAttack();
         OnSpecialPerformed.Invoke();
         Debug.Log($"Performing special move: {ap.name}");
     }
-    public float GetEncounterDuration() {
+
+    public float GetEncounterDuration()
+    {
         return encounterDuration;
     }
 
