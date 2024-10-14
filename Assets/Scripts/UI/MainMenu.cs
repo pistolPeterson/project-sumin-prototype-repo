@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using MaskTransitions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,7 +20,8 @@ public class MainMenu : MonoBehaviour
 
     public void GoToNextScene() //called by audio system when its audio is done 
     {
-        SceneManager.LoadScene(1);
+       // SceneManager.LoadScene(1);
+       TransitionManager.Instance.LoadLevel("RealNodeMap");
     }
     public void OpenMainMenu() {
         CloseAllGroups();

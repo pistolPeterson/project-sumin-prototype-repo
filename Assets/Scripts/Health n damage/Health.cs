@@ -35,7 +35,6 @@ public class Health : MonoBehaviour
         if (CurrentHealth > initialHealth)
             CurrentHealth = initialHealth;
         OnHealthChange?.Invoke(healthAmt);
-        Debug.Log("WE HEALING");
     }
 
     public void Damage(int damageAmt)

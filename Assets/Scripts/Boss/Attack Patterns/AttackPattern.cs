@@ -71,13 +71,12 @@ public abstract class AttackPattern : MonoBehaviour
         this.bossAttackHandler = bossAttackHandler;
     }
     
-    protected void SetProjectileSpeedState(GameObject projectileGO)
+    protected void SetProjectileData(GameObject projectileGO)
     {
         if (bossAttackHandler.ProjectileSpeedState == ProjectileSpeedUpgradeEnum.NORMAL)
             return; //rejected, how tragic
-        Projectile angled = projectileGO.GetComponent<Projectile>();
         projectileGO.GetComponent<Projectile>().SetProjectile(bossAttackHandler.ProjectileSpeedState);
-       
+        projectileGO.GetComponent<Damager>().CurrentDamage += bossAttackHandler.ProjectileDamageBuffer;
 
     }
 }

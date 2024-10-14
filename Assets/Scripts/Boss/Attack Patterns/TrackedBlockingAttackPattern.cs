@@ -54,7 +54,7 @@ public class TrackedBlockingAttackPattern : AttackPattern {
         int projectilesSpawned = 0;
         while (projectilesSpawned < projectilesPerBlocker) {
             var projGO = Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
-            SetProjectileSpeedState(projGO);
+            SetProjectileData(projGO);
             yield return new WaitForSeconds(delayBetweenProjSpawn);
             projectilesSpawned++;
         }
@@ -67,7 +67,7 @@ public class TrackedBlockingAttackPattern : AttackPattern {
         int projectilesSpawned = 0;
         while (projectilesSpawned < projectilesPerlaser) {
             var projGO = Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
-            SetProjectileSpeedState(projGO);
+            SetProjectileData(projGO);
             yield return new WaitForSeconds(delayBetweenlaserProjSpawn);
             projectilesSpawned++;
         }

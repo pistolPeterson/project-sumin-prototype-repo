@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using MaskTransitions;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -31,15 +32,15 @@ public class CardSelectHandler : MonoBehaviour
         GameManager.Instance.currentPlayerHand.Add(blessCardSO);
         GameManager.Instance.currentPlayerHand.Add(curseCardSO);
         OnPlayerConfirmedCard?.Invoke();
-        StartCoroutine(WaitThenLoadScene());
-        //go to encounter scene (with encounter data?)
+       // StartCoroutine(WaitThenLoadScene());
+        TransitionManager.Instance.LoadLevel("Scenes/Gameplay Scenes/RealNodeMap", 2.5f);
         playerHasChosen = true;
     }
 
     private IEnumerator WaitThenLoadScene()
     {
         yield return new WaitForSeconds(3.0f);
-        SceneManager.LoadScene("MainEncounter"); 
+        SceneManager.LoadScene("Scenes/Gameplay Scenes/RealNodeMap"); 
     }
 
 }

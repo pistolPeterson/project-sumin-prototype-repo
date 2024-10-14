@@ -5,6 +5,7 @@ using com.cyborgAssets.inspectorButtonPro;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Linq;
+using MaskTransitions;
 using UnityEngine.SceneManagement;
 
 public class BossAttackHandler : MonoBehaviour
@@ -29,7 +30,7 @@ public class BossAttackHandler : MonoBehaviour
     [Header("Upgrades")] 
      private EncounterDistanceDataHandler encounterDistanceData;
     private float encounterDuration = 30f;
-
+    public int ProjectileDamageBuffer { get; set; } = 0;
     public ProjectileSpeedUpgradeEnum ProjectileSpeedState { get; set; } = ProjectileSpeedUpgradeEnum.NORMAL;
 
     private GameManager gameManager;
@@ -134,7 +135,6 @@ public class BossAttackHandler : MonoBehaviour
             OnEncounterActive.Invoke(); // this is for the encounter UI bar to update
             if (!skipSpecial && !specialPhaseActive && encounterTimer >= intervalForSpecial * (intervalCounter + 1))
             {
-                // Debug.Log("Phase");
                 specialPhaseActive = true;
                 currentAttack?.StopAttack();
                 NextSpecial();
@@ -159,7 +159,8 @@ public class BossAttackHandler : MonoBehaviour
         currentAttack.StopAttack();
         encounterComplete = true;
         Debug.Log("Encounter complete");
-        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(1);
+        TransitionManager.Instance.LoadLevel("Scenes/Gameplay Scenes/RealNodeMap");
     }
 
     public bool SpecialPhaseNotActive()
@@ -170,7 +171,6 @@ public class BossAttackHandler : MonoBehaviour
     private void SpecialMoveDone()
     {
         specialPhaseActive = false;
-        Debug.Log("Special Move is Done");
     }
 
     public void PerformAttack(AttackPattern ap)

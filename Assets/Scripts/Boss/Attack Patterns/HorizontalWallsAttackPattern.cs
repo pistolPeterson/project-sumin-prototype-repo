@@ -25,7 +25,7 @@ public class HorizontalWallsAttackPattern : AttackPattern {
                 if (yPos == yPosAvoid) continue;
                 SetSpawnLoc(yPos);
                 var projGO = Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
-                SetProjectileSpeedState(projGO);
+                SetProjectileData(projGO);
             }
             projectilesSpawned++;
             yield return new WaitForSeconds(spaceInWall);

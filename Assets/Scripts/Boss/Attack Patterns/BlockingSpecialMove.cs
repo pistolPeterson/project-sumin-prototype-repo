@@ -32,7 +32,7 @@ public class BlockingSpecialMove : AttackPattern
         int projectilesSpawned = 0;
         while (projectilesSpawned < projectilesPerLaser) {
           var projectileGO =  Instantiate(projectilePrefab, spawnLoc, Quaternion.identity);
-          SetProjectileSpeedState(projectileGO);
+          SetProjectileData(projectileGO);
             yield return new WaitForSeconds(delayBetweenProjSpawn);
             projectilesSpawned++;
         }

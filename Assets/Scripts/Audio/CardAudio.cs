@@ -10,7 +10,6 @@ public class CardAudio : BaseAudio
    {
       base.Start();
       cardSelectHandler.OnPlayerConfirmedCard.AddListener(PlayAudio);
-      Debug.Log("started up card audio");
       
    }
 }

@@ -13,7 +13,6 @@ public class PlayerHealth : Health
  
     public override void HandleDeath()
     {
-        Debug.Log("Player is dead af");
         deathPS.Play();
         IEnumerator DelayToDie() {
             yield return new WaitForSeconds(deathPS.main.duration / 2);
