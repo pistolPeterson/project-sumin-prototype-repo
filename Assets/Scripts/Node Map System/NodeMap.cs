@@ -17,15 +17,17 @@ public class NodeMap : MonoBehaviour
     [SerializeField] private float distanceBetweenNodes = 10f;
     private int currentNodeProgress = 0;
     public List<GameObject> currentNodesList;
+    [SerializeField] private Transform startingNodeLocation;
 
-    [Header("Prefabs")] [SerializeField] private GameObject healNodePrefab;
+    [Header("Prefabs")] 
+    [SerializeField] private GameObject healNodePrefab;
     [SerializeField] private GameObject encounterNodePrefab;
     [SerializeField] private GameObject tarotCardNodePrefab;
     [SerializeField] private GameObject bossStatIncPrefab;
-    [SerializeField] private Transform startingNodeLocation;
 
+    //TODO: only use one event
    [HideInInspector] public UnityEvent<int, int> OnProgressUpdated;
-    
+   [HideInInspector] public UnityEvent OnNodeProgressUpdated;
     private void Start()
     {
         SetupNodeMap();
@@ -124,6 +126,11 @@ public class NodeMap : MonoBehaviour
         return new Vector3(startingNodeLocation.position.x + ((index + 1) * distanceBetweenNodes),
             startingNodeLocation.position.y, 0);
     }
+
+    public GameObject GetCurrentNode()
+    {
+        return currentNodesList[currentNodeProgress];
+    }
     
     [ProButton]
     private void UpdateNodeProgress() //TODO: warninng doing logic and viusal in same method
@@ -139,6 +146,7 @@ public class NodeMap : MonoBehaviour
             nodeComponent.IsNodeActive = isActive;
         }
         OnProgressUpdated?.Invoke(currentNodeProgress, currentNodesList.Count);
+        OnNodeProgressUpdated?.Invoke();
     }
 
     private GameObject GetRandomNode()
