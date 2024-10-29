@@ -30,8 +30,14 @@ MonoBehaviour:
     referenceMode: 2
     serializationDepthLimit: 64
     assemblyNames:
-    - Assembly-CSharp-firstpass
+    - AllIn1SpriteShaderAssembly
     - Assembly-CSharp
+    - Assembly-CSharp-firstpass
+    - InsaneScatterbrain.Common
+    - InsaneScatterbrain.DelaunatorSharp
+    - InsaneScatterbrain.FastNoiseLite
+    - InsaneScatterbrain.MapGraph
+    - InsaneScatterbrain.ScriptGraph
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

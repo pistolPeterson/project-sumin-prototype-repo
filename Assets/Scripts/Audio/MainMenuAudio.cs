@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
-public class MainMenuAudio : MonoBehaviour
+public class MainMenuAudio : MonoBehaviour, IDataPersist
 {
     [Header("Main Menu Buttons")]
     [SerializeField] private Button playButton;
@@ -76,5 +76,17 @@ public class MainMenuAudio : MonoBehaviour
     {
         mixer.SetFloat(mixerParam, Mathf.Log10(slider.value) * 20);
         text.text = (slider.value * 100).ToString();
+    }
+
+    public void LoadData(GameData data)
+    {
+        musicSlider.value = data.musicVolume;
+        sfxSlider.value = data.sfxVolume;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.musicVolume = musicSlider.value;
+        data.sfxVolume = sfxSlider.value;
     }
 }

@@ -4,7 +4,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviour, IDataPersist
 {
     [HideInInspector] public UnityEvent<int> OnHealthChange; 
     [HideInInspector] public UnityEvent OnDeath; //common problem: making sure this event doesnt get spammed
@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
     public bool DebugInvincibilityMode { get; set; } = false;
     public virtual void Start()
     {
-        CurrentHealth = initialHealth;
+        //CurrentHealth = initialHealth;
     }
 
 
@@ -78,5 +78,15 @@ public class Health : MonoBehaviour
     }
     public void SetInvincibility(bool invincible) {
         invincibleMode = invincible;
+    }
+
+    public void LoadData(GameData data)
+    {
+        CurrentHealth = data.currentHealth;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.currentHealth = CurrentHealth;
     }
 }
