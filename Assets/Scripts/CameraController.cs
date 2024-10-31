@@ -47,7 +47,6 @@ public class CameraController : MonoBehaviour
        Vector3 smoothPosition = Vector3.Lerp(transform.position, targetPosition, followSmoothness);
        transform.position = new Vector3(smoothPosition.x, transform.position.y, transform.position.z); // Lock Y and Z axes
        float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
-       Debug.Log(distanceToTarget);
        if (distanceToTarget <= distanceThreshold)
        {
            // Camera is close enough to the target, enable player input
