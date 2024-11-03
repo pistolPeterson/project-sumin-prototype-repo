@@ -4,7 +4,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Health : MonoBehaviour, IDataPersist
+public class Health : MonoBehaviour
 {
     [HideInInspector] public UnityEvent<int> OnHealthChange; 
     [HideInInspector] public UnityEvent OnDeath; //common problem: making sure this event doesnt get spammed
@@ -13,7 +13,7 @@ public class Health : MonoBehaviour, IDataPersist
     [Header("Debug Health")]
     [SerializeField] private bool isDead = false;
     [SerializeField] private bool invincibleMode = false;
-    [field: SerializeField] public int CurrentHealth { get; private set; }
+    [field: SerializeField] public int CurrentHealth { get; protected set; }
     [SerializeField] private float invincibilityDuration = 0.2f;
 
     public bool DebugInvincibilityMode { get; set; } = false;
@@ -80,13 +80,5 @@ public class Health : MonoBehaviour, IDataPersist
         invincibleMode = invincible;
     }
 
-    public void LoadData(GameData data)
-    {
-        CurrentHealth = data.currentHealth;
-    }
-
-    public void SaveData(ref GameData data)
-    {
-        data.currentHealth = CurrentHealth;
-    }
+   
 }

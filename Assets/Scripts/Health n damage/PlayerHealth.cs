@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : Health
+public class PlayerHealth : Health, IDataPersist
 {
     [SerializeField] private ParticleSystem deathPS;
     public override void Start()
@@ -10,7 +11,12 @@ public class PlayerHealth : Health
         base.Start();
     }
 
- 
+    private void Awake()
+    {
+        //this is the default health being set, if save is on, it will be overriden OnEnable 
+        CurrentHealth = GetInitialHealth();
+    }
+
     public override void HandleDeath()
     {
         deathPS.Play();
@@ -20,5 +26,16 @@ public class PlayerHealth : Health
             OnDeath?.Invoke();
         }
         StartCoroutine(DelayToDie());
+    }
+    
+    
+    public void LoadData(GameData data)
+    {
+        CurrentHealth = data.currentHealth;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.currentHealth = CurrentHealth;
     }
 }

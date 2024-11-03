@@ -10,7 +10,8 @@ public class DataPersistenceManager : PersistentSingleton<DataPersistenceManager
    private GameData gameData;
    private List<IDataPersist> dataPersistenceObjects;
    private FileDataHandler dataHandler;
-   
+   [Header("Debug: Will ignore data persistance")]
+   public bool ignoreSave = false; 
    protected override void Awake()
    {
       base.Awake();
@@ -31,7 +32,13 @@ public class DataPersistenceManager : PersistentSingleton<DataPersistenceManager
          return;
       }
 
-      foreach (IDataPersist dataPersistObj in dataPersistenceObjects )
+      if (ignoreSave)
+      {
+         Debug.Log("IGNORING SAVE DATA");
+         return;
+      }
+
+   foreach (IDataPersist dataPersistObj in dataPersistenceObjects )
       {
          dataPersistObj.LoadData(gameData);
       }
