@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
 {
     [HideInInspector] public UnityEvent<int> OnHealthChange; 
     [HideInInspector] public UnityEvent OnDeath; //common problem: making sure this event doesnt get spammed
-    [SerializeField] private int initialHealth = 30; //im scaling health x5 incase we need to balance 
+     private int initialHealth = 50; //im scaling health x5 incase we need to balance 
     
     [Header("Debug Health")]
     [SerializeField] private bool isDead = false;

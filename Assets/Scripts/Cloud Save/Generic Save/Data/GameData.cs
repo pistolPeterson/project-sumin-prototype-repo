@@ -11,9 +11,11 @@ public class GameData
    public GameData()
    {
       this.deathCount = 0;
-      this.currentHealth = 20;
+      this.currentHealth = 50;
       this.sfxVolume = 100;
       this.musicVolume = 100;
    }
+
+  
    
 }

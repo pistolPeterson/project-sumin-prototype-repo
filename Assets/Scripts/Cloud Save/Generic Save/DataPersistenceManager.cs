@@ -20,6 +20,7 @@ public class DataPersistenceManager : PersistentSingleton<DataPersistenceManager
    
    public void NewGame()
    {
+      Debug.Log("New GameData");
       gameData = new GameData();
    }
 
