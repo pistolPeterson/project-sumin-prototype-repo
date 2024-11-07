@@ -1,25 +1,22 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using com.cyborgAssets.inspectorButtonPro;
-using DG.Tweening;
+
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class ShieldVisual : MonoBehaviour
 {
     private Shield shield;
 
-     [SerializeField] private GameObject shieldVisualGO; 
-
-  
-    private void ShowShield()
+    [SerializeField] private SpriteRenderer EyeVisual;
+    [SerializeField] private SpriteRenderer WingVisual;
+    private const string OUTLINE_MATERIAL_TAG = "_OutlineAlpha";
+    public void ShowShieldVisual()
     {
-        shieldVisualGO.SetActive(true);
+        EyeVisual.material.SetFloat(OUTLINE_MATERIAL_TAG, 1f);
+        WingVisual.material.SetFloat(OUTLINE_MATERIAL_TAG, 1f);
     }
-    private void CloseShield()
+    public void CloseShieldVisual()
     {
-        shieldVisualGO.SetActive(false);
+        EyeVisual.material.SetFloat(OUTLINE_MATERIAL_TAG, 0f);
+        WingVisual.material.SetFloat(OUTLINE_MATERIAL_TAG, 0f);
     }
 
 }

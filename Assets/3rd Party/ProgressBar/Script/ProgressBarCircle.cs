@@ -94,7 +94,7 @@ public class ProgressBarCircle : MonoBehaviour {
     private void Update()
     {
        
-
+/*
         if (!Application.isPlaying)
         {
            
@@ -108,13 +108,13 @@ public class ProgressBarCircle : MonoBehaviour {
             
         }
         else
-        {/*
+        {
             if (Alert >= barValue && Time.time > nextPlay)
             {
                 nextPlay = Time.time + RepearRate;
                 audiosource.PlayOneShot(sound);
-            }*/
-        }
+            }
+        }*/
     }
 
 }
