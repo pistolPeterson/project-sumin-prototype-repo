@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using com.cyborgAssets.inspectorButtonPro;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -90,11 +92,24 @@ public class ProgressBarCircle : MonoBehaviour {
 
     }
 
+    [ProButton]
+    public void AnimateBarValue(float timeToAnimate)
+    {
+        DOTween.To(() => 0f, UpdateValue, 100f, timeToAnimate)
+            .SetEase(Ease.Linear)
+            .Play();
+    }
+
+    public void ResetBarValue()
+    {
+        UpdateValue(0);
+    }
+
 
     private void Update()
     {
        
-/*
+
         if (!Application.isPlaying)
         {
            
@@ -107,14 +122,7 @@ public class ProgressBarCircle : MonoBehaviour {
             barBackground.sprite = BarBackGroundSprite;
             
         }
-        else
-        {
-            if (Alert >= barValue && Time.time > nextPlay)
-            {
-                nextPlay = Time.time + RepearRate;
-                audiosource.PlayOneShot(sound);
-            }
-        }*/
+     
     }
 
 }
