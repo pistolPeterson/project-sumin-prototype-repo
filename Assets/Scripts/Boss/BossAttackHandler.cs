@@ -21,7 +21,7 @@ public class BossAttackHandler : MonoBehaviour
 
     [Header("Attacking Stats")] 
     [SerializeField] private float percentageForSpecialMove = 0.25f;
-    public float encounterTimer { get; private set; }
+    public float encounterTimer { get;  set; }
     private bool encounterComplete = false;
     private bool specialPhaseActive = false;
 
@@ -34,6 +34,7 @@ public class BossAttackHandler : MonoBehaviour
     public ProjectileSpeedUpgradeEnum ProjectileSpeedState { get; set; } = ProjectileSpeedUpgradeEnum.NORMAL;
 
     private GameManager gameManager;
+    private IEnumerator timerCoroutine;
 
     private void Awake()
     {
@@ -96,6 +97,7 @@ public class BossAttackHandler : MonoBehaviour
     public void StartEncounterAttacks()
     {
         StartCoroutine(StartEncounterTimer());
+        timerCoroutine = StartEncounterTimer();
     }
 
     private void NextAttack()
@@ -122,6 +124,7 @@ public class BossAttackHandler : MonoBehaviour
     // ENCOUNTER LOOP:
     private IEnumerator StartEncounterTimer()
     {
+        Debug.Log("Starting Timer");
         encounterComplete = false;
         encounterTimer = 0f;
         float intervalForSpecial =
@@ -156,11 +159,16 @@ public class BossAttackHandler : MonoBehaviour
 
     private void EndEncounter()
     {
+      
         currentAttack.StopAttack();
         encounterComplete = true;
         Debug.Log("Encounter complete");
-        //SceneManager.LoadScene(1);
         TransitionManager.Instance.LoadLevel("Scenes/Gameplay Scenes/RealNodeMap");
+    }
+
+    public void StopEncounterTimer()
+    {
+        StopCoroutine(timerCoroutine);
     }
 
     public bool SpecialPhaseNotActive()
