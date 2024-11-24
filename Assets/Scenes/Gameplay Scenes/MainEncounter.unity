@@ -1045,7 +1045,7 @@ MonoBehaviour:
   <BossAttackHandler>k__BackingField: {fileID: 1523286168}
   currentPlayerHand: []
   testingCardEffects:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: f50d7f5b91af79349bebb53e3cc4cbaf, type: 2}
   MapNodeEnums: 
 --- !u!1 &547567679 stripped
 GameObject:
@@ -1852,37 +1852,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &1473862272
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1473862273}
-  m_Layer: 0
-  m_Name: Component Injection
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1473862273
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1473862272}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.97, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1506037443 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8619979124916214645, guid: 7ddbac7f742ab6e41ac355cebc6201fb, type: 3}
@@ -2810,6 +2779,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 427426446}
+    - target: {fileID: 3675811685090691327, guid: 7ddbac7f742ab6e41ac355cebc6201fb, type: 3}
+      propertyPath: playerVisual
+      value: 
+      objectReference: {fileID: 1924647637058952198}
+    - target: {fileID: 3675811685090691327, guid: 7ddbac7f742ab6e41ac355cebc6201fb, type: 3}
+      propertyPath: invincibilityDuration
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 4216677774580350127, guid: 7ddbac7f742ab6e41ac355cebc6201fb, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -2864,6 +2841,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1506037445}
   m_SourcePrefab: {fileID: 100100000, guid: 7ddbac7f742ab6e41ac355cebc6201fb, type: 3}
+--- !u!1 &1924647637058952198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6229857468133473494, guid: 7ddbac7f742ab6e41ac355cebc6201fb, type: 3}
+  m_PrefabInstance: {fileID: 1924647637058952197}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4310939682925902174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3032,5 +3014,4 @@ SceneRoots:
   - {fileID: 1290486466}
   - {fileID: 1928869224}
   - {fileID: 893136282}
-  - {fileID: 1473862273}
   - {fileID: 1511425374}

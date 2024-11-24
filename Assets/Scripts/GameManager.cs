@@ -81,7 +81,13 @@ public class GameManager : PersistentSingleton<GameManager>
         willHealThisRound = false;
         
     }
-     
+
+    public void ResetGameManager()
+    {
+        MapNodeEnums = new List<NodeEnum>();
+    }
+    
+    
     private void Log(object message)
     {
         if(showLogs)

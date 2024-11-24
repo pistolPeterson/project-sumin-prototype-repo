@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerHealth : Health, IDataPersist
 {
     [SerializeField] private ParticleSystem deathPS;
+    [SerializeField] private GameObject playerVisual;
     public override void Start()
     {
         base.Start();
@@ -20,22 +21,21 @@ public class PlayerHealth : Health, IDataPersist
     public override void HandleDeath()
     {
         deathPS.Play();
-        IEnumerator DelayToDie() {
-            yield return new WaitForSeconds(deathPS.main.duration / 2);
-            gameObject.SetActive(false);
-            OnDeath?.Invoke();
-        }
         StartCoroutine(DelayToDie());
     }
     
-    
+    IEnumerator DelayToDie() {
+        yield return new WaitForSeconds(deathPS.main.duration / 2);
+        playerVisual.SetActive(false);
+        OnDeath?.Invoke();
+    }
     public void LoadData(GameData data)
     {
         CurrentHealth = data.currentHealth;
     }
 
     public void SaveData(ref GameData data)
-    {
+    {  
         data.currentHealth = CurrentHealth;
     }
 }

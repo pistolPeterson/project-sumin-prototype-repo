@@ -20,7 +20,7 @@ public class DataPersistenceManager : PersistentSingleton<DataPersistenceManager
    
    public void NewGame()
    {
-      Debug.Log("New GameData");
+      
       gameData = new GameData();
    }
 
@@ -39,12 +39,17 @@ public class DataPersistenceManager : PersistentSingleton<DataPersistenceManager
          return;
       }
 
+      if (gameData.currentHealth == 0)
+      {
+         return;
+      }
    foreach (IDataPersist dataPersistObj in dataPersistenceObjects )
       {
+         Debug.Log("Loaded Game Data for an object " + dataPersistObj.ToString());
          dataPersistObj.LoadData(gameData);
       }
 
-      Debug.Log("Loaded Game Data");
+    
    }
 
 
@@ -57,6 +62,7 @@ public class DataPersistenceManager : PersistentSingleton<DataPersistenceManager
       }
       foreach (IDataPersist dataPersistObj in dataPersistenceObjects )
       {
+         
          dataPersistObj.SaveData(ref gameData);
       }
       //save that data to a file using data handler

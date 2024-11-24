@@ -21,6 +21,8 @@ public class FileDataHandler
          loadedData = ES3.Load<GameData>(GAME_DATA_KEY, FILE_PATH);
       }
 
+      if (loadedData == null)
+         Debug.Log("GameData is Null when attempting to laod from fileDtatHandler");
       return loadedData;
    }
 

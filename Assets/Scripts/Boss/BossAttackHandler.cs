@@ -163,7 +163,7 @@ public class BossAttackHandler : MonoBehaviour
         currentAttack.StopAttack();
         encounterComplete = true;
         Debug.Log("Encounter complete");
-        TransitionManager.Instance.LoadLevel("Scenes/Gameplay Scenes/RealNodeMap");
+        FindObjectOfType<GameOverHandler>().EndRound();
     }
 
     public void StopEncounterTimer()
