@@ -39,6 +39,11 @@ public class CameraController : MonoBehaviour
 
    }
 
+   public void SetHorizontalInput(float newInput)
+   {
+       horizontalInput = newInput;
+   }
+
    private void CameraFollow()
    {
        if(!targetToFollow)
@@ -56,7 +61,7 @@ public class CameraController : MonoBehaviour
 
    private void HandlePlayerMovement()
    {
-       horizontalInput = Input.GetAxisRaw("Horizontal");
+      // horizontalInput = Input.GetAxisRaw("Horizontal");
 
        if (horizontalInput != 0) // Check if there's input
        {
