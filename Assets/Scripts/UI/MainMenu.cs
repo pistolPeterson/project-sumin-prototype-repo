@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using MaskTransitions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject settingsGroup;
     [SerializeField] private GameObject creditsGroup;
     [SerializeField] private GameObject backButton;
+    
+    //TODO: if there is no game data, disable continue button
     private void Start() {
         OpenMainMenu();
     }
@@ -17,9 +20,15 @@ public class MainMenu : MonoBehaviour
         //when mainmenu audio finishes, game goes to next scene  
     }
 
+    public void OnContinueGameClicked()
+    {
+        TransitionManager.Instance.LoadLevel("RealNodeMap");
+    }
+
     public void GoToNextScene() //called by audio system when its audio is done 
     {
-        SceneManager.LoadScene(1);
+       DataPersistenceManager.Instance.NewGame();
+       TransitionManager.Instance.LoadLevel("RealNodeMap");
     }
     public void OpenMainMenu() {
         CloseAllGroups();

@@ -8,18 +8,18 @@ public class Health : MonoBehaviour
 {
     [HideInInspector] public UnityEvent<int> OnHealthChange; 
     [HideInInspector] public UnityEvent OnDeath; //common problem: making sure this event doesnt get spammed
-    [SerializeField] private int initialHealth = 30; //im scaling health x5 incase we need to balance 
+     private int initialHealth = 50; //im scaling health x5 incase we need to balance 
     
     [Header("Debug Health")]
     [SerializeField] private bool isDead = false;
     [SerializeField] private bool invincibleMode = false;
-    [field: SerializeField] public int CurrentHealth { get; private set; }
+    [field: SerializeField] public int CurrentHealth { get; protected set; }
     [SerializeField] private float invincibilityDuration = 0.2f;
 
     public bool DebugInvincibilityMode { get; set; } = false;
     public virtual void Start()
     {
-        CurrentHealth = initialHealth;
+        //CurrentHealth = initialHealth;
     }
 
 
@@ -35,7 +35,6 @@ public class Health : MonoBehaviour
         if (CurrentHealth > initialHealth)
             CurrentHealth = initialHealth;
         OnHealthChange?.Invoke(healthAmt);
-        Debug.Log("WE HEALING");
     }
 
     public void Damage(int damageAmt)
@@ -80,4 +79,6 @@ public class Health : MonoBehaviour
     public void SetInvincibility(bool invincible) {
         invincibleMode = invincible;
     }
+
+   
 }

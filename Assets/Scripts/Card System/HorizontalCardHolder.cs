@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using PeteUnityUtils;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -25,8 +26,9 @@ public class HorizontalCardHolder : MonoBehaviour
 
    private void Start()
    {
+      //TODO: get ALLCards reference
       var cardPool = FindObjectOfType<AllCards>().CardPool;
-      //TODO: shuffle the cards?
+      cardPool.Shuffle();
       //get all the bless/curse cards and add to hand
       int currentAmt = 0;
       foreach (var card in cardPool)

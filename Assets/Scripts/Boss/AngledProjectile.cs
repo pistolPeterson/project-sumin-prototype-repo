@@ -13,7 +13,6 @@ public class AngledProjectile : Projectile
 
     private void Start() {
         playerTransform = FindObjectOfType<PlayerMovement>()?.transform;
-        Debug.Log(playerTransform);
         SetMoveDirection(Direction.LEFT); // default
     }
     public override void MoveProjectile() {

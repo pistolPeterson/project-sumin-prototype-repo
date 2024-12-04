@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class InputManager : MonoBehaviour
 {
@@ -11,8 +12,8 @@ public class InputManager : MonoBehaviour
     [Header("Player Inputs")] public PlayerControls playerControls;
     private Vector2 currMoveDir;
 
-    [HideInInspector] public UnityEvent OnShieldUse;
-    [HideInInspector] public UnityEvent<bool> OnShieldHeld;
+    [HideInInspector] public UnityEvent OnShieldPressed;
+    [HideInInspector] public UnityEvent OnShieldReleased;
     [HideInInspector] public UnityEvent<Vector2> OnMovement;
     
     [SerializeField] private float shieldIntervalDelay = 0.3f;
@@ -47,24 +48,17 @@ public class InputManager : MonoBehaviour
         currMoveDir = movement.ReadValue<Vector2>();
         OnMovement.Invoke(currMoveDir);
     }
-    public void UseShield(InputAction.CallbackContext context) {
-        if (alreadyHeld) return;
-        StartCoroutine(Shielding());
+    public void UseShield(InputAction.CallbackContext context)
+    {
+      
     }
     public void HoldingShield(InputAction.CallbackContext context) {
-        shieldHeld = true;
-        OnShieldHeld.Invoke(shieldHeld);
+      
+        OnShieldPressed.Invoke();
     }
     public void ReleasingShield(InputAction.CallbackContext context) {
-        shieldHeld = false;
-        OnShieldHeld.Invoke(shieldHeld);
+        
+        OnShieldReleased.Invoke();
     }
-    private IEnumerator Shielding() {
-        while (shieldHeld) {
-            alreadyHeld = true;
-            OnShieldUse.Invoke();
-            yield return new WaitForSeconds(shieldIntervalDelay);
-        }
-        alreadyHeld = false;
-    }
+  
 }

@@ -34,12 +34,12 @@ public class BossAttackHandlerData : MonoBehaviour
         if (currentAttackPatterns.Contains(ap)) {
             currentAttackPatterns.Remove(ap);
         }
-        else Debug.LogWarning(ap + "attack not found: Nothing removed.");
+       
     }
     public void RemoveSpecial(AttackPattern sm) {
         if (currentSpecialMoves.Contains(sm)) {
             currentSpecialMoves.Remove(sm);
         }
-        else Debug.LogWarning(sm + " special not found: Nothing removed.");
+       
     }
 }

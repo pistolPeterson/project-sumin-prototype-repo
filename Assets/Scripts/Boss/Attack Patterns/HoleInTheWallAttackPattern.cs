@@ -20,7 +20,7 @@ public class HoleInTheWallAttackPattern : AttackPattern {
             if (yPos == yPosAvoid) continue;
             SetSpawnLoc(yPos);
             var projGO =Instantiate(projectilePrefab, projectileSpawnLoc, Quaternion.identity);
-            SetProjectileSpeedState(projGO);
+            SetProjectileData(projGO);
         }
         attackComplete = true;
     }

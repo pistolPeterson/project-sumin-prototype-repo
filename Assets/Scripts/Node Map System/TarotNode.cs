@@ -11,6 +11,6 @@ public class TarotNode :  INode
             return;
        
         nodeMap.IncreaseProgress();
-        SceneManager.LoadScene("RealNodeMap");
+        SceneManager.LoadScene("CardSystemScene");
     }
 }

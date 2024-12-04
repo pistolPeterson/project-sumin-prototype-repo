@@ -9,10 +9,7 @@ public class ShieldUI : MonoBehaviour
     [SerializeField] private Slider shieldBar;
 
     private void Start() {
-        shieldBar.maxValue = playerShield.GetMaxShieldCharge();
-        playerShield.OnShieldUse.AddListener(UpdateShieldUI);
+      
     }
-    private void UpdateShieldUI(float currentShield) {
-        shieldBar.value = currentShield;
-    }
+   
 }
