@@ -22,6 +22,10 @@ public class MainMenuAudio : MonoBehaviour, IDataPersist
     [SerializeField] private TextMeshProUGUI musicText;
     [SerializeField] private TextMeshProUGUI sfxText;
     [SerializeField] private AudioMixer mixer;
+
+    private const string MUSIC_LVL_KEY = "MUSIC_LEVEL";
+    private const string SFX_LVL_KEY = "SFX_LEVEL";
+
     private void Start()
     {
         playButton.onClick.AddListener(PlayButtonAudio);
@@ -31,20 +35,30 @@ public class MainMenuAudio : MonoBehaviour, IDataPersist
         
         musicSlider.onValueChanged.AddListener(SetMusicLevel);
         sfxSlider.onValueChanged.AddListener(SetSFXLevel);
+
+        /*
+            A system setting like this doesn't make sense to be in the save file,
+            so it is saved in the player preferences instead.
+        */
+        musicSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat(MUSIC_LVL_KEY, 1));
+        SetMusicLevel(musicSlider.value);
+
+        sfxSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat(SFX_LVL_KEY, 1));
+        SetSFXLevel(sfxSlider.value);
     }
 
     private void SetMusicLevel(float newValue)
     {
         SetSliderVolume(musicSlider, musicText, "MusicParam");
+        PlayerPrefs.SetFloat(MUSIC_LVL_KEY, newValue);
     }
     
     private void SetSFXLevel(float newValue)
     {
         SetSliderVolume(sfxSlider, sfxText, "SFXParam");
+        PlayerPrefs.SetFloat(SFX_LVL_KEY, newValue);
     }
    
-    
-
     private void PlayButtonAudio()
     {
         mainMenuUIAudioSource.PlayOneShot(uiAudioClips[0]);

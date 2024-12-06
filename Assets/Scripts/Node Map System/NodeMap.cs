@@ -33,7 +33,7 @@ public class NodeMap : MonoBehaviour
         SetupNodeMap();
     }
 
-//look for gamemanager, if map hasnt been generated, then generate map and send it back to gamemanager 
+    //look for gamemanager, if map hasnt been generated, then generate map and send it back to gamemanager 
     //else read the node enums and generate the current map layout 
     //set the node progress as well
     private void SetupNodeMap()
@@ -48,13 +48,34 @@ public class NodeMap : MonoBehaviour
         {
             GenerateNewNodeMap();
             GameManager.Instance.MapNodeEnums = ConvertNodeObjectsIntoNodeEnum();
+
+            // Saving the NodeEnums as an array in a json will allow us to deserialize that and load them later on.
+            SaveManager.Instance.UpdateMapNodeEnums(GameManager.Instance.MapNodeEnums);
+            SaveManager.Instance.UpdateCurrentNodeId(0);
+            SaveManager.Instance.SaveCurrent();
         }
+        /*
+        Because GameManager.Instance.MapNodeEnums and CurrentProgress are updated 
+        on the Awake of SaveManager, this will also load from save file automatically if a save file exists,
+        because it runs after the save file loading.
+
+        TODO: If multiple save file support is added, this will have to be updated as well most likely.
+        */
         else
         {
             Debug.Log("Loading Node Map From Game Manager");
             GenerateUserNodeMap(GameManager.Instance.MapNodeEnums);
             currentNodeProgress = GameManager.Instance.CurrentProgress;
+
+            // This 'else' part looks like is used for testing so I'm not creating a save file if none exists, but
+            // you can comment this out and it will! :)
+            /* if (!SaveManager.Instance.HasSave()){
+                SaveManager.Instance.UpdateMapNodeEnums(GameManager.Instance.MapNodeEnums);
+                SaveManager.Instance.UpdateCurrentNodeId(currentNodeProgress);
+                SaveManager.Instance.SaveCurrent();
+            } */
         }
+
         UpdateNodeProgress();
 
     }
@@ -145,6 +166,11 @@ public class NodeMap : MonoBehaviour
             nodeVisual.ShowNodeVisualActive(isActive);
             nodeComponent.IsNodeActive = isActive;
         }
+
+        // Not using events as this is a safer way to ensure progress is not lost in case of a crash during event handling.
+        SaveManager.Instance.UpdateCurrentNodeId(currentNodeProgress);
+        SaveManager.Instance.SaveCurrent();
+
         OnProgressUpdated?.Invoke(currentNodeProgress, currentNodesList.Count);
         OnNodeProgressUpdated?.Invoke();
     }
