@@ -7,6 +7,7 @@ public class SaveFile
 
     public int nodeCount;
     public int currentNodeId;
+    public int health;
 
     public override string ToString()
     {

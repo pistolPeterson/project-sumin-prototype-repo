@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : Health, IDataPersist
+public class PlayerHealth : Health
 {
     [SerializeField] private ParticleSystem deathPS;
     [SerializeField] private GameObject playerVisual;
@@ -29,13 +29,17 @@ public class PlayerHealth : Health, IDataPersist
         playerVisual.SetActive(false);
         OnDeath?.Invoke();
     }
-    public void LoadData(GameData data)
+
+    public void LoadHealth()
     {
-        CurrentHealth = data.currentHealth;
+        if (SaveManager.Instance.HasSave())
+            CurrentHealth = SaveManager.Instance.CurrentSave.health;
+        OnHealthChange.Invoke(0);
     }
 
-    public void SaveData(ref GameData data)
-    {  
-        data.currentHealth = CurrentHealth;
+    public void SaveHealth()
+    {
+        SaveManager.Instance.CurrentSave.health = CurrentHealth;
+        SaveManager.Instance.SaveCurrent();
     }
 }

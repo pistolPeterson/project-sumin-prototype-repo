@@ -11,8 +11,8 @@ public class SaveManager : MonoBehaviour
     public static SaveManager Instance { get; private set; }
 
     public SaveFile CurrentSave => currentSave;
-    [SerializeField] private SaveFile currentSave;
-    [SerializeField] private string saveFileName = "MyUltimateSave";
+    [SerializeField] private SaveFile currentSave; 
+    private const string saveFileName = "SuperDuperSecretDataForPete";
 
     private static string SAVES_DIR => Application.dataPath + "/Saves/";
     private const string FILE_EXT = ".ult";
@@ -61,6 +61,11 @@ public class SaveManager : MonoBehaviour
             Debug.Log(currentSave.ToString());
         }
     }
+    
+    public void CreateNewSave()
+    {
+        currentSave = new SaveFile();
+    }
 
     public bool HasSave(){
         if (!Directory.Exists(SAVES_DIR)) return false;
@@ -81,6 +86,8 @@ public class SaveManager : MonoBehaviour
     public void UpdateCurrentNodeId(int id){
         currentSave.currentNodeId = id;
     }
+
+  
 
     public void SaveCurrent(){
         if (!Directory.Exists(SAVES_DIR)){

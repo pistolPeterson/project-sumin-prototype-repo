@@ -39,6 +39,7 @@ public class GameOverHandler : MonoBehaviour
                 Debug.Log("player is dead we should be restarting scene");
                 return;
             }
+            playerHealth.SaveHealth();
             //boss stops attack 
             Debug.Log("didnt die we going back");
             //go back to node map

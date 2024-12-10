@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using com.cyborgAssets.inspectorButtonPro;
 using Microlight.MicroBar;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HealthUI : MonoBehaviour
@@ -19,6 +20,12 @@ public class HealthUI : MonoBehaviour
       playerHealth.OnHealthChange.AddListener(UpdateBarHealth);
    }
 
+   private void Start()
+   {
+      maxHp = (float)playerHealth.GetInitialHealth();
+      healthBar.Initialize(maxHp);
+      UpdateBarHealth(0);
+   }
    private void UpdateBarHealth(int healthChangeAmt)
    {
       float currentHealth = playerHealth.CurrentHealth;
@@ -26,12 +33,7 @@ public class HealthUI : MonoBehaviour
       healthText.text = $"{(int)currentHealth} / {(int)maxHp}";
    }
 
-   private void Start()
-   {
-       maxHp = (float)playerHealth.GetInitialHealth();
-      healthBar.Initialize(maxHp);
-      UpdateBarHealth(0);
-   }
+
 
 
 }

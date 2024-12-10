@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class GameDataUI : MonoBehaviour, IDataPersist
+public class GameDataUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI progressText; 
     [SerializeField] private TextMeshProUGUI currentCardsDisplayText;
@@ -41,9 +41,9 @@ public class GameDataUI : MonoBehaviour, IDataPersist
         currentCardsDisplayText.text = text;
     }
 
-    public void LoadData(GameData data)
+    public void LoadHealthData( )
     {
-        healthText.text = $"Health: {data.currentHealth}";
+        healthText.text = $"Health: {SaveManager.Instance.CurrentSave.health}";
     }
 
     public void SaveData(ref GameData data)

@@ -17,8 +17,9 @@ public class GameManager : PersistentSingleton<GameManager>
     //PLAYER DATA
     private int HEAL_AMOUNT = 5;
     public bool willHealThisRound { get; set; } = false;
-    
-    
+    public int CurrentHealth { get; set; } = 50;
+
+
     //NODE MAP DATA 
     public List<NodeEnum> MapNodeEnums;
     public int CurrentProgress { get; set; } = 0; 
@@ -30,6 +31,7 @@ public class GameManager : PersistentSingleton<GameManager>
         if (SaveManager.Instance.HasSave()) {
             MapNodeEnums = SaveManager.Instance.CurrentSave.mapNodeEnums;
             CurrentProgress = SaveManager.Instance.CurrentSave.currentNodeId;
+            CurrentHealth = SaveManager.Instance.CurrentSave.health;
             Debug.Log("GameManager loaded from save!");
         }
     }
@@ -42,7 +44,8 @@ public class GameManager : PersistentSingleton<GameManager>
             Debug.LogError("Player GameObject not assigned in GameManager. Attempting to find in scene.");
             playerObject = FindObjectOfType<PlayerHealth>()?.gameObject;
         }
-        
+
+        playerObject.GetComponent<PlayerHealth>()?.LoadHealth();
         if (playerObject != null && willHealThisRound)
         {
             Debug.Log("Healed the player");
