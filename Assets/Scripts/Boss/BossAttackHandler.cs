@@ -60,6 +60,7 @@ public class BossAttackHandler : MonoBehaviour
     {
         gameManager = GameManager.Instance;
         gameManager.BossAttackHandler = this;
+        Debug.Log("init gamemanager");
         gameManager.OnStartEncounter();//read cards
     }
 

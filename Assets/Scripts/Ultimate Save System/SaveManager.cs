@@ -87,6 +87,8 @@ public class SaveManager : MonoBehaviour
         currentSave.currentNodeId = id;
     }
 
+    
+    
   
 
     public void SaveCurrent(){

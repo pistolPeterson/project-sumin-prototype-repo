@@ -9,6 +9,9 @@ public class SaveFile
     public int currentNodeId;
     public int health;
 
+
+    public List<CardDataBaseSO> playerCards = new List<CardDataBaseSO>();
+
     public override string ToString()
     {
         var nodeEnumListStr = $"---Map Node Enums (Count:{mapNodeEnums.Count})---\n";

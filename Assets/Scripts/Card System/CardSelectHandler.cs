@@ -29,18 +29,16 @@ public class CardSelectHandler : MonoBehaviour
         var blessCardSO = blessCardHolder.GetSelectedCard().GetCardVisual().gameObject.GetComponent<CardSOVisual>().cardSo;
         var curseCardSO = curseCardHolder.GetSelectedCard().GetCardVisual().gameObject.GetComponent<CardSOVisual>().cardSo;
         //send to gamemanager 
-        GameManager.Instance.currentPlayerHand.Add(blessCardSO);
-        GameManager.Instance.currentPlayerHand.Add(curseCardSO);
+       // GameManager.Instance.currentPlayerHand.Add(blessCardSO);
+        //GameManager.Instance.currentPlayerHand.Add(curseCardSO);
+        
+        SaveManager.Instance.CurrentSave.playerCards.Add(blessCardSO);
+        SaveManager.Instance.CurrentSave.playerCards.Add(curseCardSO);
         OnPlayerConfirmedCard?.Invoke();
-       // StartCoroutine(WaitThenLoadScene());
         TransitionManager.Instance.LoadLevel("Scenes/Gameplay Scenes/RealNodeMap", 2.5f);
         playerHasChosen = true;
     }
 
-    private IEnumerator WaitThenLoadScene()
-    {
-        yield return new WaitForSeconds(3.0f);
-        SceneManager.LoadScene("Scenes/Gameplay Scenes/RealNodeMap"); 
-    }
+  
 
 }
