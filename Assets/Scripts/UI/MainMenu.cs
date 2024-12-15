@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
 
     public void GoToNextScene() //called by audio system when its audio is done 
     {
-       DataPersistenceManager.Instance.NewGame();
+      
        SaveManager.Instance.CreateNewSave();
        TransitionManager.Instance.LoadLevel("RealNodeMap");
     }

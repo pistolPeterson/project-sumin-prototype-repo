@@ -52,7 +52,7 @@ public class DevMode
     [MenuItem("Dev Mode/Reset All Data")]
     public static void ResetData()
     {
-       DataPersistenceManager.Instance.NewGame();
+       //DataPersistenceManager.Instance.NewGame();
 
     }
 }

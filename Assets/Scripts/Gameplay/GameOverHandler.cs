@@ -26,7 +26,7 @@ public class GameOverHandler : MonoBehaviour
             bossAttackHandler.encounterTimer = bossAttackHandler.GetEncounterDuration();
             //if player is dead reset stuff 
             GameManager.Instance.ResetGameManager();
-            DataPersistenceManager.Instance.NewGame();
+           
             //else continue as normal
             TransitionManager.Instance.LoadLevel("Scenes/Gameplay Scenes/RealNodeMap", transitionToNewGameTime);
 

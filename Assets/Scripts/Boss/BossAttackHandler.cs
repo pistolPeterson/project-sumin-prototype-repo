@@ -28,7 +28,7 @@ public class BossAttackHandler : MonoBehaviour
     public List<AttackPattern> attackPatterns;
 
     [Header("Upgrades")] 
-     private EncounterDistanceDataHandler encounterDistanceData;
+    [GetFromSelf] private EncounterDistanceDataHandler encounterDistanceData;
     private float encounterDuration = 30f;
     public int ProjectileDamageBuffer { get; set; } = 0;
     public ProjectileSpeedUpgradeEnum ProjectileSpeedState { get; set; } = ProjectileSpeedUpgradeEnum.NORMAL;
@@ -36,10 +36,7 @@ public class BossAttackHandler : MonoBehaviour
     private GameManager gameManager;
     private IEnumerator timerCoroutine;
 
-    private void Awake()
-    {
-        encounterDistanceData = GetComponent<EncounterDistanceDataHandler>();
-    }
+
 
     private void Start()
     {

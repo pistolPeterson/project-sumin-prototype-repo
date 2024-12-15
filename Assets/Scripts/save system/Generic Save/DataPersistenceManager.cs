@@ -24,7 +24,7 @@ public class DataPersistenceManager : PersistentSingleton<DataPersistenceManager
       gameData = new GameData();
    }
 
-   public void LoadGame()
+   private void LoadGame()
    {
       gameData = dataHandler.Load();
       if (gameData == null)
@@ -53,7 +53,7 @@ public class DataPersistenceManager : PersistentSingleton<DataPersistenceManager
    }
 
 
-   public void SaveGame()
+   private void SaveGame()
    {
 
       if (gameData == null)
@@ -70,13 +70,13 @@ public class DataPersistenceManager : PersistentSingleton<DataPersistenceManager
       Debug.Log("Saving Game Data");
    }
 
-   public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+   private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
    {
       dataPersistenceObjects = FindAllDataPersistenceObjects();
       LoadGame();
    }
 
-   public void OnSceneUnloaded(Scene scene)
+   private void OnSceneUnloaded(Scene scene)
    {
       SaveGame();
    }
