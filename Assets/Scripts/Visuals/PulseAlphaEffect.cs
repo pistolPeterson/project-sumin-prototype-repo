@@ -28,5 +28,8 @@ public class PulseAlphaEffect : MonoBehaviour
     }
 
 
-
+    public void KillAnim()
+    {
+        DOTween.KillAll(false);
+    }
 }

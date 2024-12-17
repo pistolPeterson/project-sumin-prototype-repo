@@ -30,7 +30,7 @@ public class SaveManager : MonoBehaviour
         // Check if a file exists in save location
         if (Directory.Exists(SAVES_DIR)){
             var files = Directory.GetFiles(SAVES_DIR);
-            Debug.Log(SAVES_DIR);
+        
             var jsonFiles = new List<string>();
 
             // Filter for the actual save files in case other files exist there as well for whatever reason.
@@ -57,8 +57,8 @@ public class SaveManager : MonoBehaviour
 
             fs.Close();
 
-            Debug.Log($"Loaded save from {jsonFiles[0]}. Data:"); 
-            Debug.Log(currentSave.ToString());
+         //   Debug.Log($"Loaded save from {jsonFiles[0]}. Data:"); 
+          
         }
     }
     
@@ -101,6 +101,6 @@ public class SaveManager : MonoBehaviour
         var fs = new FileStream(SAVES_DIR + saveFileName + FILE_EXT, FileMode.OpenOrCreate);
         bf.Serialize(fs, jsonSaveText);
         fs.Close();
-        Debug.Log("Saved to " + SAVES_DIR + saveFileName + FILE_EXT);
+       // Debug.Log("Saved to " + SAVES_DIR + saveFileName + FILE_EXT);
     }
 }

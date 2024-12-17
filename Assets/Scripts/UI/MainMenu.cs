@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour
         OpenMainMenu();
     }
     public void StartGame() {
-        Debug.Log("Game STARTO!"); //ok raeus.
+       
         //when mainmenu audio finishes, game goes to next scene  
     }
 
@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
 
     public void GoToNextScene() //called by audio system when its audio is done 
     {
-      
+      FindObjectOfType<PulseAlphaEffect>()?.KillAnim();
        SaveManager.Instance.CreateNewSave();
        TransitionManager.Instance.LoadLevel("RealNodeMap");
     }
