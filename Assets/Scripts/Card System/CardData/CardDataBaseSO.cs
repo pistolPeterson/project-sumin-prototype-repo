@@ -14,7 +14,9 @@ public abstract class CardDataBaseSO : ScriptableObject //TODO: will probably be
     
   }
 
+  public virtual CardMappingEnum GetCardMappingEnum => CardMappingEnum.NONE;
   public virtual CardFateType GetCardType() => CardFateType.NONE;
+  
 }
 
 //These scripts are the ones you inherit from 2

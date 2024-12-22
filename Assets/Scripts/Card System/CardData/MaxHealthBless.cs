@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Create Card Instance/MaxHealthBless")]
 public class MaxHealthBless : BlessCardBase
 {
+    public override CardMappingEnum GetCardMappingEnum => CardMappingEnum.MaxHealthBless;
     public override void CardEffect(GameManager gameManager)
     {
         gameManager.playerObject.GetComponent<PlayerHealth>().AddMaxHealth(2); //this would need to be called before its updated by UI

@@ -27,13 +27,33 @@ public class SaveFile
             { NODE_COUNT_KEY, nodeCount },
             { CURRENT_NODE_ID_KEY, currentNodeId },
             { HEALTH_KEY, health },
-            { PLAYER_CARDS_KEY, playerCards }
+            { PLAYER_CARDS_KEY, ConvertPlayerCardsToEnum() }
         };
 
         return data;
 
     }
-    
+
+    private List<CardMappingEnum> ConvertPlayerCardsToEnum()
+    {
+        var mappingEnums = new List<CardMappingEnum>();
+        foreach (var card in playerCards)
+        {
+            mappingEnums.Add(card.GetCardMappingEnum);
+        }
+
+        return mappingEnums;
+    }
+
+    public List<CardDataBaseSO> ConvertEnumToPlayerCards(List<CardMappingEnum> cardMapping)
+    {
+        var generatedPlayerCards = new List<CardDataBaseSO>();
+        foreach (var cardTypeEnum in cardMapping)
+        {
+            generatedPlayerCards.Add(AllCards.Instance.GenerateDictionary()[cardTypeEnum]);
+        }
+        return generatedPlayerCards;
+    }
     
     
     public override string ToString()
