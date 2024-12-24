@@ -17,7 +17,7 @@ public class Shield : MonoBehaviour
     {
         progressBarCircle = FindObjectOfType<ProgressBarCircle>();
         input.OnShieldPressed.AddListener(EnableShield);
-        playerHealth.SetInvincibility(false);
+        playerHealth?.SetInvincibility(false);
         shieldVisual.CloseShieldVisual();
     }
     //TODO: player presses key, player is invincible for x seconds 
