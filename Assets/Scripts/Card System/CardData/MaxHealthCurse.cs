@@ -3,6 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Create Card Instance/MaxHealthCurse")]
 public class MaxHealthCurse : CurseCardBase
 {
+    
+    public override CardMappingEnum GetCardMappingEnum => CardMappingEnum.MaxHealthCurse;
     //TODO: add a check for leaving a min of 2 hearts
     public override void CardEffect(GameManager gameManager)
     {

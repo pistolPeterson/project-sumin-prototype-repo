@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 public class MoveByHover : MonoBehaviour
 {
    private EventTrigger eventTrigger;
-   [SerializeField] private bool goRight = true;
    private CameraController cameraController;
 
    private void Awake()
