@@ -16,9 +16,7 @@ public class InputManager : MonoBehaviour
     [HideInInspector] public UnityEvent OnShieldReleased;
     [HideInInspector] public UnityEvent<Vector2> OnMovement;
     
-    //[SerializeField] private float shieldIntervalDelay = 0.3f;
-   // private bool shieldHeld = false;
-  //  private bool alreadyHeld = false;
+  
     private void Awake() {
         playerControls = new PlayerControls();
     }

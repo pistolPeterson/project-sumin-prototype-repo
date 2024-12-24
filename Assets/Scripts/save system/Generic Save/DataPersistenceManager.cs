@@ -5,6 +5,9 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// DEPRECATED DO NOT USE 
+/// </summary>
 public class DataPersistenceManager : PersistentSingleton<DataPersistenceManager>
 {
    private GameData gameData;
