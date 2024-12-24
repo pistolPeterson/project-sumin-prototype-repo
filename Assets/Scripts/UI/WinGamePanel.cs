@@ -10,9 +10,15 @@ public class WinGamePanel : MonoBehaviour
 {
     [SerializeField] private GameObject gamePanelObj;
     [SerializeField] private Button mainMenuBttn;
+    [SerializeField] private Button tempMainMenuBttn;
+    
     private void Start()
     {
         mainMenuBttn.onClick.AddListener(() =>
+        {
+            TransitionManager.Instance.LoadLevel("MainMenu");
+        });
+        tempMainMenuBttn.onClick.AddListener(() =>
         {
             TransitionManager.Instance.LoadLevel("MainMenu");
         });
