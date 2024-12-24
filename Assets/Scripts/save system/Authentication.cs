@@ -8,62 +8,94 @@ using UnityEngine;
 
 public class Authentication : MonoBehaviour
 {
-
-    private async void Start()
+    private bool eventsInitiliazed = false;
+    private void Awake()
     {
-        await UnityServices.InitializeAsync();
-        Debug.Log("Authentication State: " + UnityServices.State);
-        SetupAuthenticationEvents();
-        await SignInAnon();
+        StartClientService();
     }
 
-    private void SetupAuthenticationEvents()
+    public async void StartClientService()
     {
-        AuthenticationService.Instance.SignedIn += () => {
+
+        try
+        {
+            if (UnityServices.State != ServicesInitializationState.Initialized)
+            {
+                var options = new InitializationOptions();
+                options.SetProfile("default_profile");
+                await UnityServices.InitializeAsync();
                 
-            //get player id
-            Debug.Log($"Signed in! Player ID: {AuthenticationService.Instance.PlayerId} ");
+            }
+
+            if (!eventsInitiliazed)
+            {
+                SetupEvents();
+            }
             
-            //get player access token
-            Debug.Log($"Generating Access Token: {AuthenticationService.Instance.AccessToken} ");
-        };
-
-        AuthenticationService.Instance.SignInFailed += (err) =>
+            if (AuthenticationService.Instance.SessionTokenExists)
+            {
+                SignInAnonymouslyAsync();
+            }
+            else
+            {
+                
+            }
+            
+        }
+        catch (Exception e)
         {
-
-            Debug.LogError($"Error Signing in, Raeus broke it: " + err);
-        };
-        
-        
-        AuthenticationService.Instance.SignedOut += () =>
-        {
-
-            Debug.Log($"Player has signed out");
-        };
-        
-        AuthenticationService.Instance.Expired += () =>
-        {
-
-            Debug.Log($"Player session could not be refreshed and expired");
-        };
+           
+           Debug.LogError("Error with Starting CLient Service " + e);
+        }
     }
 
-    private async Task SignInAnon()
+
+    public async void SignInAnonymouslyAsync()
     {
         try
         {
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
-
         }
-        catch (AuthenticationException ex)
+        catch (AuthenticationException exception)
         {
-            Debug.LogError("auth err: " + ex);
+            Debug.LogError("Failed to Sign in " + exception);
         }
-        catch (RequestFailedException ex)
+        catch (RequestFailedException exception)
         {
-            Debug.LogError("request failed: " + ex);
+            Debug.LogError("Failed to connect to network " + exception);
         }
     }
-  
-    
+
+    private async void SignInConfirmAsync()
+    {
+        try
+        {
+            if (string.IsNullOrEmpty(AuthenticationService.Instance.PlayerName))
+            {
+                await AuthenticationService.Instance.UpdatePlayerNameAsync("Pete-Player");
+              
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+        FindObjectOfType<MainMenu>()?.UpdatePlayerName("Player: " + AuthenticationService.Instance.PlayerName);
+
+    }
+    private void SetupEvents()
+    {
+       
+        eventsInitiliazed = true;
+        AuthenticationService.Instance.SignedIn += () =>
+        {
+            SignInConfirmAsync();
+        };
+        AuthenticationService.Instance.SignedOut += () => { };
+        AuthenticationService.Instance.Expired += () =>
+        {
+            SignInAnonymouslyAsync();
+        };
+    }
 }

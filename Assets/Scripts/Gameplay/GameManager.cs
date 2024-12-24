@@ -7,7 +7,7 @@ public class GameManager : PersistentSingleton<GameManager>
 {
     [field: SerializeField] public GameObject playerObject { get; private set; }
     [field: SerializeField] public BossAttackHandler BossAttackHandler { get;  set; }
-    private bool showLogs = false;
+    private bool showLogs = true;
     public List<CardDataBaseSO> currentPlayerHand;
     
     
@@ -32,6 +32,7 @@ public class GameManager : PersistentSingleton<GameManager>
             MapNodeEnums = SaveManager.Instance.CurrentSave.mapNodeEnums;
             CurrentProgress = SaveManager.Instance.CurrentSave.currentNodeId;
             CurrentHealth = SaveManager.Instance.CurrentSave.health;
+            currentPlayerHand = SaveManager.Instance.CurrentSave.playerCards;
             Debug.Log("GameManager loaded from save!");
         }
     }
@@ -41,7 +42,7 @@ public class GameManager : PersistentSingleton<GameManager>
     {
         if (!playerObject)
         {
-            Debug.LogError("Player GameObject not assigned in GameManager. Attempting to find in scene.");
+            Debug.Log("Player GameObject not assigned in GameManager. Attempting to find in scene.");
             playerObject = FindObjectOfType<PlayerHealth>()?.gameObject;
         }
 
