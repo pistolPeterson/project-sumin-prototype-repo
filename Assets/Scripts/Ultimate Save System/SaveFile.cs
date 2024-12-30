@@ -10,9 +10,10 @@ public class SaveFile
     public static string NODE_COUNT_KEY = "nodeCount";
     
     public int currentNodeId;
+    public int health = 50;
     public static string CURRENT_NODE_ID_KEY = "currentNodeId";
     
-    public int health;
+   
     public static string HEALTH_KEY = "health";
     
     public List<CardDataBaseSO> playerCards = new List<CardDataBaseSO>();

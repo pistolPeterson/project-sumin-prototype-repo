@@ -22,6 +22,10 @@ public class MainMenu : MonoBehaviour
         //when mainmenu audio finishes, game goes to next scene  
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
     public void OnContinueGameClicked()
     {
         TransitionManager.Instance.LoadLevel("RealNodeMap");

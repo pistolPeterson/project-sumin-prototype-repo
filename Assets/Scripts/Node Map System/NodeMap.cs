@@ -96,6 +96,11 @@ public class NodeMap : MonoBehaviour
 
     public void IncreaseProgress()
     {
+        if (currentNodeProgress >= currentNodesList.Count - 1)
+        {
+            FindObjectOfType<WinGamePanel>().ShowPanel();
+            return;
+        }
         currentNodeProgress++;
         GameManager.Instance.CurrentProgress = currentNodeProgress;
         UpdateNodeProgress();
@@ -186,7 +191,7 @@ public class NodeMap : MonoBehaviour
             case 1:
                 return encounterNodePrefab;
             case 2:
-                return bossStatIncPrefab;
+                return encounterNodePrefab;/*bossStatIncPrefab;*/
             case 3:
                 return healNodePrefab;
         }
