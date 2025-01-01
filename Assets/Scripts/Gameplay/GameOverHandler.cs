@@ -42,6 +42,7 @@ public class GameOverHandler : MonoBehaviour
             playerHealth.SaveHealth();
             //boss stops attack 
             Debug.Log("didnt die we going back");
+            SaveManager.Instance.SaveAllDataOnline();
             //go back to node map
             TransitionManager.Instance.LoadLevel("Scenes/Gameplay Scenes/RealNodeMap", transitionToNewGameTime);
         }

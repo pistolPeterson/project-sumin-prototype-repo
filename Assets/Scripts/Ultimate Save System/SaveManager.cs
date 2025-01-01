@@ -9,6 +9,7 @@ using com.cyborgAssets.inspectorButtonPro;
 using Unity.Services.CloudSave;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour
 {
@@ -79,18 +80,21 @@ public class SaveManager : MonoBehaviour
     public void CreateNewSave()
     {
         currentSave = new SaveFile();
+        DeleteData();
+        
     }
 
-    public bool HasSave()
+    [ProButton]
+    public async Task<bool> HasSave()
     {
-        if (!Directory.Exists(SAVES_DIR)) return false;
+        
+            var keys = await CloudSaveService.Instance.Data.Player.ListAllKeysAsync();
+            for (int i = 0; i < keys.Count; i++)
+            {
+                Debug.Log(keys[i].Key);
+            }
 
-        var files = Directory.GetFiles(SAVES_DIR);
-
-        if (files.Length == 0) return false;
-
-        // Filter for the actual save files in case other files exist there as well for whatever reason.
-        return files.Any(f => f.EndsWith(FILE_EXT) && f.Contains(saveFileName));
+            return keys.Count > 0;
     }
 
     public void UpdateMapNodeEnums(List<NodeEnum> nodeEnums)
@@ -121,6 +125,8 @@ public class SaveManager : MonoBehaviour
     }
 
 
+
+
     [ProButton]
     public async void SaveAllDataOnline()
     {
@@ -129,6 +135,7 @@ public class SaveManager : MonoBehaviour
         await CloudSaveService.Instance.Data.Player.SaveAsync(data);
     }
 
+   
     [ProButton]
     public async void LoadAllDataOnline()
     {
@@ -157,6 +164,13 @@ public class SaveManager : MonoBehaviour
     }
 
 
+    [ProButton]
+    public async void DeleteData()
+    {
+        await CloudSaveService.Instance.Data.Player.DeleteAllAsync();
+        Debug.Log("deleted data");
+    }
+    
     public async Task<List<CardDataBaseSO>> TryLoadPlayerCards()
     {
         try
@@ -202,4 +216,6 @@ public class SaveManager : MonoBehaviour
 
         return default;
     }
+
+ 
 }

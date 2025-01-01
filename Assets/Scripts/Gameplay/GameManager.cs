@@ -28,13 +28,10 @@ public class GameManager : PersistentSingleton<GameManager>
         base.Awake();
         MapNodeEnums = new List<NodeEnum>();
 
-        if (SaveManager.Instance.HasSave()) {
             MapNodeEnums = SaveManager.Instance.CurrentSave.mapNodeEnums;
             CurrentProgress = SaveManager.Instance.CurrentSave.currentNodeId;
             CurrentHealth = SaveManager.Instance.CurrentSave.health;
             currentPlayerHand = SaveManager.Instance.CurrentSave.playerCards;
-            Debug.Log("GameManager loaded from save!");
-        }
     }
 
 

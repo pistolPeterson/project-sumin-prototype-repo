@@ -24,7 +24,6 @@ public class Authentication : MonoBehaviour
                 var options = new InitializationOptions();
                 options.SetProfile("default_profile");
                 await UnityServices.InitializeAsync();
-                
             }
 
             if (!eventsInitiliazed)
@@ -34,6 +33,7 @@ public class Authentication : MonoBehaviour
             
             if (AuthenticationService.Instance.SessionTokenExists)
             {
+
                 SignInAnonymouslyAsync();
             }
             else
@@ -73,15 +73,16 @@ public class Authentication : MonoBehaviour
             if (string.IsNullOrEmpty(AuthenticationService.Instance.PlayerName))
             {
                 await AuthenticationService.Instance.UpdatePlayerNameAsync("Pete-Player");
-              
+                Debug.Log("Signed in to UNITY SDK");
             }
+            FindObjectOfType<MainMenu>()?.UpdateContinueButtonStatus();
+
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
             throw;
         }
-        FindObjectOfType<MainMenu>()?.UpdatePlayerName("Player: " + AuthenticationService.Instance.PlayerName);
 
     }
     private void SetupEvents()
