@@ -24,17 +24,19 @@ public class GameManager : PersistentSingleton<GameManager>
     public List<NodeEnum> MapNodeEnums;
     public int CurrentProgress { get; set; } = 0; 
     protected override void Awake()
-    {
-        base.Awake();
-        MapNodeEnums = new List<NodeEnum>();
-
-            MapNodeEnums = SaveManager.Instance.CurrentSave.mapNodeEnums;
-            CurrentProgress = SaveManager.Instance.CurrentSave.currentNodeId;
-            CurrentHealth = SaveManager.Instance.CurrentSave.health;
-            currentPlayerHand = SaveManager.Instance.CurrentSave.playerCards;
+    { 
+      base.Awake();
     }
 
+    public void Init()
+    {
+        MapNodeEnums = new List<NodeEnum>();
 
+        MapNodeEnums = SaveManager.Instance.CurrentSave.mapNodeEnums;
+        CurrentProgress = SaveManager.Instance.CurrentSave.currentNodeId;
+        CurrentHealth = SaveManager.Instance.CurrentSave.health;
+        currentPlayerHand = SaveManager.Instance.CurrentSave.playerCards;
+    }
     public void OnStartEncounter()
     {
         if (!playerObject)
@@ -91,7 +93,9 @@ public class GameManager : PersistentSingleton<GameManager>
 
     public void ResetGameManager()
     {
-        MapNodeEnums = new List<NodeEnum>();
+       // MapNodeEnums = new List<NodeEnum>();
+       SaveManager.Instance.CreateNewSave();
+       SaveManager.Instance.SaveAllDataOnline();
     }
     
     

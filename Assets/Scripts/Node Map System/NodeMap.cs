@@ -28,7 +28,13 @@ public class NodeMap : MonoBehaviour
     //TODO: only use one event
    [HideInInspector] public UnityEvent<int, int> OnProgressUpdated;
    [HideInInspector] public UnityEvent OnNodeProgressUpdated;
-    private void Start()
+
+   private void Awake()
+   {
+       GameManager.Instance.Init();
+   }
+
+   private void Start()
     {
         SetupNodeMap();
     }

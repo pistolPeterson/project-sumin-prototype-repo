@@ -9,7 +9,7 @@ public class GameOverHandler : MonoBehaviour
     [SerializeField] private PlayerHealth playerHealth;
 
     [SerializeField] private BossAttackHandler bossAttackHandler;
-    private float transitionToNewGameTime = 2.5f;
+    private float newGameTransitionTime = 2.5f;
     private void Awake()
     {
         playerHealth.OnDeath.AddListener(HandleOnPlayerDeath);
@@ -27,9 +27,7 @@ public class GameOverHandler : MonoBehaviour
             //if player is dead reset stuff 
             GameManager.Instance.ResetGameManager();
            
-            //else continue as normal
-            TransitionManager.Instance.LoadLevel("Scenes/Gameplay Scenes/RealNodeMap", transitionToNewGameTime);
-
+            TransitionManager.Instance.LoadLevel("MainMenu", newGameTransitionTime );
         }
 
         public void EndRound()
@@ -44,7 +42,7 @@ public class GameOverHandler : MonoBehaviour
             Debug.Log("didnt die we going back");
             SaveManager.Instance.SaveAllDataOnline();
             //go back to node map
-            TransitionManager.Instance.LoadLevel("Scenes/Gameplay Scenes/RealNodeMap", transitionToNewGameTime);
+            TransitionManager.Instance.LoadLevel("Scenes/Gameplay Scenes/RealNodeMap", newGameTransitionTime);
         }
         
         

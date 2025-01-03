@@ -6,11 +6,13 @@ using Unity.Services.Authentication;
 using Unity.Services.Core;
 using UnityEngine;
 
-public class Authentication : MonoBehaviour
+public class Authentication : PersistentSingleton<Authentication>
 {
     private bool eventsInitiliazed = false;
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+        Debug.Log("Starting Client Service");
         StartClientService();
     }
 
@@ -75,7 +77,6 @@ public class Authentication : MonoBehaviour
                 await AuthenticationService.Instance.UpdatePlayerNameAsync("Pete-Player");
                 Debug.Log("Signed in to UNITY SDK");
             }
-            FindObjectOfType<MainMenu>()?.UpdateContinueButtonStatus();
 
         }
         catch (Exception e)

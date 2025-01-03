@@ -5,10 +5,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
-public class MainMenuAudio : MonoBehaviour, IDataPersist
+public class MainMenuAudio : MonoBehaviour
 {
     [Header("Main Menu Buttons")]
-    [SerializeField] private Button playButton;
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button creditsButton;
     [SerializeField] private Button backButton;
@@ -28,7 +27,6 @@ public class MainMenuAudio : MonoBehaviour, IDataPersist
 
     private void Start()
     {
-        playButton.onClick.AddListener(PlayButtonAudio);
         settingsButton.onClick.AddListener(SettingsButtonAudio);
         creditsButton.onClick.AddListener(CreditsButtonAudio);
         backButton.onClick.AddListener(BackButtonAudio);
@@ -59,18 +57,7 @@ public class MainMenuAudio : MonoBehaviour, IDataPersist
         PlayerPrefs.SetFloat(SFX_LVL_KEY, newValue);
     }
    
-    private void PlayButtonAudio()
-    {
-        mainMenuUIAudioSource.PlayOneShot(uiAudioClips[0]);
-        mainMenuUIAudioSource.PlayOneShot(uiAudioClips[4]);
-        var lengthOfAudioClip = Mathf.Max(uiAudioClips[0].length, uiAudioClips[4].length);
-        StartCoroutine(WaitThenGoToNextScene());
-        IEnumerator WaitThenGoToNextScene()
-        {
-            yield return new WaitForSeconds(lengthOfAudioClip);
-            FindObjectOfType<MainMenu>()?.GoToNextScene();
-        }
-    }
+
     
     private void BackButtonAudio()
     {
@@ -92,15 +79,5 @@ public class MainMenuAudio : MonoBehaviour, IDataPersist
         text.text = (slider.value * 100).ToString();
     }
 
-    public void LoadData(GameData data)
-    {
-        musicSlider.value = data.musicVolume;
-        sfxSlider.value = data.sfxVolume;
-    }
 
-    public void SaveData(ref GameData data)
-    {
-        data.musicVolume = musicSlider.value;
-        data.sfxVolume = sfxSlider.value;
-    }
 }

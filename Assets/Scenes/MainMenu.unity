@@ -612,7 +612,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 162589117}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: OnNewGameClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -821,7 +821,6 @@ MonoBehaviour:
   creditsGroup: {fileID: 932525660}
   backButton: {fileID: 938605838}
   continueButton: {fileID: 1939272426}
-  playerIdDisplay: {fileID: 0}
 --- !u!1 &234433462
 GameObject:
   m_ObjectHideFlags: 0
@@ -1726,6 +1725,50 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &762400576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 762400577}
+  - component: {fileID: 762400578}
+  m_Layer: 0
+  m_Name: Authentication
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &762400577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762400576}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &762400578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762400576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee2cb6d2573231c45938003d362474ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &826647434
 GameObject:
   m_ObjectHideFlags: 0
@@ -2001,7 +2044,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc7f0a252a51024385eb20880c19f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playButton: {fileID: 124531502}
   settingsButton: {fileID: 358638040}
   creditsButton: {fileID: 1115117721}
   backButton: {fileID: 938605840}
@@ -2952,7 +2994,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1336493224}
   - component: {fileID: 1336493225}
-  - component: {fileID: 1336493226}
   m_Layer: 0
   m_Name: Save Manager
   m_TagString: Untagged
@@ -2993,18 +3034,6 @@ MonoBehaviour:
     currentNodeId: 0
     health: 50
     playerCards: []
---- !u!114 &1336493226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1336493223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee2cb6d2573231c45938003d362474ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1363840632
 GameObject:
   m_ObjectHideFlags: 0
@@ -5885,3 +5914,4 @@ SceneRoots:
   - {fileID: 1973329020}
   - {fileID: 3739290601227440317}
   - {fileID: 1336493224}
+  - {fileID: 762400577}
