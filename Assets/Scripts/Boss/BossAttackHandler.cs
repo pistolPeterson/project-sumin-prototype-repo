@@ -36,7 +36,7 @@ public class BossAttackHandler : MonoBehaviour
     private GameManager gameManager;
     private IEnumerator timerCoroutine;
 
-
+    [field: SerializeField] public GameObject PlayerObject { get; private set; }
 
     private void Start()
     {
@@ -57,8 +57,24 @@ public class BossAttackHandler : MonoBehaviour
     {
         gameManager = GameManager.Instance;
         gameManager.BossAttackHandler = this;
-        Debug.Log("init gamemanager");
+        InitPlayer();
         gameManager.OnStartEncounter();//read cards
+    }
+    private void InitPlayer()
+    {
+        PlayerObject = FindObjectOfType<PlayerHealth>().gameObject;
+        if (!PlayerObject)
+        {
+            Debug.LogError("No player object in scene");
+            return;
+        }
+        PlayerObject.GetComponent<PlayerHealth>().LoadHealth();
+        if (gameManager.willHealThisRound)
+        {
+            Debug.Log("Healing the player");
+            PlayerObject.GetComponent<PlayerHealth>().Heal(gameManager.HEAL_AMOUNT);
+
+        }
     }
 
     private void InitializeAttackPatterns()

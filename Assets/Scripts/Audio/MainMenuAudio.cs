@@ -34,10 +34,7 @@ public class MainMenuAudio : MonoBehaviour
         musicSlider.onValueChanged.AddListener(SetMusicLevel);
         sfxSlider.onValueChanged.AddListener(SetSFXLevel);
 
-        /*
-            A system setting like this doesn't make sense to be in the save file,
-            so it is saved in the player preferences instead.
-        */
+    
         musicSlider.SetValueWithoutNotify(PlayerPrefs.GetFloat(MUSIC_LVL_KEY, 1));
         SetMusicLevel(musicSlider.value);
 

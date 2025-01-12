@@ -15,7 +15,7 @@ public class GameManager : PersistentSingleton<GameManager>
     public List<CardDataBaseSO> testingCardEffects;
 
     //PLAYER DATA
-    private int HEAL_AMOUNT = 5;
+    public int HEAL_AMOUNT = 5;
     public bool willHealThisRound { get; set; } = false;
     public int CurrentHealth { get; set; } = 50;
 
@@ -39,6 +39,21 @@ public class GameManager : PersistentSingleton<GameManager>
     }
     public void OnStartEncounter()
     {
+        //InitPlayer();
+
+        if (testingCardEffects.Count != 0)
+        {
+            currentPlayerHand = testingCardEffects;
+            DebugReadCards(currentPlayerHand);
+        }
+        else
+        {
+            ReadCards();
+        }
+    }
+/*
+    private void InitPlayer()
+    {
         if (!playerObject)
         {
             Debug.Log("Player GameObject not assigned in GameManager. Attempting to find in scene.");
@@ -52,17 +67,8 @@ public class GameManager : PersistentSingleton<GameManager>
             playerObject.GetComponent<PlayerHealth>().Heal(HEAL_AMOUNT);
 
         }
-        
-        if (testingCardEffects.Count != 0)
-        {
-            currentPlayerHand = testingCardEffects;
-            DebugReadCards(currentPlayerHand);
-        }
-        else
-        {
-            ReadCards();
-        }
     }
+    */
 
     public void DebugReadCards(List<CardDataBaseSO> listOfCardData) //Reads through the cards and applies their BS
     {

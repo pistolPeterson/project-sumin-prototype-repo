@@ -15,11 +15,7 @@ public class GameOverHandler : MonoBehaviour
         playerHealth.OnDeath.AddListener(HandleOnPlayerDeath);
     }
 
-    //player death handler
-        //encounter bar stops
-        //boss stops attack
-        //reset save data (also save other relevant stats, like new cards)
-        //go to node map scene, after certain amount of seconds 
+   
         [ProButton]
         public void HandleOnPlayerDeath()
         {
@@ -45,10 +41,6 @@ public class GameOverHandler : MonoBehaviour
             TransitionManager.Instance.LoadLevel("Scenes/Gameplay Scenes/RealNodeMap", newGameTransitionTime);
         }
         
-        
-        
-    //player reaches end 
-        //boss stops attack
-        //go to node map scene
+   
     
 }

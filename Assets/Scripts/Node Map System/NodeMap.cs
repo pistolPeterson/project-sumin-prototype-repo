@@ -60,26 +60,13 @@ public class NodeMap : MonoBehaviour
             SaveManager.Instance.UpdateCurrentNodeId(0);
             SaveManager.Instance.SaveCurrent();
         }
-        /*
-        Because GameManager.Instance.MapNodeEnums and CurrentProgress are updated 
-        on the Awake of SaveManager, this will also load from save file automatically if a save file exists,
-        because it runs after the save file loading.
-
-        TODO: If multiple save file support is added, this will have to be updated as well most likely.
-        */
         else
         {
             Debug.Log("Loading Node Map From Game Manager");
             GenerateUserNodeMap(GameManager.Instance.MapNodeEnums);
             currentNodeProgress = GameManager.Instance.CurrentProgress;
 
-            // This 'else' part looks like is used for testing so I'm not creating a save file if none exists, but
-            // you can comment this out and it will! :)
-            /* if (!SaveManager.Instance.HasSave()){
-                SaveManager.Instance.UpdateMapNodeEnums(GameManager.Instance.MapNodeEnums);
-                SaveManager.Instance.UpdateCurrentNodeId(currentNodeProgress);
-                SaveManager.Instance.SaveCurrent();
-            } */
+            
         }
 
         UpdateNodeProgress();
