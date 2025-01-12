@@ -15,7 +15,7 @@ public class GameManager : PersistentSingleton<GameManager>
     public List<CardDataBaseSO> testingCardEffects;
 
     //PLAYER DATA
-    private int HEAL_AMOUNT = 5;
+    public int HEAL_AMOUNT = 5;
     public bool willHealThisRound { get; set; } = false;
     public int CurrentHealth { get; set; } = 50;
 
@@ -24,21 +24,35 @@ public class GameManager : PersistentSingleton<GameManager>
     public List<NodeEnum> MapNodeEnums;
     public int CurrentProgress { get; set; } = 0; 
     protected override void Awake()
-    {
-        base.Awake();
-        MapNodeEnums = new List<NodeEnum>();
-
-        if (SaveManager.Instance.HasSave()) {
-            MapNodeEnums = SaveManager.Instance.CurrentSave.mapNodeEnums;
-            CurrentProgress = SaveManager.Instance.CurrentSave.currentNodeId;
-            CurrentHealth = SaveManager.Instance.CurrentSave.health;
-            currentPlayerHand = SaveManager.Instance.CurrentSave.playerCards;
-            Debug.Log("GameManager loaded from save!");
-        }
+    { 
+      base.Awake();
     }
 
+    public void Init()
+    {
+        MapNodeEnums = new List<NodeEnum>();
 
+        MapNodeEnums = SaveManager.Instance.CurrentSave.mapNodeEnums;
+        CurrentProgress = SaveManager.Instance.CurrentSave.currentNodeId;
+        CurrentHealth = SaveManager.Instance.CurrentSave.health;
+        currentPlayerHand = SaveManager.Instance.CurrentSave.playerCards;
+    }
     public void OnStartEncounter()
+    {
+        //InitPlayer();
+
+        if (testingCardEffects.Count != 0)
+        {
+            currentPlayerHand = testingCardEffects;
+            DebugReadCards(currentPlayerHand);
+        }
+        else
+        {
+            ReadCards();
+        }
+    }
+/*
+    private void InitPlayer()
     {
         if (!playerObject)
         {
@@ -53,17 +67,8 @@ public class GameManager : PersistentSingleton<GameManager>
             playerObject.GetComponent<PlayerHealth>().Heal(HEAL_AMOUNT);
 
         }
-        
-        if (testingCardEffects.Count != 0)
-        {
-            currentPlayerHand = testingCardEffects;
-            DebugReadCards(currentPlayerHand);
-        }
-        else
-        {
-            ReadCards();
-        }
     }
+    */
 
     public void DebugReadCards(List<CardDataBaseSO> listOfCardData) //Reads through the cards and applies their BS
     {
@@ -94,7 +99,9 @@ public class GameManager : PersistentSingleton<GameManager>
 
     public void ResetGameManager()
     {
-        MapNodeEnums = new List<NodeEnum>();
+       // MapNodeEnums = new List<NodeEnum>();
+       SaveManager.Instance.CreateNewSave();
+       SaveManager.Instance.SaveAllDataOnline();
     }
     
     

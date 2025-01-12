@@ -18,10 +18,13 @@ public class SaveFile
     
     public List<CardDataBaseSO> playerCards = new List<CardDataBaseSO>();
     public static string PLAYER_CARDS_KEY = "playerCards";
-    
+
+
+    public bool SaveIsModified { get; set; } = false; 
     
     public Dictionary<string, object> ConvertDataToDictionary()
     {
+        SaveIsModified = true;
         var data = new Dictionary<string, object>
         {
             { MAP_NODE_ENUMS_KEY, mapNodeEnums },

@@ -9,17 +9,13 @@ public class GameOverHandler : MonoBehaviour
     [SerializeField] private PlayerHealth playerHealth;
 
     [SerializeField] private BossAttackHandler bossAttackHandler;
-    private float transitionToNewGameTime = 2.5f;
+    private float newGameTransitionTime = 2.5f;
     private void Awake()
     {
         playerHealth.OnDeath.AddListener(HandleOnPlayerDeath);
     }
 
-    //player death handler
-        //encounter bar stops
-        //boss stops attack
-        //reset save data (also save other relevant stats, like new cards)
-        //go to node map scene, after certain amount of seconds 
+   
         [ProButton]
         public void HandleOnPlayerDeath()
         {
@@ -27,9 +23,7 @@ public class GameOverHandler : MonoBehaviour
             //if player is dead reset stuff 
             GameManager.Instance.ResetGameManager();
            
-            //else continue as normal
-            TransitionManager.Instance.LoadLevel("Scenes/Gameplay Scenes/RealNodeMap", transitionToNewGameTime);
-
+            TransitionManager.Instance.LoadLevel("MainMenu", newGameTransitionTime );
         }
 
         public void EndRound()
@@ -42,14 +36,11 @@ public class GameOverHandler : MonoBehaviour
             playerHealth.SaveHealth();
             //boss stops attack 
             Debug.Log("didnt die we going back");
+            SaveManager.Instance.SaveAllDataOnline();
             //go back to node map
-            TransitionManager.Instance.LoadLevel("Scenes/Gameplay Scenes/RealNodeMap", transitionToNewGameTime);
+            TransitionManager.Instance.LoadLevel("Scenes/Gameplay Scenes/RealNodeMap", newGameTransitionTime);
         }
         
-        
-        
-    //player reaches end 
-        //boss stops attack
-        //go to node map scene
+   
     
 }

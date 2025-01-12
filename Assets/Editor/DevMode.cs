@@ -49,5 +49,15 @@ public class DevMode
 
     }
     
+    [MenuItem("Dev Mode/Nerf Health")]
+    public static void PlayerHealthCurse()
+    {
+        var playerHealth = GameObject.FindObjectOfType<Health>();
+        if(!playerHealth)
+            Debug.LogError("Couldnt Find player in scene.");
+        playerHealth.Damage(25);
+        Debug.Log("Gave Player some Poison...");
+
+    }
    
 }

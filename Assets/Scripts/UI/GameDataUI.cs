@@ -20,6 +20,7 @@ public class GameDataUI : MonoBehaviour
     private void Start()
     {
         UpdatePlayerCurrentCardsText();
+        LoadHealthData();
     }
 
     private void UpdateProgressText(int currentProgress, int maxProgress)
@@ -41,13 +42,8 @@ public class GameDataUI : MonoBehaviour
         currentCardsDisplayText.text = text;
     }
 
-    public void LoadHealthData( )
+    private void LoadHealthData()
     {
         healthText.text = $"Health: {SaveManager.Instance.CurrentSave.health}";
-    }
-
-    public void SaveData(ref GameData data)
-    {
-       
     }
 }
