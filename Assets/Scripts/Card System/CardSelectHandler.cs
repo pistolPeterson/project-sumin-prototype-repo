@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using MaskTransitions;
@@ -15,15 +16,20 @@ public class CardSelectHandler : MonoBehaviour
     private bool playerHasChosen = false;
     //connect with button UI on click
     //TODO: 
-    private void Update() {
-        Debug.Log("bless: " + blessCardHolder.GetSelectedCard());
-        Debug.Log("curse: " + curseCardHolder.GetSelectedCard());
 
-        if (blessCardHolder.GetSelectedCard() && curseCardHolder.GetSelectedCard()) {
-            confirmButton.SetActive(true);
-        } else {
-            confirmButton.SetActive(false);
-        }
+    private void Start()
+    {
+        blessCardHolder.OnAnyCardSelected.AddListener(ConfirmButtonVisual);
+        curseCardHolder.OnAnyCardSelected.AddListener(ConfirmButtonVisual);
+        ConfirmButtonVisual();
+    }
+
+    
+
+    private void ConfirmButtonVisual()
+    {
+        bool bothCardsAreSelected = blessCardHolder.GetSelectedCard() && curseCardHolder.GetSelectedCard();
+        confirmButton.SetActive(bothCardsAreSelected);
     }
     public void OnConfirmCards()
     {
@@ -31,7 +37,7 @@ public class CardSelectHandler : MonoBehaviour
             return;
         if(!blessCardHolder.GetSelectedCard() || !curseCardHolder.GetSelectedCard())
         {
-            Debug.LogError("did you select both cards buddy? make rae make it better experience");
+            Debug.LogError("did you select both cards buddy? ");
             return;
         }
 
