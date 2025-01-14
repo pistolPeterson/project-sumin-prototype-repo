@@ -9,11 +9,22 @@ public class CardSelectHandler : MonoBehaviour
 {
     [SerializeField] private HorizontalCardHolder blessCardHolder;
     [SerializeField] private HorizontalCardHolder curseCardHolder;
+    [SerializeField] private GameObject confirmButton;
 
     [HideInInspector] public UnityEvent OnPlayerConfirmedCard;
     private bool playerHasChosen = false;
     //connect with button UI on click
     //TODO: 
+    private void Update() {
+        Debug.Log("bless: " + blessCardHolder.GetSelectedCard());
+        Debug.Log("curse: " + curseCardHolder.GetSelectedCard());
+
+        if (blessCardHolder.GetSelectedCard() && curseCardHolder.GetSelectedCard()) {
+            confirmButton.SetActive(true);
+        } else {
+            confirmButton.SetActive(false);
+        }
+    }
     public void OnConfirmCards()
     {
         if(playerHasChosen)

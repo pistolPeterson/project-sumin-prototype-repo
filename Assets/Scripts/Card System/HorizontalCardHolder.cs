@@ -81,9 +81,11 @@ public class HorizontalCardHolder : MonoBehaviour
       if(isCardSelected)
       {
          selectedCard?.DeselectCard();
-         selectedCard = card;
-
+            selectedCard = card;
       }
+      else {
+            selectedCard = null;
+        }
    }
 
    public void OnBeginDrag(Card card)
