@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6b3854e15fd1f44ac266bcd9cbd950, type: 3}
   m_Name: whispers of fate
   m_EditorClassIdentifier: 
-  DialogueText: 'The whispers of fate consume you! '
+  Text: The whispers of fate consume you!
   clip: {fileID: 8300000, guid: 21a942b890253e645a68b155aa792f44, type: 3}

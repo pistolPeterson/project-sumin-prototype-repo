@@ -1,21 +1,24 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class DialogueContainer : MonoBehaviour
 {
-  public List<Dialogue> dialogues;
+   public List<Dialogue> subtitleList;
   
 
   public void Play()
   {
     //randomly play dialogue 
     //show it in ui
+    DialogueManager.Instance.DisplayDialogue(subtitleList[Random.Range(0, subtitleList.Count)]);
   }
   
   public void Play(Dialogue dialogueToPlay)
   {
     //randomly play dialogue 
     //show it in ui
+    DialogueManager.Instance.DisplayDialogue(dialogueToPlay);
   }
 }
