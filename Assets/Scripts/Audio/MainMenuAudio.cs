@@ -25,6 +25,10 @@ public class MainMenuAudio : MonoBehaviour
     private const string MUSIC_LVL_KEY = "MUSIC_LEVEL";
     private const string SFX_LVL_KEY = "SFX_LEVEL";
 
+    private bool musicChange = false;
+    private float musicChangeTime = 5.0f;
+    [SerializeField] private DialogueContainer dc;
+
     private void Start()
     {
         settingsButton.onClick.AddListener(SettingsButtonAudio);
@@ -46,8 +50,21 @@ public class MainMenuAudio : MonoBehaviour
     {
         SetSliderVolume(musicSlider, musicText, "MusicParam");
         PlayerPrefs.SetFloat(MUSIC_LVL_KEY, newValue);
+        if (!musicChange)
+        {
+           StartCoroutine( PlayTestAudio());
+        }
     }
-    
+
+    private IEnumerator PlayTestAudio()
+    {
+        musicChange = true;
+        Debug.Log("playyin musi");
+        dc.Play();
+        yield return new WaitForSeconds( /*length of track*/ musicChangeTime);
+        musicChange = false;
+    }
+
     private void SetSFXLevel(float newValue)
     {
         SetSliderVolume(sfxSlider, sfxText, "SFXParam");

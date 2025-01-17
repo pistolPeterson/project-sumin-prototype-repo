@@ -340,6 +340,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5395742866416707757, guid: 83b1066467b0e4d4cb5d5554d45c6e7f, type: 3}
+      propertyPath: m_text
+      value: 'Pete: Hi My name is pete and im a dummy '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395742866416707757, guid: 83b1066467b0e4d4cb5d5554d45c6e7f, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 324b33166f2e01e4c906faa4a8c0b77a, type: 2}
+    - target: {fileID: 5395742866416707757, guid: 83b1066467b0e4d4cb5d5554d45c6e7f, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -7738155849246616832, guid: 324b33166f2e01e4c906faa4a8c0b77a, type: 2}
+    - target: {fileID: 5395742866416707757, guid: 83b1066467b0e4d4cb5d5554d45c6e7f, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6958034931665926103, guid: 83b1066467b0e4d4cb5d5554d45c6e7f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
