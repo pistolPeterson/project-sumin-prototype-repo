@@ -6,14 +6,11 @@ using UnityEngine.Serialization;
 public class DialogueContainer : MonoBehaviour
 {
    public List<Dialogue> subtitleList;
-  
 
-  public void Play()
-  {
-    //randomly play dialogue 
-    //show it in ui
-    DialogueManager.Instance.DisplayDialogue(subtitleList[Random.Range(0, subtitleList.Count)]);
-  }
+   public Dialogue GetRandomDialogue()
+   {
+       return subtitleList[Random.Range(0, subtitleList.Count)];
+   }
   
   public void Play(Dialogue dialogueToPlay)
   {

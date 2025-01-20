@@ -5,6 +5,7 @@ using MaskTransitions;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class CardSelectHandler : MonoBehaviour
 {
@@ -14,11 +15,12 @@ public class CardSelectHandler : MonoBehaviour
 
     [HideInInspector] public UnityEvent OnPlayerConfirmedCard;
     private bool playerHasChosen = false;
-    //connect with button UI on click
-    //TODO: 
-
+    [SerializeField] private DialogueContainer introDc;
+    private const float CHANCE_FOR_DIALOGUE = 0.5f;
+    private bool dialoguePlayed = false;
     private void Start()
     {
+        introDc.Play(introDc.GetRandomDialogue());
         blessCardHolder.OnAnyCardSelected.AddListener(ConfirmButtonVisual);
         curseCardHolder.OnAnyCardSelected.AddListener(ConfirmButtonVisual);
         ConfirmButtonVisual();
@@ -30,6 +32,14 @@ public class CardSelectHandler : MonoBehaviour
     {
         bool bothCardsAreSelected = blessCardHolder.GetSelectedCard() && curseCardHolder.GetSelectedCard();
         confirmButton.SetActive(bothCardsAreSelected);
+        if (!DialogueManager.Instance.IsActivelyPlaying && !dialoguePlayed)
+        {
+            if (CHANCE_FOR_DIALOGUE > Random.Range(0, 1f))
+            {
+                //introDc
+                dialoguePlayed = true;
+            }
+        }
     }
     public void OnConfirmCards()
     {

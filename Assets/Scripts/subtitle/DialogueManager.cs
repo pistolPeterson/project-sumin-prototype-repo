@@ -5,7 +5,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
-public class DialogueManager : PersistentSingleton<DialogueManager>
+public class DialogueManager : Singleton<DialogueManager>
 {
     private CanvasGroup canvasGroup;
     private TextMeshProUGUI dialogueTextUI;
