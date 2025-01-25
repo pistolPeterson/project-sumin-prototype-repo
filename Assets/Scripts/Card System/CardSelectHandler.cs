@@ -5,6 +5,7 @@ using MaskTransitions;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class CardSelectHandler : MonoBehaviour
@@ -16,14 +17,15 @@ public class CardSelectHandler : MonoBehaviour
     [HideInInspector] public UnityEvent OnPlayerConfirmedCard;
     private bool playerHasChosen = false;
     [SerializeField] private DialogueContainer introDc;
-    private const float CHANCE_FOR_DIALOGUE = 0.5f;
+    [FormerlySerializedAs("confirmCardDc")] [SerializeField] private DialogueContainer pickCardDc;
+    private const float CHANCE_FOR_DIALOGUE = 0.4f;
     private bool dialoguePlayed = false;
     private void Start()
     {
-        introDc.Play(introDc.GetRandomDialogue());
+       StartCoroutine(PeteUtility.WaitThenCall(introDc.Play, 0.75f));
         blessCardHolder.OnAnyCardSelected.AddListener(ConfirmButtonVisual);
         curseCardHolder.OnAnyCardSelected.AddListener(ConfirmButtonVisual);
-        ConfirmButtonVisual();
+     
     }
 
     
@@ -36,7 +38,8 @@ public class CardSelectHandler : MonoBehaviour
         {
             if (CHANCE_FOR_DIALOGUE > Random.Range(0, 1f))
             {
-                //introDc
+               //player picks card dialogue
+               pickCardDc.Play();
                 dialoguePlayed = true;
             }
         }
@@ -50,14 +53,10 @@ public class CardSelectHandler : MonoBehaviour
             Debug.LogError("did you select both cards buddy? ");
             return;
         }
-
-        //from these 2 selected cards, get their SO's 
         //TODO: fix these references
         var blessCardSO = blessCardHolder.GetSelectedCard().GetCardVisual().gameObject.GetComponent<CardSOVisual>().cardSo;
         var curseCardSO = curseCardHolder.GetSelectedCard().GetCardVisual().gameObject.GetComponent<CardSOVisual>().cardSo;
-        //send to gamemanager 
-       // GameManager.Instance.currentPlayerHand.Add(blessCardSO);
-        //GameManager.Instance.currentPlayerHand.Add(curseCardSO);
+       
         
         SaveManager.Instance.CurrentSave.playerCards.Add(blessCardSO);
         SaveManager.Instance.CurrentSave.playerCards.Add(curseCardSO);

@@ -58,7 +58,7 @@ public class MainMenuAudio : MonoBehaviour
         sfxChange = true;
         Debug.Log("playyin musi");
         var dlg = dc.GetRandomDialogue();
-        dc.Play(dlg);
+        dc.Play();
         yield return new WaitForSeconds( dlg.GetAudioLength());
         sfxChange = false;
     }

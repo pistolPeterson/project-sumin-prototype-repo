@@ -18,4 +18,8 @@ public class DialogueContainer : MonoBehaviour
     //show it in ui
     DialogueManager.Instance.DisplayDialogue(dialogueToPlay);
   }
+  public void Play()
+  {
+      DialogueManager.Instance.DisplayDialogue(GetRandomDialogue());
+  }
 }
