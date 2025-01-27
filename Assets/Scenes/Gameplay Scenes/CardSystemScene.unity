@@ -237,6 +237,55 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
   m_PrefabInstance: {fileID: 8351467}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &60384192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 60384194}
+  - component: {fileID: 60384193}
+  m_Layer: 0
+  m_Name: 'confirm card '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &60384193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60384192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 840894c47f4318145aad7c7382e85cbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subtitleList:
+  - {fileID: 11400000, guid: 45b2248c4cc0a5045ae55394057c4290, type: 2}
+  - {fileID: 11400000, guid: 085f41769e4fed141b3753f8a8984973, type: 2}
+  - {fileID: 11400000, guid: b3e194dac1f2b294b9758713b2747cd2, type: 2}
+  - {fileID: 11400000, guid: 3dadc4c73f2e18c4ca7389f5666e7544, type: 2}
+--- !u!4 &60384194
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60384192}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &469023899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -809,6 +858,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   introDc: {fileID: 896770586}
+  confirmCardDc: {fileID: 60384193}
   pickCardDc: {fileID: 906880497}
 --- !u!1 &873894319
 GameObject:
@@ -2994,3 +3044,4 @@ SceneRoots:
   - {fileID: 1440236357}
   - {fileID: 896770585}
   - {fileID: 906880498}
+  - {fileID: 60384194}

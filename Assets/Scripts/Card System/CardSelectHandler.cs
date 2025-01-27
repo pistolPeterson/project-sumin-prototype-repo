@@ -17,18 +17,19 @@ public class CardSelectHandler : MonoBehaviour
     [HideInInspector] public UnityEvent OnPlayerConfirmedCard;
     private bool playerHasChosen = false;
     [SerializeField] private DialogueContainer introDc;
-    [FormerlySerializedAs("confirmCardDc")] [SerializeField] private DialogueContainer pickCardDc;
+    [SerializeField] private DialogueContainer confirmCardDc;
+   [SerializeField] private DialogueContainer pickCardDc;
+
     private const float CHANCE_FOR_DIALOGUE = 0.4f;
     private bool dialoguePlayed = false;
+
     private void Start()
     {
-       StartCoroutine(PeteUtility.WaitThenCall(introDc.Play, 0.75f));
+        StartCoroutine(PeteUtility.WaitThenCall(introDc.Play, 0.75f));
         blessCardHolder.OnAnyCardSelected.AddListener(ConfirmButtonVisual);
         curseCardHolder.OnAnyCardSelected.AddListener(ConfirmButtonVisual);
-     
     }
 
-    
 
     private void ConfirmButtonVisual()
     {
@@ -38,33 +39,34 @@ public class CardSelectHandler : MonoBehaviour
         {
             if (CHANCE_FOR_DIALOGUE > Random.Range(0, 1f))
             {
-               //player picks card dialogue
-               pickCardDc.Play();
+                //player picks card dialogue
+                pickCardDc.Play();
                 dialoguePlayed = true;
             }
         }
     }
+
     public void OnConfirmCards()
     {
-        if(playerHasChosen)
+        if (playerHasChosen)
             return;
-        if(!blessCardHolder.GetSelectedCard() || !curseCardHolder.GetSelectedCard())
+        if (!blessCardHolder.GetSelectedCard() || !curseCardHolder.GetSelectedCard())
         {
             Debug.LogError("did you select both cards buddy? ");
             return;
         }
+        confirmCardDc.Play();
         //TODO: fix these references
-        var blessCardSO = blessCardHolder.GetSelectedCard().GetCardVisual().gameObject.GetComponent<CardSOVisual>().cardSo;
-        var curseCardSO = curseCardHolder.GetSelectedCard().GetCardVisual().gameObject.GetComponent<CardSOVisual>().cardSo;
-       
-        
+        var blessCardSO = blessCardHolder.GetSelectedCard().GetCardVisual().gameObject.GetComponent<CardSOVisual>()
+            .cardSo;
+        var curseCardSO = curseCardHolder.GetSelectedCard().GetCardVisual().gameObject.GetComponent<CardSOVisual>()
+            .cardSo;
+
+
         SaveManager.Instance.CurrentSave.playerCards.Add(blessCardSO);
         SaveManager.Instance.CurrentSave.playerCards.Add(curseCardSO);
         OnPlayerConfirmedCard?.Invoke();
         TransitionManager.Instance.LoadLevel("Scenes/Gameplay Scenes/RealNodeMap", 2.5f);
         playerHasChosen = true;
     }
-
-  
-
 }
