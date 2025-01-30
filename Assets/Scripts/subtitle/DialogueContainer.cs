@@ -20,6 +20,7 @@ public class DialogueContainer : MonoBehaviour
   }
   public void Play()
   {
+      Debug.Log("playing dialogue");
       DialogueManager.Instance.DisplayDialogue(GetRandomDialogue());
   }
 }

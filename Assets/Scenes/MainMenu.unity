@@ -3949,6 +3949,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 82791305491599371, guid: 83b1066467b0e4d4cb5d5554d45c6e7f, type: 3}
+      propertyPath: TEST_DIALOGUE
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2294385120683351273, guid: 83b1066467b0e4d4cb5d5554d45c6e7f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -32.6
@@ -3956,6 +3960,10 @@ PrefabInstance:
     - target: {fileID: 3693176980283342489, guid: 83b1066467b0e4d4cb5d5554d45c6e7f, type: 3}
       propertyPath: m_Name
       value: DialogueManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395742866416707757, guid: 83b1066467b0e4d4cb5d5554d45c6e7f, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5395742866416707757, guid: 83b1066467b0e4d4cb5d5554d45c6e7f, type: 3}
       propertyPath: m_fontSize

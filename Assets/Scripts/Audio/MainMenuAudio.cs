@@ -28,7 +28,7 @@ public class MainMenuAudio : MonoBehaviour
     private bool sfxChange = false;
     private float musicChangeTime = 5.0f;
     [SerializeField] private DialogueContainer dc;
-
+    private bool dcHasBeenCalled = false;
     private void Start()
     {
         settingsButton.onClick.AddListener(SettingsButtonAudio);
@@ -56,7 +56,6 @@ public class MainMenuAudio : MonoBehaviour
     private IEnumerator PlayTestAudio()
     {
         sfxChange = true;
-        Debug.Log("playyin musi");
         var dlg = dc.GetRandomDialogue();
         dc.Play();
         yield return new WaitForSeconds( dlg.GetAudioLength());
@@ -67,6 +66,11 @@ public class MainMenuAudio : MonoBehaviour
     {
         SetSliderVolume(sfxSlider, sfxText, "SFXParam");
         PlayerPrefs.SetFloat(SFX_LVL_KEY, newValue);
+        if (!dcHasBeenCalled)
+        {
+            dcHasBeenCalled = true;
+            return;
+        }
         if (!sfxChange)
         {
             StartCoroutine( PlayTestAudio());
