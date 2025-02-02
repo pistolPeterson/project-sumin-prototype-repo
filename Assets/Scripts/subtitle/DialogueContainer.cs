@@ -1,5 +1,6 @@
 
 using System.Collections.Generic;
+using com.cyborgAssets.inspectorButtonPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -18,6 +19,8 @@ public class DialogueContainer : MonoBehaviour
     //show it in ui
     DialogueManager.Instance.DisplayDialogue(dialogueToPlay);
   }
+  
+  [ProButton]
   public void Play()
   {
       Debug.Log("playing dialogue");

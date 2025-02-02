@@ -9,6 +9,8 @@ public class DialogueManager : Singleton<DialogueManager>
 {
     private CanvasGroup canvasGroup;
     private TextMeshProUGUI dialogueTextUI;
+    private Dialogue currentDialogue;
+
     public bool IsActivelyPlaying { get; private set; } = false;
 
     public Dialogue TEST_DIALOGUE;
@@ -25,12 +27,23 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public void DisplayDialogue(Dialogue dialogue)
     {
+        // Stop the current dialogue if playing
+        if (IsActivelyPlaying)
+        {
+            currentDialogue.StopAudio(); 
+            canvasGroup.DOKill(); 
+            canvasGroup.alpha = 0; 
+        }
+
+        currentDialogue = dialogue;
         IsActivelyPlaying = true;
         canvasGroup.alpha = 0;
         dialogueTextUI.text = dialogue.Text;
-        canvasGroup.DOFade(1, dialogue.GetAudioLength()).OnComplete(() =>
+        dialogue.PlayAudio();
+        var lengthOfDialogueClip = dialogue.GetAudioLength();
+        canvasGroup.DOFade(1, lengthOfDialogueClip + 0.2f).OnComplete(() =>
         {
-            canvasGroup.DOFade(0, dialogue.GetAudioLength());
+            canvasGroup.DOFade(0, lengthOfDialogueClip);
             IsActivelyPlaying = false;
         });
     }
