@@ -18,12 +18,17 @@ public class Dialogue : ScriptableObject
 
      public void PlayAudio()
      {
+         if(dialogueAudio.IsNull)
+             return;
          dialogueAudioState = FMODUnity.RuntimeManager.CreateInstance(dialogueAudio);
+     
          dialogueAudioState.start();
      }
 
      public void StopAudio()
      {
+         if(dialogueAudio.IsNull)
+             return;
          dialogueAudioState.stop(STOP_MODE.ALLOWFADEOUT);
      }
      
@@ -41,4 +46,6 @@ public class Dialogue : ScriptableObject
          Debug.Log("Length of audio clip " + finalLength);
          return finalLength;
      }
+     
+     
 }

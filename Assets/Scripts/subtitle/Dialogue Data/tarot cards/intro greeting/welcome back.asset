@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6b3854e15fd1f44ac266bcd9cbd950, type: 3}
   m_Name: welcome back
   m_EditorClassIdentifier: 
-  Text: Welcome back...
-  clip: {fileID: 0}
+  Text: ah welcome back...
+  dialogueAudio:
+    Guid:
+      Data1: 1863288638
+      Data2: 1308437402
+      Data3: 170007997
+      Data4: -430141186
+    Path: event:/Dialogue/Tarot Cards/intro/ah welcome back

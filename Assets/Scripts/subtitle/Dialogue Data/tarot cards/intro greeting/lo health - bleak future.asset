@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: lo health - bleak future
   m_EditorClassIdentifier: 
   Text: Perhaps we can salvage your bleak future
-  clip: {fileID: 0}
+  dialogueAudio:
+    Guid:
+      Data1: -1343634733
+      Data2: 1200470328
+      Data3: -23451236
+      Data4: -1330134437
+    Path: event:/Dialogue/Tarot Cards/player confirm card/bleak future

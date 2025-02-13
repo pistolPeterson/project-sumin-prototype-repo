@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: are you sure
   m_EditorClassIdentifier: 
   Text: Are you sure?
-  clip: {fileID: 0}
+  dialogueAudio:
+    Guid:
+      Data1: -1073081478
+      Data2: 1189460422
+      Data3: -905005139
+      Data4: -1544906083
+    Path: event:/Dialogue/Tarot Cards/player picks card/are you sure

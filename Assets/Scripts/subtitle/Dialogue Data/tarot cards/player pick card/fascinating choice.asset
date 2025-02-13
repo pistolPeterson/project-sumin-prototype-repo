@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: fascinating choice
   m_EditorClassIdentifier: 
   Text: Fascinating choice.
-  clip: {fileID: 0}
+  dialogueAudio:
+    Guid:
+      Data1: 590000846
+      Data2: 1112991773
+      Data3: -179378530
+      Data4: -1974140396
+    Path: event:/Dialogue/Tarot Cards/player picks card/fascinating choice

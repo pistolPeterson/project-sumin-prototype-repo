@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: how curious
   m_EditorClassIdentifier: 
   Text: How curious.
-  clip: {fileID: 0}
+  dialogueAudio:
+    Guid:
+      Data1: -1896413433
+      Data2: 1332372568
+      Data3: -777443924
+      Data4: -546737727
+    Path: event:/Dialogue/Tarot Cards/player picks card/how curious

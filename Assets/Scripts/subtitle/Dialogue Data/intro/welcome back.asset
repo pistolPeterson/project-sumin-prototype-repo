@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: welcome back
   m_EditorClassIdentifier: 
   Text: "Ah welcome back, I knew you\u2019d be back here\u2026 sooner or later"
-  clip: {fileID: 0}
+  dialogueAudio:
+    Guid:
+      Data1: 1863288638
+      Data2: 1308437402
+      Data3: 170007997
+      Data4: -430141186
+    Path: event:/Dialogue/Tarot Cards/intro/ah welcome back

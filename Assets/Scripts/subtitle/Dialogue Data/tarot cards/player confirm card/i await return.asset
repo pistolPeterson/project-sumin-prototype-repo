@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: i await return
   m_EditorClassIdentifier: 
   Text: I await your inevitable return
-  clip: {fileID: 0}
+  dialogueAudio:
+    Guid:
+      Data1: 1463787776
+      Data2: 1300977692
+      Data3: 1976356236
+      Data4: 1877889541
+    Path: event:/Dialogue/Tarot Cards/player confirm card/await inevitable

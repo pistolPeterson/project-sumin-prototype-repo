@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: hope youre back soon
   m_EditorClassIdentifier: 
   Text: It's been my pleasure to guide you, I hope you are back soon
-  clip: {fileID: 0}
+  dialogueAudio:
+    Guid:
+      Data1: -1125358284
+      Data2: 1108807529
+      Data3: 1440121279
+      Data4: -711360772
+    Path: event:/Dialogue/Tarot Cards/player confirm card/been my pleasure

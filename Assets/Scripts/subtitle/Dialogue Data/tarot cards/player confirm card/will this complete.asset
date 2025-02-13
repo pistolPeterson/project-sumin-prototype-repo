@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: will this complete
   m_EditorClassIdentifier: 
   Text: Will this complete the ending of your story?
-  clip: {fileID: 0}
+  dialogueAudio:
+    Guid:
+      Data1: -1873921458
+      Data2: 1261877773
+      Data3: 2139327366
+      Data4: -192976565
+    Path: event:/Dialogue/Tarot Cards/player confirm card/complete ending of story

@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: good luck
   m_EditorClassIdentifier: 
   Text: Good... luck...
-  clip: {fileID: 0}
+  dialogueAudio:
+    Guid:
+      Data1: -898862490
+      Data2: 1261700182
+      Data3: -615052119
+      Data4: -1897016673
+    Path: event:/Dialogue/Tarot Cards/player picks card/good luck laugh
