@@ -43,7 +43,6 @@ public class Dialogue : ScriptableObject
          evt.getLength(out len);
         
          var finalLength = len * 0.0006f;
-         Debug.Log("Length of audio clip " + finalLength);
          return finalLength;
      }
      

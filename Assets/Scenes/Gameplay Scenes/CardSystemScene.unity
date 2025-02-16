@@ -1496,7 +1496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1356263113
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1506,15 +1506,15 @@ RectTransform:
   m_GameObject: {fileID: 1356263112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 873894320}
   m_Father: {fileID: 762116429}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 321}
+  m_AnchoredPosition: {x: 0, y: 320}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1356263114
@@ -1762,15 +1762,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5395742866416707757, guid: 83b1066467b0e4d4cb5d5554d45c6e7f, type: 3}
       propertyPath: m_text
+      value: 'Hello raeis '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395742866416707757, guid: 83b1066467b0e4d4cb5d5554d45c6e7f, type: 3}
+      propertyPath: m_fontSize
+      value: 26.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395742866416707757, guid: 83b1066467b0e4d4cb5d5554d45c6e7f, type: 3}
+      propertyPath: m_fontAsset
       value: 
+      objectReference: {fileID: 11400000, guid: 43f42c22410ae534cbbc0b35df5071de, type: 2}
+    - target: {fileID: 5395742866416707757, guid: 83b1066467b0e4d4cb5d5554d45c6e7f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 26.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395742866416707757, guid: 83b1066467b0e4d4cb5d5554d45c6e7f, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1924558563383645217, guid: 43f42c22410ae534cbbc0b35df5071de, type: 2}
+    - target: {fileID: 5395742866416707757, guid: 83b1066467b0e4d4cb5d5554d45c6e7f, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6958034931665926103, guid: 83b1066467b0e4d4cb5d5554d45c6e7f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 6958034931665926103, guid: 83b1066467b0e4d4cb5d5554d45c6e7f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.87
       objectReference: {fileID: 0}
     - target: {fileID: 6958034931665926103, guid: 83b1066467b0e4d4cb5d5554d45c6e7f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2151,7 +2171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 640, y: -560}
+  m_AnchoredPosition: {x: 640, y: -506}
   m_SizeDelta: {x: 1140.27, y: 282.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1633385740
@@ -2576,7 +2596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 640, y: -249}
+  m_AnchoredPosition: {x: 640, y: -215}
   m_SizeDelta: {x: 1140.27, y: 282.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1878009652

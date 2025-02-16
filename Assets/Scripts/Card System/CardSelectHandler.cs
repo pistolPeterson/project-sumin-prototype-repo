@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using MaskTransitions;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -28,6 +29,7 @@ public class CardSelectHandler : MonoBehaviour
         StartCoroutine(PeteUtility.WaitThenCall(introDc.Play, 0.75f));
         blessCardHolder.OnAnyCardSelected.AddListener(ConfirmButtonVisual);
         curseCardHolder.OnAnyCardSelected.AddListener(ConfirmButtonVisual);
+        confirmButton.SetActive(false);
     }
 
 
@@ -55,6 +57,8 @@ public class CardSelectHandler : MonoBehaviour
             Debug.LogError("did you select both cards buddy? ");
             return;
         }
+        //STOP PLAYER INTERACTION
+        DisableCardInteraction();
         confirmCardDc.Play();
         //TODO: fix these references
         var blessCardSO = blessCardHolder.GetSelectedCard().GetCardVisual().gameObject.GetComponent<CardSOVisual>()
@@ -68,5 +72,15 @@ public class CardSelectHandler : MonoBehaviour
         OnPlayerConfirmedCard?.Invoke();
         TransitionManager.Instance.LoadLevel("Scenes/Gameplay Scenes/RealNodeMap", 2.5f);
         playerHasChosen = true;
+    }
+
+    private void DisableCardInteraction()
+    {
+        
+        var cards = FindObjectsOfType<CardVisual>();
+        foreach (var card in cards)
+        {
+            card.SetCardFinal();
+        }
     }
 }
