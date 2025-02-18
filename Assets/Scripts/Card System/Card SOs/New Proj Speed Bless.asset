@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5917d49e158e62c41936a570bf89ec22, type: 3}
   m_Name: New Proj Speed Bless
   m_EditorClassIdentifier: 
-  cardName: 'The Sloth of Pete '
-  cardSprite: {fileID: -596297833, guid: b836fbf50761aa147afa6cf0415baf70, type: 3}
+  cardName: The Pearl
+  cardSprite: {fileID: 1604439999, guid: cd506d96ee6e02b45bd38e95a61f7001, type: 3}
   cardDescription: projectiles are slower

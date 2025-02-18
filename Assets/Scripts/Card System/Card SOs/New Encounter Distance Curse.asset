@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9321309473548a046844cfd41f329ab2, type: 3}
   m_Name: New Encounter Distance Curse
   m_EditorClassIdentifier: 
-  cardName: Long Journey
-  cardSprite: {fileID: 456050525, guid: 880cdf079ee3b014182529c6bed094bb, type: 3}
-  cardDescription: encounters take longer to finish
+  cardName: The Seer
+  cardSprite: {fileID: 108012926, guid: cd506d96ee6e02b45bd38e95a61f7001, type: 3}
+  cardDescription: encounters take longer time

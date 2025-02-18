@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb221f44e0b09524c9561bfad236c8d5, type: 3}
   m_Name: New Encounter Distance Bless
   m_EditorClassIdentifier: 
-  cardName: Short Journey
-  cardSprite: {fileID: 456050525, guid: 880cdf079ee3b014182529c6bed094bb, type: 3}
-  cardDescription: encounters take less time to finish
+  cardName: The Seer
+  cardSprite: {fileID: 1454119473, guid: cd506d96ee6e02b45bd38e95a61f7001, type: 3}
+  cardDescription: encounters take less time

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c22ce5960563f43b4a846215023742, type: 3}
   m_Name: New Proj Damage Curse
   m_EditorClassIdentifier: 
-  cardName: The Venom of Ranguren
-  cardSprite: {fileID: -363663067, guid: 880cdf079ee3b014182529c6bed094bb, type: 3}
-  cardDescription: Bullets do more damage
+  cardName: The Flame
+  cardSprite: {fileID: 1475671575, guid: cd506d96ee6e02b45bd38e95a61f7001, type: 3}
+  cardDescription: projectiles do more damage
