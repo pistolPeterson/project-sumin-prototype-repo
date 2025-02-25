@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, 
@@ -33,7 +34,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     private CardVisual cardVisual;
     [SerializeField] private GameObject cardVisualPrefab;
     private VisualCardHandler visualHandler;
-    [SerializeField] private ParticleSystem particleSystem;
+   [SerializeField] private ParticleSystem cardParticleSystem;
 
     private void Awake()
     {
@@ -52,10 +53,9 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
 
     public void ShowCardSelectedVFX(bool bub)
     {
-        if(!particleSystem)
-            particleSystem = cardVisual.gameObject.GetComponentInChildren<ParticleSystem>();
-        Debug.Log(bub + " is the card status");
-        particleSystem.gameObject.SetActive(bub);
+        if(!cardParticleSystem)
+            cardParticleSystem = cardVisual.gameObject.GetComponentInChildren<ParticleSystem>();
+        cardParticleSystem.gameObject.SetActive(bub);
     }
     private void Update()
     {

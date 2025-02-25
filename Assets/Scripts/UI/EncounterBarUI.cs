@@ -12,7 +12,6 @@ public class EncounterBarUI : MonoBehaviour
     public void InitUI() {
         bossAttackHandler.OnEncounterActive.AddListener(UpdateEncounterBar);
         encounterBarSlider.maxValue = bossAttackHandler.GetEncounterDuration();
-        Debug.Log("Max Val: " + encounterBarSlider.maxValue);
     }
     public void UpdateEncounterBar() {
         encounterBarSlider.value = bossAttackHandler.encounterTimer;

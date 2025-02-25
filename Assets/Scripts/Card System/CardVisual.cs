@@ -39,7 +39,7 @@ public class CardVisual : MonoBehaviour
    
    private float curveYOffset = 0f; // not implemented yet
    private bool isFinalCardSelection = false;
-   [SerializeField] public GameObject particleSystem;
+   [SerializeField] public GameObject cardParticleSystem;
    public void Initialize(Card targetCard)
    {
       canvas = GetComponent<Canvas>();
@@ -52,7 +52,7 @@ public class CardVisual : MonoBehaviour
       parentCard.OnCardPointerExit.AddListener(PointerExit);
       parentCard.OnCardPointerUp.AddListener(PointerUp);
       parentCard.OnCardPointerDown.AddListener(PointerDown);
-      particleSystem.SetActive(false);
+      cardParticleSystem.SetActive(false);
    }
 
   
@@ -72,7 +72,7 @@ public class CardVisual : MonoBehaviour
      shakeParent.DOPunchRotation(Vector3.forward * (hoverPunchAngle/2), hoverTransitionTime, 20, 1).SetId(2);
 
         transform.DOScale(scaleOnHover, scaleTransitionTime).SetEase(scaleEase);
-        particleSystem.SetActive(isCardSelected);
+        cardParticleSystem.SetActive(isCardSelected);
    }
 
    private void BeginDrag(Card card)

@@ -29,7 +29,7 @@ public class MainMenuAudio : MonoBehaviour
     private const string SFX_LVL_KEY = "SFX_LEVEL";
 
     private bool sfxChange = false;
-    private float musicChangeTime = 5.0f;
+   // private float musicChangeTime = 5.0f;
     [SerializeField] private DialogueContainer dc;
     private bool dcHasBeenCalled = false;
     private void Start()
