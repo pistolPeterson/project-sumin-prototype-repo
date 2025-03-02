@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -121,7 +121,448 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: icons_spritesheet_larissa_ui_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 90
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cb621d6c6c38304f8be9912402fe282
+      internalID: 994502020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icons_spritesheet_larissa_ui_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 90
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1242218f604acca4b8379e4069ea27a9
+      internalID: -1440889022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icons_spritesheet_larissa_ui_2
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 90
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dcd3a89807b1064badcbd8e98fa0bb5
+      internalID: -2046250571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new_sprite_heart
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 69
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 583fe23cf302d0f40ba62e5f2b72478f
+      internalID: 1955513964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new_sprite_tarot
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 69
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6507518cf16a0aa46b2e64db153473b4
+      internalID: -550772498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new_sprite_eyes
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 69
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b24d6c9897ebce9489a6732086b31e2e
+      internalID: -1380246810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new_sprite_main_menu
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 61
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cf254b1ba322f44c9dc7eaa48df2e29
+      internalID: -1383233657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icons_spritesheet_larissa_ui_7
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 61
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8f7d6b97896ac2419d7ffe54abc2d2a
+      internalID: -1006096174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icons_spritesheet_larissa_ui_8
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 61
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 667c794261dc9f447b395fb595845d0b
+      internalID: -1042871942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new_sprite_real_resume
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 32
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad173cc199a23ea4ba3eeb1ae142858c
+      internalID: 2143777482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icons_spritesheet_larissa_ui_10
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 32
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bda3eb8a63063b42a5af47ce5d0b4ef
+      internalID: 459539438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icons_spritesheet_larissa_ui_11
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 32
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 494f87a03b3d3d94788a050fa843e832
+      internalID: 1046465494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new_sprite_pause
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 42
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79c61c57de8f57e4d99a5ea5b9003c1e
+      internalID: 1913926508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new_sprite_resume
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 42
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dd3bca4dd1d40d4b953f00b3bb46138
+      internalID: 1200978612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new_sprite_sfx_on
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 42
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff62628a9e185a14d84831977267b9a4
+      internalID: -864691340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new_sprite_sfx_off
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 42
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fb6d92f8a375c24e812e00f43516eb9
+      internalID: 1556809511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new_sprite_music_o
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 42
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56da5c3619a0e0a44a41831d003f4a0d
+      internalID: 362061508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new_sprite_music_off
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 42
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3eb53c8f89b459469724667f75c46f0
+      internalID: -2073429097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new_sprite_dialogue
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 41
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a78da5cc30c86894abd7688ee7739ab4
+      internalID: -2098831259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: new_sprite_empty box
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 4
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c84b699a301218e46937a5a550974107
+      internalID: -1408972732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icons_spritesheet_larissa_ui_20
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 4
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2ed1d3f19ad5564ca89e89a4ff0bb1e
+      internalID: 209590485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +573,28 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      icons_spritesheet_larissa_ui_0: 994502020
+      icons_spritesheet_larissa_ui_1: -1440889022
+      icons_spritesheet_larissa_ui_10: 459539438
+      icons_spritesheet_larissa_ui_11: 1046465494
+      icons_spritesheet_larissa_ui_2: -2046250571
+      icons_spritesheet_larissa_ui_20: 209590485
+      icons_spritesheet_larissa_ui_7: -1006096174
+      icons_spritesheet_larissa_ui_8: -1042871942
+      new_sprite_dialogue: -2098831259
+      new_sprite_empty box: -1408972732
+      new_sprite_eyes: -1380246810
+      new_sprite_heart: 1955513964
+      new_sprite_main_menu: -1383233657
+      new_sprite_music_o: 362061508
+      new_sprite_music_off: -2073429097
+      new_sprite_pause: 1913926508
+      new_sprite_real_resume: 2143777482
+      new_sprite_resume: 1200978612
+      new_sprite_sfx_off: 1556809511
+      new_sprite_sfx_on: -864691340
+      new_sprite_tarot: -550772498
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
