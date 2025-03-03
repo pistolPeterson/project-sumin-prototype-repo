@@ -15,7 +15,6 @@ public class EncounterBarUI : MonoBehaviour
     }
     public void UpdateEncounterBar() {
         encounterBarSlider.value = bossAttackHandler.encounterTimer;
-        Debug.Log(encounterBarSlider.value);
     }
 
 }

@@ -97,6 +97,7 @@ namespace MaskTransitions
 
         void EndAnimation(float? totalTime = null)
         {
+            Debug.Log("ended anim?");
             float animationTime = totalTime ?? individualTransitionTime;
 
             maskRect.sizeDelta = new Vector2(maxSize, maxSize);
