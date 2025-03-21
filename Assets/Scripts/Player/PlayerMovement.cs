@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 moveInput;
     [HideInInspector] public UnityEvent OnPlayerMove;
+    public bool IsActive { get; set; } = true;
 
     private void Start()
     {
@@ -28,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     //TODO: Add VERY SMALL lerp to not make it look jerky 
     private void MovePlayer(Vector2 inputDirection)
     {
+        if(!IsActive)
+            return;
         moveInput = inputDirection;
         if (moveInput == Vector2.up)
         {

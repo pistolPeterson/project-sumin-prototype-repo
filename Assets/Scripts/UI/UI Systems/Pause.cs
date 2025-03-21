@@ -15,12 +15,14 @@ public class Pause : MonoBehaviour
     [SerializeField] private Button mainMenuButton;
     public PlayerControls playerControls;
     public List<Sprite> pauseResumeSprites;
+    private PlayerMovement playerMovement;
     private void Awake()
     {
         pauseVisual = GetComponent<PauseVisual>();
         playerControls = new PlayerControls();
         pauseButton.onClick.AddListener(() => TryPause(new InputAction.CallbackContext()));
         mainMenuButton.onClick.AddListener(GoMainMenu);
+        playerMovement = FindObjectOfType<PlayerMovement>();
     }
 
     private void Update()
@@ -65,6 +67,7 @@ public class Pause : MonoBehaviour
         Time.timeScale = 0;
         pauseVisual.Show();
         pauseButton.GetComponent<Image>().sprite = pauseResumeSprites[1];
+        playerMovement.IsActive = false;
 
     }
     [ProButton]
@@ -74,6 +77,7 @@ public class Pause : MonoBehaviour
         Time.timeScale = 1;
         pauseVisual.Hide();
         pauseButton.GetComponent<Image>().sprite = pauseResumeSprites[0];
+        playerMovement.IsActive = true;
     }
 
     public bool IsPaused() => Time.timeScale == 0;
