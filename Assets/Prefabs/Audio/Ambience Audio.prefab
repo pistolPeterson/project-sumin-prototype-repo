@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5083109002458259064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6603897434129611386}
+  - component: {fileID: 2762931394746094427}
+  m_Layer: 0
+  m_Name: Ambience Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6603897434129611386
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5083109002458259064}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.8377776, y: 2, z: 90}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2762931394746094427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5083109002458259064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5acfe88a4b9ce7419b4676812a3a698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AmbienceClips:
+  - Guid:
+      Data1: 326590007
+      Data2: 1314489721
+      Data3: -798059136
+      Data4: 312026462
+    Path: event:/Ambience/Night ambi/BaseAmbience
+  ambientOneShots:
+  - eventClip:
+      Guid:
+        Data1: 1074570050
+        Data2: 1162160899
+        Data3: -903189356
+        Data4: -144261138
+      Path: event:/Ambience/Night ambi/CrowShot
+    waitTimeRange: {x: 10.489303, y: 15.199303}
+  - eventClip:
+      Guid:
+        Data1: -1148115019
+        Data2: 1221346479
+        Data3: 2097943487
+        Data4: -320973689
+      Path: event:/Ambience/Night ambi/OwlShot
+    waitTimeRange: {x: 12.71777, y: 18.777771}
+  - eventClip:
+      Guid:
+        Data1: 1875079478
+        Data2: 1299897786
+        Data3: -2066557521
+        Data4: 654853862
+      Path: event:/Ambience/Night ambi/ThunderShot
+    waitTimeRange: {x: 17.433798, y: 24.55}

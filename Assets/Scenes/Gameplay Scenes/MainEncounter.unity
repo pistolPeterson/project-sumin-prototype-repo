@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 284007815}
   - component: {fileID: 284007814}
   - component: {fileID: 284007816}
-  - component: {fileID: 284007817}
   m_Layer: 0
   m_Name: test audio
   m_TagString: Untagged
@@ -206,28 +205,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &284007817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 284007811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5acfe88a4b9ce7419b4676812a3a698, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  peteRange: {x: -4.9179735, y: -4.4279733}
-  ambientOneShots:
-  - eventClip:
-      Guid:
-        Data1: 0
-        Data2: 0
-        Data3: 0
-        Data4: 0
-      Path: 
-    audiolopl: {fileID: 0}
 --- !u!1 &304808637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,6 +1087,63 @@ Material:
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _ShineColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+--- !u!1001 &444614459
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5083109002458259064, guid: f020b1e8a79817849b715845ea42909a, type: 3}
+      propertyPath: m_Name
+      value: Ambience Audio
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603897434129611386, guid: f020b1e8a79817849b715845ea42909a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.8377776
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603897434129611386, guid: f020b1e8a79817849b715845ea42909a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603897434129611386, guid: f020b1e8a79817849b715845ea42909a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603897434129611386, guid: f020b1e8a79817849b715845ea42909a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603897434129611386, guid: f020b1e8a79817849b715845ea42909a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603897434129611386, guid: f020b1e8a79817849b715845ea42909a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603897434129611386, guid: f020b1e8a79817849b715845ea42909a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603897434129611386, guid: f020b1e8a79817849b715845ea42909a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603897434129611386, guid: f020b1e8a79817849b715845ea42909a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603897434129611386, guid: f020b1e8a79817849b715845ea42909a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f020b1e8a79817849b715845ea42909a, type: 3}
 --- !u!1 &546225958
 GameObject:
   m_ObjectHideFlags: 0
@@ -1815,6 +1849,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 696d8f43f75795245b5a08d2299a61b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1104469426 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2762931394746094427, guid: f020b1e8a79817849b715845ea42909a, type: 3}
+  m_PrefabInstance: {fileID: 444614459}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5acfe88a4b9ce7419b4676812a3a698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1222917656
 GameObject:
   m_ObjectHideFlags: 0
@@ -2214,6 +2259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1285713580}
+  ambienceSystem: {fileID: 1104469426}
   bossAttackHandler: {fileID: 1523286168}
 --- !u!1001 &1513894613
 PrefabInstance:
@@ -3875,3 +3921,4 @@ SceneRoots:
   - {fileID: 1461733698}
   - {fileID: 848033292}
   - {fileID: 284007815}
+  - {fileID: 444614459}

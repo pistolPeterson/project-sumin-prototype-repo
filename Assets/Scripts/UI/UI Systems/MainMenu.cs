@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject creditsGroup;
     [SerializeField] private GameObject backButton;
     [SerializeField] private GameObject continueButton;
+    [SerializeField] private AmbienceSystem ambienceSystem;
 
     private void Start()
     {
@@ -28,13 +29,15 @@ public class MainMenu : MonoBehaviour
 
     public void OnNewGameClicked()
     {
+        ambienceSystem.StopAmbienceSystem();
         FindObjectOfType<PulseAlphaEffect>()?.KillAnim();
         SaveManager.Instance.CreateNewSave();
         TransitionManager.Instance.LoadLevel("RealNodeMap");
     }
 
     public void OnContinueGameClicked()
-    {
+    {        
+        ambienceSystem.StopAmbienceSystem();
         SaveManager.Instance.LoadAllDataOnline();
         TransitionManager.Instance.LoadLevel("RealNodeMap");
     }
