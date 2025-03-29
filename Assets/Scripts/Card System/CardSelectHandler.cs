@@ -20,6 +20,7 @@ public class CardSelectHandler : MonoBehaviour
     [SerializeField] private DialogueContainer introDc;
     [SerializeField] private DialogueContainer confirmCardDc;
    [SerializeField] private DialogueContainer pickCardDc;
+   [SerializeField] private AmbienceSystem ambienceSystem;
 
     private const float CHANCE_FOR_DIALOGUE = 0.4f;
     private bool dialoguePlayed = false;
@@ -57,6 +58,7 @@ public class CardSelectHandler : MonoBehaviour
             Debug.LogError("did you select both cards buddy? ");
             return;
         }
+        ambienceSystem.StopAmbienceSystem();
         //STOP PLAYER INTERACTION
         DisableCardInteraction();
         confirmCardDc.Play();
@@ -70,7 +72,7 @@ public class CardSelectHandler : MonoBehaviour
         SaveManager.Instance.CurrentSave.playerCards.Add(blessCardSO);
         SaveManager.Instance.CurrentSave.playerCards.Add(curseCardSO);
         OnPlayerConfirmedCard?.Invoke();
-        TransitionManager.Instance.LoadLevel("Scenes/Gameplay Scenes/RealNodeMap", 2.5f);
+        TransitionManager.Instance.LoadLevel("Scenes/Gameplay Scenes/RealNodeMap", 3.5f);
         playerHasChosen = true;
     }
 

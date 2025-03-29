@@ -386,7 +386,7 @@ MonoBehaviour:
   followSpeed: 30
   rotationAmount: 20
   rotationSpeed: 20
-  particleSystem: {fileID: 6093006755530562755}
+  cardParticleSystem: {fileID: 2192444531778251813}
 --- !u!223 &9133627170475606795
 Canvas:
   m_ObjectHideFlags: 0
@@ -795,10 +795,5 @@ PrefabInstance:
 --- !u!4 &5056331113896564413 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 531348294049197989, guid: 98e6e5169e035f641948bf4353bade26, type: 3}
-  m_PrefabInstance: {fileID: 4716403705711212824}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6093006755530562755 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1583786516922295771, guid: 98e6e5169e035f641948bf4353bade26, type: 3}
   m_PrefabInstance: {fileID: 4716403705711212824}
   m_PrefabAsset: {fileID: 0}

@@ -875,6 +875,7 @@ MonoBehaviour:
   introDc: {fileID: 896770586}
   confirmCardDc: {fileID: 60384193}
   pickCardDc: {fileID: 906880497}
+  ambienceSystem: {fileID: 1761662101657715626}
 --- !u!1 &873894319
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,10 +1056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subtitleList:
   - {fileID: 11400000, guid: 699625a5c2c050644a745d87a1b5dac1, type: 2}
-  - {fileID: 11400000, guid: 1df7be8a0aac5b646872d5db8c3bdac1, type: 2}
   - {fileID: 11400000, guid: 0de0ef06ee042cf43b3931aa61b084a9, type: 2}
-  - {fileID: 11400000, guid: c7cbf680c6702cf499489178578c62d4, type: 2}
-  - {fileID: 11400000, guid: 44f686b3f076645439cd9044ab98d61a, type: 2}
   - {fileID: 11400000, guid: 970e579db5aa5d9418d3ea9e243d67d3, type: 2}
   - {fileID: 11400000, guid: c2a7821ae71e8924c981c8fb0d0d424c, type: 2}
 --- !u!1 &906880496
@@ -2937,6 +2935,60 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81882ae183d3be744acdce1825c75c6e, type: 3}
+--- !u!114 &1761662101657715626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8696342693633281673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5acfe88a4b9ce7419b4676812a3a698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AmbienceClips:
+  - Guid:
+      Data1: 274926809
+      Data2: 1099314956
+      Data3: -1323368529
+      Data4: -246656287
+    Path: event:/Ambience/Tarot Ambi/Stem1
+  - Guid:
+      Data1: 1848680136
+      Data2: 1193473111
+      Data3: 1771734973
+      Data4: -833020512
+    Path: event:/Ambience/Tarot Ambi/Stem2
+  - Guid:
+      Data1: -1185513462
+      Data2: 1128683488
+      Data3: 590371262
+      Data4: 827765789
+    Path: event:/Ambience/Tarot Ambi/Stem3
+  - Guid:
+      Data1: 10367227
+      Data2: 1175556115
+      Data3: 713675945
+      Data4: 1371530036
+    Path: event:/Ambience/Tarot Ambi/Stem4
+  ambientOneShots:
+  - eventClip:
+      Guid:
+        Data1: 2100412266
+        Data2: 1099374926
+        Data3: 955722674
+        Data4: 596133064
+      Path: event:/Ambience/Tarot Ambi/CreepyWitchOneShots
+    waitTimeRange: {x: 5, y: 11.239611}
+  - eventClip:
+      Guid:
+        Data1: 175806483
+        Data2: 1254268562
+        Data3: 1236644763
+        Data4: -762839737
+      Path: event:/Ambience/Tarot Ambi/WooshOneShot
+    waitTimeRange: {x: 6.585475, y: 12.825476}
 --- !u!1001 &1932374779941244897
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3057,11 +3109,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7825e7a2db14b124593303458075b08b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &7313995964948589195
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8696342693633281673}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.8377776, y: 2, z: 90}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &7361534022224959660 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5753617490230675394, guid: c771f24eb83ebdc4b98fa260dce5f83f, type: 3}
   m_PrefabInstance: {fileID: 1932374779941244897}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8696342693633281673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7313995964948589195}
+  - component: {fileID: 1761662101657715626}
+  m_Layer: 0
+  m_Name: Ambience Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3080,3 +3164,4 @@ SceneRoots:
   - {fileID: 896770585}
   - {fileID: 906880498}
   - {fileID: 60384194}
+  - {fileID: 7313995964948589195}
