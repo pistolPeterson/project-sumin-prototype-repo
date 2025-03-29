@@ -44,6 +44,7 @@ public class BossAttackHandler : MonoBehaviour
         SetUpAttackListeners();
         InitGamemanager();
         encounterDuration = encounterDistanceData.EncounterDuration;
+        FindObjectOfType<EncounterBarUI>().InitUI();
         
         StartCoroutine(DelayThenStart());
         IEnumerator DelayThenStart()

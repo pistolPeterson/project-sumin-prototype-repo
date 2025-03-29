@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeedLimit: 50.7
-  selectedOffset: 40
+  selectedOffset: 16.8
   <IsSelected>k__BackingField: 0
   OnCardBeginDrag:
     m_PersistentCalls:

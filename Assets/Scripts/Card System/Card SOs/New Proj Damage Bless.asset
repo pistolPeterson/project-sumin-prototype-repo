@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bd71badcea2eea4f899edf9120e006b, type: 3}
   m_Name: New Proj Damage Bless
   m_EditorClassIdentifier: 
-  cardName: The Elixir of Youth
-  cardSprite: {fileID: -363663067, guid: 880cdf079ee3b014182529c6bed094bb, type: 3}
-  cardDescription: Bullets do less damage to player
+  cardName: The Flame
+  cardSprite: {fileID: 546888284, guid: cd506d96ee6e02b45bd38e95a61f7001, type: 3}
+  cardDescription: projectiles do less damage

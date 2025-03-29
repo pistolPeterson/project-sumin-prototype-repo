@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, 
@@ -33,7 +34,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     private CardVisual cardVisual;
     [SerializeField] private GameObject cardVisualPrefab;
     private VisualCardHandler visualHandler;
-   
+   [SerializeField] private ParticleSystem cardParticleSystem;
 
     private void Awake()
     {
@@ -50,6 +51,12 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         IsSelected = false;
     }
 
+    public void ShowCardSelectedVFX(bool bub)
+    {
+        if(!cardParticleSystem)
+            cardParticleSystem = cardVisual.gameObject.GetComponentInChildren<ParticleSystem>();
+        cardParticleSystem.gameObject.SetActive(bub);
+    }
     private void Update()
     {
         ClampPosition();
@@ -134,11 +141,16 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         
         IsSelected = !IsSelected;
         OnCardSelected?.Invoke(this, IsSelected);
+     
 
         if (IsSelected)
+        {
             transform.localPosition += transform.up * selectedOffset;
+        }
         else
+        {
             transform.localPosition = Vector3.zero;
+        }
 
     }
 
@@ -146,6 +158,7 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
     {
         transform.localPosition = Vector3.zero;
         IsSelected = false;
+        ShowCardSelectedVFX(false);
     }
 
     public void OnPointerDown(PointerEventData eventData)

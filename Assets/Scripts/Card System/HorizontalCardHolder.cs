@@ -85,6 +85,7 @@ public class HorizontalCardHolder : MonoBehaviour
         {
             selectedCard = null;
         }
+        card.ShowCardSelectedVFX(isCardSelected);
         OnAnyCardSelected?.Invoke();
     }
 

@@ -32,7 +32,8 @@ public class PlayerHealth : Health
 
     public void LoadHealth()
     {
-        CurrentHealth = SaveManager.Instance.CurrentSave.health;
+        if(SaveManager.Instance)
+            CurrentHealth = SaveManager.Instance.CurrentSave.health;
         OnHealthChange.Invoke(0);
     }
 

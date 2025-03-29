@@ -38,6 +38,8 @@ public class CardVisual : MonoBehaviour
    private Canvas canvas;
    
    private float curveYOffset = 0f; // not implemented yet
+   private bool isFinalCardSelection = false;
+   [SerializeField] public GameObject cardParticleSystem;
    public void Initialize(Card targetCard)
    {
       canvas = GetComponent<Canvas>();
@@ -50,6 +52,7 @@ public class CardVisual : MonoBehaviour
       parentCard.OnCardPointerExit.AddListener(PointerExit);
       parentCard.OnCardPointerUp.AddListener(PointerUp);
       parentCard.OnCardPointerDown.AddListener(PointerDown);
+      cardParticleSystem.SetActive(false);
    }
 
   
@@ -64,11 +67,12 @@ public class CardVisual : MonoBehaviour
    private void CardSelected(Card arg0, bool isCardSelected)
    {
      // DOTween.Kill(2, true);
-     float dir = isCardSelected ? 1 : 0;
+     float dir = isCardSelected ? 0.2f : 0;
      shakeParent.DOPunchPosition(shakeParent.up * selectPunchAmount * dir, scaleTransitionTime, 10, 1);
      shakeParent.DOPunchRotation(Vector3.forward * (hoverPunchAngle/2), hoverTransitionTime, 20, 1).SetId(2);
 
         transform.DOScale(scaleOnHover, scaleTransitionTime).SetEase(scaleEase);
+        cardParticleSystem.SetActive(isCardSelected);
    }
 
    private void BeginDrag(Card card)
@@ -86,6 +90,8 @@ public class CardVisual : MonoBehaviour
 
    private void PointerEnter(Card card)
    {
+      if(isFinalCardSelection)
+         return;
       transform.DOScale(scaleOnHover, scaleTransitionTime).SetEase(scaleEase);
       DOTween.Kill(2, true); //kill all tweens with ID of 2, but let them finish before it dies
       
@@ -128,4 +134,6 @@ public class CardVisual : MonoBehaviour
       rotationDelta = Vector3.Lerp(rotationDelta, movementRotation, rotationSpeed * Time.deltaTime);
       transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, Mathf.Clamp(rotationDelta.x, -60, 60));
    }
+
+   public void SetCardFinal() => isFinalCardSelection = true;
 }

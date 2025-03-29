@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c367b50cf44c78a15c38e4a4c7cd3f, type: 3}
   m_Name: New Max Health Bless
   m_EditorClassIdentifier: 
-  cardName: The Heart of Nimus
-  cardSprite: {fileID: 1720516432, guid: 7f6b174bdebf2c94894c0ea391b3ea69, type: 3}
-  cardDescription: You gain 1 heart
+  cardName: The Heart
+  cardSprite: {fileID: -792349243, guid: cd506d96ee6e02b45bd38e95a61f7001, type: 3}
+  cardDescription: you lose max health

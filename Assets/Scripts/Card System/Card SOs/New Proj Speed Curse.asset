@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46eb67f66aed2c24ca77e860e99f8c3b, type: 3}
   m_Name: New Proj Speed Curse
   m_EditorClassIdentifier: 
-  cardName: The Speed of Raeus
-  cardSprite: {fileID: -596297833, guid: b836fbf50761aa147afa6cf0415baf70, type: 3}
+  cardName: The Pearl
+  cardSprite: {fileID: -1998688182, guid: cd506d96ee6e02b45bd38e95a61f7001, type: 3}
   cardDescription: projectiles are faster

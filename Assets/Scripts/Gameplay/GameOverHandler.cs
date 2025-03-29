@@ -7,7 +7,7 @@ using UnityEngine;
 public class GameOverHandler : MonoBehaviour
 {
     [SerializeField] private PlayerHealth playerHealth;
-
+    [SerializeField] private AmbienceSystem ambienceSystem;
     [SerializeField] private BossAttackHandler bossAttackHandler;
     private float newGameTransitionTime = 2.5f;
     private void Awake()
@@ -19,6 +19,7 @@ public class GameOverHandler : MonoBehaviour
         [ProButton]
         public void HandleOnPlayerDeath()
         {
+            ambienceSystem.StopAmbienceSystem();
             bossAttackHandler.encounterTimer = bossAttackHandler.GetEncounterDuration();
             //if player is dead reset stuff 
             GameManager.Instance.ResetGameManager();
@@ -28,6 +29,7 @@ public class GameOverHandler : MonoBehaviour
 
         public void EndRound()
         {
+            ambienceSystem.StopAmbienceSystem();
             if (playerHealth.CurrentHealth == 0)
             {
                 Debug.Log("player is dead we should be restarting scene");
