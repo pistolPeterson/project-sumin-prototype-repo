@@ -21,18 +21,18 @@ MonoBehaviour:
     Path: 
   CardSelect:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -409915449
+      Data2: 1162530057
+      Data3: -270337402
+      Data4: 1375774884
+    Path: event:/UI/TarotCardScene/CardSelect
   CardUnSelect:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -477542399
+      Data2: 1324745578
+      Data3: -1771707729
+      Data4: 1771861228
+    Path: event:/UI/TarotCardScene/CardUnseelct
   SealFate:
     Guid:
       Data1: 0

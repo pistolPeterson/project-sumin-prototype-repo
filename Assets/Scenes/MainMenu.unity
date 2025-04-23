@@ -946,6 +946,54 @@ RectTransform:
   m_AnchoredPosition: {x: 126.97151, y: 37.1}
   m_SizeDelta: {x: 153.0667, y: -128.6636}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &319802256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 319802257}
+  - component: {fileID: 319802258}
+  m_Layer: 0
+  m_Name: Audio UI Handler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &319802257
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319802256}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &319802258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319802256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c733caab6ae934dacefbfed11f958e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TarotAudioSO: {fileID: 11400000, guid: d0e383de16818334885695b02516eeca, type: 2}
+  MainMenuAudioSO: {fileID: 11400000, guid: 35ba7945ee25405439ac8033e02a6924, type: 2}
+  EncounterAudioSO: {fileID: 11400000, guid: 7ace57b71e27d7e44865dca59ef46f04, type: 2}
+  MapUIAudioSO: {fileID: 11400000, guid: 784f138f712bdd24583caa575ec92cc7, type: 2}
 --- !u!1 &331402115
 GameObject:
   m_ObjectHideFlags: 0
@@ -6287,3 +6335,4 @@ SceneRoots:
   - {fileID: 54468428}
   - {fileID: 1533770195}
   - {fileID: 3923896599191216372}
+  - {fileID: 319802257}

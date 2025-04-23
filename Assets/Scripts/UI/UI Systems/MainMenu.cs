@@ -60,6 +60,8 @@ public class MainMenu : MonoBehaviour
         CloseAllGroups();
         mainMenuGroup.SetActive(true);
         backButton.SetActive(false);
+        var clip= AudioSOHandler.Instance.MainMenuAudioSO.BackBttnSFX;
+        AudioSOHandler.Instance.PlayOneShot(clip);
     }
 
     public void OpenSettings()
@@ -67,6 +69,8 @@ public class MainMenu : MonoBehaviour
         CloseAllGroups();
         settingsGroup.SetActive(true);
         backButton.SetActive(true);
+        var clip= AudioSOHandler.Instance.MainMenuAudioSO.CreditsOrSettingsBttnSFX;
+        AudioSOHandler.Instance.PlayOneShot(clip);
     }
 
     public void OpenCredits()
@@ -74,6 +78,8 @@ public class MainMenu : MonoBehaviour
         CloseAllGroups();
         creditsGroup.SetActive(true);
         backButton.SetActive(true);
+        var clip= AudioSOHandler.Instance.MainMenuAudioSO.CreditsOrSettingsBttnSFX;
+        AudioSOHandler.Instance.PlayOneShot(clip);
     }
 
     private void CloseAllGroups()

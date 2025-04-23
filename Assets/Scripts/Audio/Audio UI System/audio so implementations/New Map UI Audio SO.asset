@@ -14,29 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenuBttn:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 994827029
+      Data2: 1208083575
+      Data3: -1304093808
+      Data4: 828683541
+    Path: event:/UI/GoToMainMenu-EncounterOrMap
   EncounterBttn:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1053318378
+      Data2: 1191340410
+      Data3: -1806974566
+      Data4: -1759990933
+    Path: event:/UI/Map/GoToEncounter
   HeatlhBttn:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -934224244
+      Data2: 1135842281
+      Data3: -223447150
+      Data4: -442423239
+    Path: event:/UI/Map/HealthBttn
   TarotCardBttn:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -696617420
+      Data2: 1271511156
+      Data3: 2122602123
+      Data4: 1460480410
+    Path: event:/UI/Map/GoToTarotCard

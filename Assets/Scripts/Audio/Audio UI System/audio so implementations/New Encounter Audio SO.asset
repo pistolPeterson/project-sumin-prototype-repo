@@ -21,29 +21,29 @@ MonoBehaviour:
     Path: 
   GoHomeBttn:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 994827029
+      Data2: 1208083575
+      Data3: -1304093808
+      Data4: 828683541
+    Path: event:/UI/GoToMainMenu-EncounterOrMap
   PlayerDead:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1605853255
+      Data2: 1223967921
+      Data3: -1550254160
+      Data4: -1941559049
+    Path: event:/UI/Encounter/OnPlayerDeadUI
   Pause:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1180392110
+      Data2: 1303478099
+      Data3: -584307040
+      Data4: -394191635
+    Path: event:/UI/Encounter/Pause
   Resume:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -416497083
+      Data2: 1161300584
+      Data3: -1006011976
+      Data4: -1083710546
+    Path: event:/UI/Encounter/Resume
