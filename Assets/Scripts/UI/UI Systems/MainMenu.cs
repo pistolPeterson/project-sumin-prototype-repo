@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject backButton;
     [SerializeField] private GameObject continueButton;
     [SerializeField] private AmbienceSystem ambienceSystem;
-
+    private bool onPlayFirstTime = false;
     private void Start()
     {
         OpenMainMenu();
@@ -29,6 +29,8 @@ public class MainMenu : MonoBehaviour
 
     public void OnNewGameClicked()
     {
+        var clip= AudioSOHandler.Instance.MainMenuAudioSO.NewGameOrContinueGameSFXClip;
+        AudioSOHandler.Instance.PlayOneShot(clip);
         ambienceSystem.StopAmbienceSystem();
         FindObjectOfType<PulseAlphaEffect>()?.KillAnim();
         SaveManager.Instance.CreateNewSave();
@@ -36,7 +38,9 @@ public class MainMenu : MonoBehaviour
     }
 
     public void OnContinueGameClicked()
-    {        
+    {      
+        var clip= AudioSOHandler.Instance.MainMenuAudioSO.NewGameOrContinueGameSFXClip;
+        AudioSOHandler.Instance.PlayOneShot(clip);
         ambienceSystem.StopAmbienceSystem();
         SaveManager.Instance.LoadAllDataOnline();
         TransitionManager.Instance.LoadLevel("RealNodeMap");
@@ -60,8 +64,8 @@ public class MainMenu : MonoBehaviour
         CloseAllGroups();
         mainMenuGroup.SetActive(true);
         backButton.SetActive(false);
-        var clip= AudioSOHandler.Instance.MainMenuAudioSO.BackBttnSFX;
-        AudioSOHandler.Instance.PlayOneShot(clip);
+        
+        PlayBackBttnSFX();
     }
 
     public void OpenSettings()
@@ -69,17 +73,36 @@ public class MainMenu : MonoBehaviour
         CloseAllGroups();
         settingsGroup.SetActive(true);
         backButton.SetActive(true);
-        var clip= AudioSOHandler.Instance.MainMenuAudioSO.CreditsOrSettingsBttnSFX;
-        AudioSOHandler.Instance.PlayOneShot(clip);
+     
+        PlayPanelsSFX();
     }
 
+    private void PlayBackBttnSFX()
+    {
+        if (!onPlayFirstTime)
+        {    
+            onPlayFirstTime = true;
+           
+        }
+        else
+        {
+            var clip= AudioSOHandler.Instance.MainMenuAudioSO.CreditsOrSettingsBttnSFX;
+            AudioSOHandler.Instance.PlayOneShot(clip);
+        }
+
+    }
+
+    public void PlayPanelsSFX()
+    {
+        var clip= AudioSOHandler.Instance.MainMenuAudioSO.CreditsOrSettingsBttnSFX; //I prefer back bttn sound than credits/settings sound 
+        AudioSOHandler.Instance.PlayOneShot(clip);
+    }
     public void OpenCredits()
     {
         CloseAllGroups();
         creditsGroup.SetActive(true);
         backButton.SetActive(true);
-        var clip= AudioSOHandler.Instance.MainMenuAudioSO.CreditsOrSettingsBttnSFX;
-        AudioSOHandler.Instance.PlayOneShot(clip);
+        PlayPanelsSFX();
     }
 
     private void CloseAllGroups()
