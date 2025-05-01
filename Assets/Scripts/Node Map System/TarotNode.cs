@@ -9,8 +9,14 @@ public class TarotNode :  INode
     {
         if(!IsNodeActive)
             return;
-       
+        PlayNodeAudio();
         nodeMap.IncreaseProgress();
         SceneManager.LoadScene("CardSystemScene");
+    }
+    
+    private void PlayNodeAudio()
+    {
+        var clip = AudioSOHandler.Instance.MapUIAudioSO.TarotCardBttn;
+        AudioSOHandler.Instance.PlayOneShot(clip);
     }
 }

@@ -9,11 +9,17 @@ public class HealthNode : INode
         if(!IsNodeActive)
             return;
         
-        //pete intrusive thought: if player skips 3 of these they can get a second chance thingy 
+        PlayNodeAudio();
         Debug.Log("we healing");
         nodeMap.IncreaseProgress();
         GameManager.Instance.willHealThisRound = true;
 
 
+    }
+
+    private void PlayNodeAudio()
+    {
+        var clip = AudioSOHandler.Instance.MapUIAudioSO.HeatlhBttn;
+        AudioSOHandler.Instance.PlayOneShot(clip);
     }
 }

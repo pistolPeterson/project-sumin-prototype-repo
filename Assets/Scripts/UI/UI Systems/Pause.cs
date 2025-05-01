@@ -53,10 +53,24 @@ public class Pause : MonoBehaviour
             PauseGame();
         }
     }
-
+    private void PlayMainMenuAudio()
+    {
+        var clip = AudioSOHandler.Instance.EncounterAudioSO.GoHomeBttn;
+        AudioSOHandler.Instance.PlayOneShot(clip);
+    }
+    private void PlayPauseAudio()
+    {
+        var clip = AudioSOHandler.Instance.EncounterAudioSO.Pause;
+        AudioSOHandler.Instance.PlayOneShot(clip);
+    }
+    private void PlayResumeAudio()
+    {
+        var clip = AudioSOHandler.Instance.EncounterAudioSO.Resume;
+        AudioSOHandler.Instance.PlayOneShot(clip);
+    }
     public void GoMainMenu()
     {
-        Debug.Log("was up");
+        PlayMainMenuAudio();
         SceneManager.LoadScene(0);
         // TransitionManager.Instance.LoadLevel("MainfgafgafgMenu" );
     }
@@ -64,6 +78,7 @@ public class Pause : MonoBehaviour
     [ProButton]
     public void PauseGame()
     {
+        PlayPauseAudio();
         Time.timeScale = 0;
         pauseVisual.Show();
         pauseButton.GetComponent<Image>().sprite = pauseResumeSprites[1];
@@ -73,7 +88,7 @@ public class Pause : MonoBehaviour
     [ProButton]
     public void ResumeGame()
     {
-        
+        PlayResumeAudio();
         Time.timeScale = 1;
         pauseVisual.Hide();
         pauseButton.GetComponent<Image>().sprite = pauseResumeSprites[0];

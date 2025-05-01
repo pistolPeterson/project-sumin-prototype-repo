@@ -13,8 +13,15 @@ public class BasicNode : INode
             return;
         //TODO: verify data for next encounter
         Debug.Log("[Basic Node]: Going to boss scene");
+        PlayNodeAudio();
         nodeMap.IncreaseProgress();
       // SceneManager.LoadScene("MainEncounter");
       TransitionManager.Instance.LoadLevel("MainEncounter");
+    }
+    
+    private void PlayNodeAudio()
+    {
+        var clip = AudioSOHandler.Instance.MapUIAudioSO.EncounterBttn;
+        AudioSOHandler.Instance.PlayOneShot(clip);
     }
 }

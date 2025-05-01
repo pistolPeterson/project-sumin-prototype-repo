@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -146,9 +148,12 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         if (IsSelected)
         {
             transform.localPosition += transform.up * selectedOffset;
+            SelectCardAudio(true);
         }
         else
         {
+            SelectCardAudio(false);
+
             transform.localPosition = Vector3.zero;
         }
 
@@ -159,6 +164,15 @@ public class Card : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         transform.localPosition = Vector3.zero;
         IsSelected = false;
         ShowCardSelectedVFX(false);
+    }
+
+    private void SelectCardAudio(bool isCardSelected)
+    {
+        EventReference clip = isCardSelected
+            ? AudioSOHandler.Instance.TarotAudioSO.CardSelect
+            : AudioSOHandler.Instance.TarotAudioSO.CardUnSelect;
+
+        AudioSOHandler.Instance.PlayOneShot(clip);
     }
 
     public void OnPointerDown(PointerEventData eventData)
