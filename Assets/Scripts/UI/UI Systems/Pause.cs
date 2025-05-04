@@ -53,11 +53,7 @@ public class Pause : MonoBehaviour
             PauseGame();
         }
     }
-    private void PlayMainMenuAudio()
-    {
-        var clip = AudioSOHandler.Instance.EncounterAudioSO.GoHomeBttn;
-        AudioSOHandler.Instance.PlayOneShot(clip);
-    }
+  
     private void PlayPauseAudio()
     {
         var clip = AudioSOHandler.Instance.EncounterAudioSO.Pause;
@@ -70,9 +66,7 @@ public class Pause : MonoBehaviour
     }
     public void GoMainMenu()
     {
-        PlayMainMenuAudio();
-        SceneManager.LoadScene(0);
-        // TransitionManager.Instance.LoadLevel("MainfgafgafgMenu" );
+        TransitionManager.Instance.LoadLevel("MainMenu" );
     }
 
     [ProButton]

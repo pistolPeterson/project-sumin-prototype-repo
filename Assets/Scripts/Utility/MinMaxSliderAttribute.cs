@@ -2,7 +2,6 @@
  namespace PeteUnityUtils.MinMaxSlider
  {
      using UnityEngine;
-     using UnityEngine;
 
      public class MinMaxSliderAttribute : PropertyAttribute
      {

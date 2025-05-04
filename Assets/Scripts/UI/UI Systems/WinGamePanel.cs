@@ -17,21 +17,15 @@ public class WinGamePanel : MonoBehaviour
         mainMenuBttn.onClick.AddListener(() =>
         {
             TransitionManager.Instance.LoadLevel("MainMenu");
-            PlayGoToMenuSFX();
         });
         tempMainMenuBttn.onClick.AddListener(() =>
         {
             TransitionManager.Instance.LoadLevel("MainMenu");
-            PlayGoToMenuSFX();
         });
         HidePanel();
     }
 
-    public void PlayGoToMenuSFX()
-    {
-        AudioSOHandler.Instance.PlayOneShot(AudioSOHandler.Instance.EncounterAudioSO.GoHomeBttn);
-    }
-    
+  
     public void ShowPanel()
     {
         gamePanelObj.SetActive(true);

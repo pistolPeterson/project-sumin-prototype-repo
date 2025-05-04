@@ -1,3 +1,5 @@
+using FMODUnity;
+
 namespace MaskTransitions
 {
     using DG.Tweening;
@@ -29,6 +31,8 @@ namespace MaskTransitions
         [SerializeField] private Image parentMaskImage;
         [SerializeField] private CutoutMaskUI cutoutMask;
 
+        public EventReference transitionClip; 
+        
         private void Awake()
         {
             if (Instance == null)
@@ -130,7 +134,7 @@ namespace MaskTransitions
         #endregion
 
         #region Transition With Scene Load 
-        public void LoadLevel(string sceneName, float delay = 0f)
+        public void LoadLevel(string sceneName, float delay = 0.5f)
         {
             StartCoroutine(LoadLevelWithWait(sceneName, delay));
         }
@@ -138,7 +142,7 @@ namespace MaskTransitions
         IEnumerator LoadLevelWithWait(string sceneName, float delay)
         {
             yield return new WaitForSeconds(delay);
-
+            RuntimeManager.PlayOneShot(transitionClip);
             Tween animationTween = StartAnimationForLoad();
 
             // Wait for the animation to complete

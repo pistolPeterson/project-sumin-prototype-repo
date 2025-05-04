@@ -24,14 +24,9 @@ public class PlayerHealth : Health
         StartCoroutine(DelayToDie());
     }
 
-    private void PlayDeathAudio()
-    {
-        var clip = AudioSOHandler.Instance.EncounterAudioSO.PlayerDead;
-        AudioSOHandler.Instance.PlayOneShot(clip);
-    }
+
     
     IEnumerator DelayToDie() {
-        PlayDeathAudio();
         yield return new WaitForSeconds(deathPS.main.duration / 2);
         playerVisual.SetActive(false);
         OnDeath?.Invoke();

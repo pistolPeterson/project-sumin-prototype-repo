@@ -48,6 +48,7 @@ public class Health : MonoBehaviour
         
         if (CurrentHealth == 0 && !isDead)
         {
+            Debug.Log("We dead? ");
                 HandleDeath();
                 isDead = true;
                 return;
