@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MusicSfxToggle:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -794303041
+      Data2: 1156154459
+      Data3: 690479498
+      Data4: -1223113317
+    Path: event:/UI/Main Menu/BttnHover
   GoHomeBttn:
     Guid:
       Data1: 994827029

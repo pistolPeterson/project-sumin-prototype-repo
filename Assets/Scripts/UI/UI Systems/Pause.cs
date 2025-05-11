@@ -59,6 +59,12 @@ public class Pause : MonoBehaviour
         var clip = AudioSOHandler.Instance.EncounterAudioSO.Pause;
         AudioSOHandler.Instance.PlayOneShot(clip);
     }
+
+    public void PlayMusicSFXToggle()
+    {
+        var clip = AudioSOHandler.Instance.EncounterAudioSO.MusicSfxToggle;
+        AudioSOHandler.Instance.PlayOneShot(clip);
+    }
     private void PlayResumeAudio()
     {
         var clip = AudioSOHandler.Instance.EncounterAudioSO.Resume;

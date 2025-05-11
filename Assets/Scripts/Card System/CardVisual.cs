@@ -94,10 +94,16 @@ public class CardVisual : MonoBehaviour
          return;
       transform.DOScale(scaleOnHover, scaleTransitionTime).SetEase(scaleEase);
       DOTween.Kill(2, true); //kill all tweens with ID of 2, but let them finish before it dies
-      
+      PlayCardHoverSFX();
       int vibrato = 20;
       float elasticity = 1f;
       shakeParent.DOPunchRotation(Vector3.forward * hoverPunchAngle, hoverTransitionTime, vibrato, elasticity).SetId(2);
+   }
+
+   private void PlayCardHoverSFX()
+   {
+      var clip = AudioSOHandler.Instance.TarotAudioSO.CardHover;
+      AudioSOHandler.Instance.PlayOneShot(clip);
    }
 
    private void PointerExit(Card card)

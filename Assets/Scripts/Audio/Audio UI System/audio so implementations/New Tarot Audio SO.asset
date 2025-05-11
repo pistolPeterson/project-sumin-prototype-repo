@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardHover:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1639629944
+      Data2: 1094689572
+      Data3: 2120139152
+      Data4: -253819516
+    Path: event:/UI/TarotCardScene/CardHover
   CardSelect:
     Guid:
       Data1: -409915449
@@ -35,8 +35,8 @@ MonoBehaviour:
     Path: event:/UI/TarotCardScene/CardUnseelct
   SealFate:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 184675373
+      Data2: 1316705065
+      Data3: 1270858671
+      Data4: 1751115562
+    Path: event:/UI/TarotCardScene/TarotSealFate

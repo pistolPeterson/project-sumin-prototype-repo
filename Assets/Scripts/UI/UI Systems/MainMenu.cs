@@ -92,6 +92,11 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    public void PlayBttnHoverSFX()
+    {
+        var clip= AudioSOHandler.Instance.MainMenuAudioSO.ButtonHoverSFX; 
+        AudioSOHandler.Instance.PlayOneShot(clip);
+    }
     public void PlayPanelsSFX()
     {
         var clip= AudioSOHandler.Instance.MainMenuAudioSO.CreditsOrSettingsBttnSFX; //I prefer back bttn sound than credits/settings sound 

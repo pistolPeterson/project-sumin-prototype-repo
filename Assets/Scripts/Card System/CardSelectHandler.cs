@@ -68,14 +68,21 @@ public class CardSelectHandler : MonoBehaviour
         var curseCardSO = curseCardHolder.GetSelectedCard().GetCardVisual().gameObject.GetComponent<CardSOVisual>()
             .cardSo;
 
-
+        PlaySealFateSfx();
         SaveManager.Instance.CurrentSave.playerCards.Add(blessCardSO);
         SaveManager.Instance.CurrentSave.playerCards.Add(curseCardSO);
         OnPlayerConfirmedCard?.Invoke();
+      
         TransitionManager.Instance.LoadLevel("Scenes/Gameplay Scenes/RealNodeMap", 3.5f);
         playerHasChosen = true;
     }
 
+    private void PlaySealFateSfx()
+    {
+        var clip = AudioSOHandler.Instance.TarotAudioSO.SealFate;
+        AudioSOHandler.Instance.PlayOneShot(clip);
+    }
+    
     private void DisableCardInteraction()
     {
         
